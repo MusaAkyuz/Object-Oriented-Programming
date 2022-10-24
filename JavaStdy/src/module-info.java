@@ -5,5 +5,5 @@
  * @author muss
  *
  */
-module TasarımDesenleri {
+module JavaStdy {
 }

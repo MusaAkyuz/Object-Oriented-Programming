@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author muss
- *
- */
-module JavaStdy {
-}

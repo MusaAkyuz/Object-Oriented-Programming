@@ -1,10 +1,9 @@
-﻿// Hello World! program
-using System;
+﻿using System;
 using System.Runtime.CompilerServices;
 
-namespace HelloWorld
+namespace Variables
 {
-    class Hello
+    class Variable
     {
         static void Main(string[] args)
         {

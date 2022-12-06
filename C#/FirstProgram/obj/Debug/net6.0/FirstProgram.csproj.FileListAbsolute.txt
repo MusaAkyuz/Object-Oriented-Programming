@@ -1,0 +1,15 @@
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\FirstProgram\bin\Debug\net6.0\FirstProgram.exe
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\FirstProgram\bin\Debug\net6.0\FirstProgram.deps.json
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\FirstProgram\bin\Debug\net6.0\FirstProgram.runtimeconfig.json
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\FirstProgram\bin\Debug\net6.0\FirstProgram.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\FirstProgram\bin\Debug\net6.0\FirstProgram.pdb
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\FirstProgram\obj\Debug\net6.0\FirstProgram.csproj.AssemblyReference.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\FirstProgram\obj\Debug\net6.0\FirstProgram.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\FirstProgram\obj\Debug\net6.0\FirstProgram.AssemblyInfoInputs.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\FirstProgram\obj\Debug\net6.0\FirstProgram.AssemblyInfo.cs
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\FirstProgram\obj\Debug\net6.0\FirstProgram.csproj.CoreCompileInputs.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\FirstProgram\obj\Debug\net6.0\FirstProgram.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\FirstProgram\obj\Debug\net6.0\refint\FirstProgram.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\FirstProgram\obj\Debug\net6.0\FirstProgram.pdb
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\FirstProgram\obj\Debug\net6.0\FirstProgram.genruntimeconfig.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\FirstProgram\obj\Debug\net6.0\ref\FirstProgram.dll

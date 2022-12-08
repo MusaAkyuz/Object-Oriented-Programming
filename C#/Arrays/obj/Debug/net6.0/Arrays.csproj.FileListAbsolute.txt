@@ -1,0 +1,15 @@
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\Arrays\bin\Debug\net6.0\Arrays.exe
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\Arrays\bin\Debug\net6.0\Arrays.deps.json
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\Arrays\bin\Debug\net6.0\Arrays.runtimeconfig.json
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\Arrays\bin\Debug\net6.0\Arrays.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\Arrays\bin\Debug\net6.0\Arrays.pdb
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\Arrays\obj\Debug\net6.0\Arrays.csproj.AssemblyReference.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\Arrays\obj\Debug\net6.0\Arrays.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\Arrays\obj\Debug\net6.0\Arrays.AssemblyInfoInputs.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\Arrays\obj\Debug\net6.0\Arrays.AssemblyInfo.cs
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\Arrays\obj\Debug\net6.0\Arrays.csproj.CoreCompileInputs.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\Arrays\obj\Debug\net6.0\Arrays.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\Arrays\obj\Debug\net6.0\refint\Arrays.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\Arrays\obj\Debug\net6.0\Arrays.pdb
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\Arrays\obj\Debug\net6.0\Arrays.genruntimeconfig.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\Arrays\obj\Debug\net6.0\ref\Arrays.dll

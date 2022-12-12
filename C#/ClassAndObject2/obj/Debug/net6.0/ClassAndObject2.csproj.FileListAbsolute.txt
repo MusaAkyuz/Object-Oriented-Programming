@@ -1,0 +1,15 @@
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ClassAndObject2\bin\Debug\net6.0\ClassAndObject2.exe
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ClassAndObject2\bin\Debug\net6.0\ClassAndObject2.deps.json
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ClassAndObject2\bin\Debug\net6.0\ClassAndObject2.runtimeconfig.json
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ClassAndObject2\bin\Debug\net6.0\ClassAndObject2.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ClassAndObject2\bin\Debug\net6.0\ClassAndObject2.pdb
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ClassAndObject2\obj\Debug\net6.0\ClassAndObject2.csproj.AssemblyReference.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ClassAndObject2\obj\Debug\net6.0\ClassAndObject2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ClassAndObject2\obj\Debug\net6.0\ClassAndObject2.AssemblyInfoInputs.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ClassAndObject2\obj\Debug\net6.0\ClassAndObject2.AssemblyInfo.cs
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ClassAndObject2\obj\Debug\net6.0\ClassAndObject2.csproj.CoreCompileInputs.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ClassAndObject2\obj\Debug\net6.0\ClassAndObject2.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ClassAndObject2\obj\Debug\net6.0\refint\ClassAndObject2.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ClassAndObject2\obj\Debug\net6.0\ClassAndObject2.pdb
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ClassAndObject2\obj\Debug\net6.0\ClassAndObject2.genruntimeconfig.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ClassAndObject2\obj\Debug\net6.0\ref\ClassAndObject2.dll

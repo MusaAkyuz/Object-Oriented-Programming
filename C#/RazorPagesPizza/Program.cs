@@ -1,7 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using RazorPagesPizza.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<RazorPagesPizzaContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("RazorPagesPizzaContext") ?? throw new InvalidOperationException("Connection string 'RazorPagesPizzaContext' not found.")));
 
 var app = builder.Build();
 

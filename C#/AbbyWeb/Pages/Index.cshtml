@@ -5,6 +5,13 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div>
+        <label>@Model.Name</label>
+        <label>@Model.Surname</label>
+    </div>
+    <h3>@Model.Message</h3>
+    <form method="post"><button class="btn btn-default">Click to post</button></form>
+    <p><a href="/" class="btn btn-default">Click to Get</a></p>
+    <button class="button-89" role="button">Button 89</button>
+
 </div>

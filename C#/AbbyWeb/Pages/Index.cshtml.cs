@@ -12,9 +12,19 @@ namespace AbbyWeb.Pages
 			_logger = logger;
 		}
 
-		public void OnGet()
+        public string Message { get; set; }
+		public string Name { get; set; }
+		public string Surname { get; set; }
+        public void OnGet()
 		{
+			Message = "Get yapıldı.";
+			Name = "Musa";
+			Surname = "Akyuz";
+		}
 
+		public void OnPost()
+		{
+			Message = "Post yapıldı.";
 		}
 	}
 }

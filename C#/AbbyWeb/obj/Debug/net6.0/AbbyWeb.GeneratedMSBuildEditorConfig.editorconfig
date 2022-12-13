@@ -12,9 +12,13 @@ build_property.RootNamespace = AbbyWeb
 build_property.ProjectDir = C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\AbbyWeb\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\AbbyWeb
 build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/muss/Desktop/My GitHub Repos/Object-Oriented-Programming/C\#/AbbyWeb/Pages/Customer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/muss/Desktop/My GitHub Repos/Object-Oriented-Programming/C\#/AbbyWeb/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s

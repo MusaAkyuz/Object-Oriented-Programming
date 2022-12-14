@@ -29,9 +29,8 @@ namespace AbbyWeb.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Identity")
-                        .HasMaxLength(11)
-                        .HasColumnType("int");
+                    b.Property<decimal>("IdentityNo")
+                        .HasColumnType("decimal(20,0)");
 
                     b.Property<string>("Name")
                         .IsRequired()

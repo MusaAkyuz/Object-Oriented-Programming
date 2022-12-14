@@ -1,17 +1,73 @@
-﻿@page
+﻿@page "{searchString?}"
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <div>
-        <label>@Model.Name</label>
-        <label>@Model.Surname</label>
-    </div>
-    <h3>@Model.Message</h3>
-    <form method="post"><button class="btn btn-default">Click to post</button></form>
-    <p><a href="/" class="btn btn-default">Click to Get</a></p>
-    <button class="button-89" role="button">Button 89</button>
+<div class="container p-3">
+	<div class="row pt-4">
+		<div class="col-6">
+			<h2 class="text-primary">
+				Customer List
+			</h2>
+		</div>
+	</div>
+		<a asp-page="Customer/Create" class="btn btn-primary">Create</a>
 
+		<br/><br/>
+
+		<form>
+			<p>
+				<button type="submit" class="btn btn-primary">Search</button>
+				<label class="m-2" asp-for="SearchString">Name by name:</label>
+				<input type="text" asp-for="SearchString"/>
+			</p>
+		</form>
+	</div>
+
+	<br/>
+
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th>
+					Id
+				</th>
+				<th>
+					Name
+				</th>
+				<th>
+					Surname
+				</th>
+				<th>
+					Identity
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var obj in Model.Customer)
+			{
+				<tr>
+					<td>
+						@obj.Id
+					</td>
+					<td>
+						@obj.Name
+					</td>
+					<td>
+						@obj.Surname
+					</td>
+					<td>
+						@obj.IdentityNo
+					</td>
+					<td>
+						<div class="w-75 btn-group" role="group">
+							<a asp-page="Customer/Edit" asp-route-id="@obj.Id" class="btn btn-primary mx-2">Edit</a>
+							<a asp-page="Customer/Delete" asp-route-id="@obj.Id" class="btn btn-danger mx-2">Delete</a>
+						</div>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
 </div>

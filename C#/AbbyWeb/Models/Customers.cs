@@ -16,8 +16,6 @@ namespace AbbyWeb.Models
         public string Surname { get; set; }
 
         [Required]
-        [MaxLength(11)]
-        [MinLength(11)]
-        public int Identity { get; set; }
+        public ulong IdentityNo { get; set; }
     }
 }

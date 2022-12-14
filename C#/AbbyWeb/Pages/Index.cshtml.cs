@@ -1,30 +1,38 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using AbbyWeb.Models;
+using AbbyWeb.Data;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace AbbyWeb.Pages
 {
 	public class IndexModel : PageModel
 	{
-		private readonly ILogger<IndexModel> _logger;
+		private readonly CustomersDbContext _db;
+		public IEnumerable<Customers> Customer { get; set; }
 
-		public IndexModel(ILogger<IndexModel> logger)
+		public Customers Cus { get; set; }
+
+		public IndexModel(CustomersDbContext db)
 		{
-			_logger = logger;
+			_db = db;
 		}
 
-        public string Message { get; set; }
-		public string Name { get; set; }
-		public string Surname { get; set; }
-        public void OnGet()
+		[BindProperty(SupportsGet = true)]
+		public string? SearchString { get; set; }
+
+		public async Task OnGetAsync()
 		{
-			Message = "Get yapıldı.";
-			Name = "Musa";
-			Surname = "Akyuz";
+			var movies = from m in _db.Customer
+						 select m;
+			if (!string.IsNullOrEmpty(SearchString))
+			{
+				movies = movies.Where(s => s.Name.Contains(SearchString));
+			}
+
+			Customer = await movies.ToListAsync();
 		}
 
-		public void OnPost()
-		{
-			Message = "Post yapıldı.";
-		}
 	}
 }

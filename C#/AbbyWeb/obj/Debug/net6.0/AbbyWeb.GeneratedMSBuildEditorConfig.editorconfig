@@ -16,8 +16,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\AbbyWeb
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/muss/Desktop/My GitHub Repos/Object-Oriented-Programming/C\#/AbbyWeb/Pages/Customer/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJcSW5kZXguY3NodG1s
+[C:/Users/muss/Desktop/My GitHub Repos/Object-Oriented-Programming/C\#/AbbyWeb/Pages/Customer/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muss/Desktop/My GitHub Repos/Object-Oriented-Programming/C\#/AbbyWeb/Pages/Customer/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/muss/Desktop/My GitHub Repos/Object-Oriented-Programming/C\#/AbbyWeb/Pages/Customer/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/muss/Desktop/My GitHub Repos/Object-Oriented-Programming/C\#/AbbyWeb/Pages/Error.cshtml]

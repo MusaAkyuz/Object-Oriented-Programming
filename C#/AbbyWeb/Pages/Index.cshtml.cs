@@ -4,6 +4,7 @@ using AbbyWeb.Models;
 using AbbyWeb.Data;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace AbbyWeb.Pages
 {
@@ -21,18 +22,17 @@ namespace AbbyWeb.Pages
 
 		[BindProperty(SupportsGet = true)]
 		public string? SearchString { get; set; }
-
 		public async Task OnGetAsync()
 		{
-			var movies = from m in _db.Customer
+			var namee = from m in _db.Customer
 						 select m;
 			if (!string.IsNullOrEmpty(SearchString))
 			{
-				movies = movies.Where(s => s.Name.Contains(SearchString));
+				namee = namee.Where(s => s.IdentityNo.Contains(SearchString) || s.Surname.Contains(SearchString) || s.IdentityNo.Contains(SearchString));
+
 			}
 
-			Customer = await movies.ToListAsync();
+			Customer = await namee.ToListAsync();
 		}
-
 	}
 }

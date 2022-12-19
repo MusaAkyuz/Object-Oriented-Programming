@@ -21,9 +21,8 @@
 			<span asp-validation-for="Customer.Surname" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
-			<label asp-for="@Model.Customer.IdentityNo"></label>
-			<input asp-for="@Model.Customer.IdentityNo" class="form-control"/>
-			<span asp-validation-for="Customer.IdentityNo" class="text-danger"></span>
+			<label disabled asp-for="@Model.Customer.IdentityNo"></label>
+			<input disabled asp-for="@Model.Customer.IdentityNo" class="form-control"/>
 		</div>
 		<button type="submit" class="btn btn-primary">Edit from Customer</button>
 	</div>

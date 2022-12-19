@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AbbyWeb.Migrations
 {
     [DbContext(typeof(CustomersDbContext))]
-    [Migration("20221214092749_AddCustomerToDb")]
-    partial class AddCustomerToDb
+    [Migration("20221216123639_CustomerAddDb")]
+    partial class CustomerAddDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,12 +28,16 @@ namespace AbbyWeb.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnOrder(1);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<decimal>("IdentityNo")
-                        .HasColumnType("decimal(20,0)");
+                    b.Property<string>("IdentityNo")
+                        .IsRequired()
+                        .HasMaxLength(11)
+                        .HasColumnType("nvarchar(11)")
+                        .HasColumnOrder(2);
 
                     b.Property<string>("Name")
                         .IsRequired()

@@ -23,6 +23,7 @@
 			<label asp-for="@Model.Customer.IdentityNo"></label>
 			<input asp-for="@Model.Customer.IdentityNo" class="form-control"/>
 			<span asp-validation-for="Customer.IdentityNo" class="text-danger"></span>
+			<p class="text-danger">@TempData["error"]</p>
 		</div>
 		<button type="submit" class="btn btn-primary">Add Database</button>
 	</div>

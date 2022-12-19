@@ -5,7 +5,7 @@
 namespace AbbyWeb.Migrations
 {
     /// <inheritdoc />
-    public partial class AddCustomerToDb : Migration
+    public partial class CustomerAddDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,9 +16,9 @@ namespace AbbyWeb.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    IdentityNo = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Surname = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IdentityNo = table.Column<decimal>(type: "decimal(20,0)", nullable: false)
+                    Surname = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -10,7 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="EntityFrameworkCore.Jet.OleDb" Version="6.0.0-alpha.1" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.0-preview2.22314.2" />
     <PackageReference Include="System.Data.OleDb" Version="7.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 
 </Project>

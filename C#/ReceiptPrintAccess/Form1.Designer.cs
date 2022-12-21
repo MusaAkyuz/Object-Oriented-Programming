@@ -29,12 +29,12 @@
 		private void InitializeComponent()
 		{
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.button3 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
-			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.reloadbtn = new System.Windows.Forms.Button();
+			this.descriptionbtn = new System.Windows.Forms.Button();
+			this.descriptiontxtbox = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.button1 = new System.Windows.Forms.Button();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.materialbtn = new System.Windows.Forms.Button();
+			this.materialtxtbox = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.groupBox1.SuspendLayout();
@@ -43,12 +43,12 @@
 			// 
 			// groupBox1
 			// 
-			this.groupBox1.Controls.Add(this.button3);
-			this.groupBox1.Controls.Add(this.button2);
-			this.groupBox1.Controls.Add(this.textBox2);
+			this.groupBox1.Controls.Add(this.reloadbtn);
+			this.groupBox1.Controls.Add(this.descriptionbtn);
+			this.groupBox1.Controls.Add(this.descriptiontxtbox);
 			this.groupBox1.Controls.Add(this.label2);
-			this.groupBox1.Controls.Add(this.button1);
-			this.groupBox1.Controls.Add(this.textBox1);
+			this.groupBox1.Controls.Add(this.materialbtn);
+			this.groupBox1.Controls.Add(this.materialtxtbox);
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Controls.Add(this.dataGridView1);
 			this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -58,30 +58,32 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Stock Database";
 			// 
-			// button3
+			// reloadbtn
 			// 
-			this.button3.Location = new System.Drawing.Point(802, 200);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(199, 23);
-			this.button3.TabIndex = 7;
-			this.button3.Text = "Refresh Database";
-			this.button3.UseVisualStyleBackColor = true;
+			this.reloadbtn.Location = new System.Drawing.Point(802, 200);
+			this.reloadbtn.Name = "reloadbtn";
+			this.reloadbtn.Size = new System.Drawing.Size(199, 23);
+			this.reloadbtn.TabIndex = 7;
+			this.reloadbtn.Text = "Reload Database";
+			this.reloadbtn.UseVisualStyleBackColor = true;
+			this.reloadbtn.Click += new System.EventHandler(this.reloadbtn_Click);
 			// 
-			// button2
+			// descriptionbtn
 			// 
-			this.button2.Location = new System.Drawing.Point(802, 142);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(199, 23);
-			this.button2.TabIndex = 6;
-			this.button2.Text = "Filter";
-			this.button2.UseVisualStyleBackColor = true;
+			this.descriptionbtn.Location = new System.Drawing.Point(802, 142);
+			this.descriptionbtn.Name = "descriptionbtn";
+			this.descriptionbtn.Size = new System.Drawing.Size(199, 23);
+			this.descriptionbtn.TabIndex = 6;
+			this.descriptionbtn.Text = "Filter";
+			this.descriptionbtn.UseVisualStyleBackColor = true;
+			this.descriptionbtn.Click += new System.EventHandler(this.descriptionbtn_Click);
 			// 
-			// textBox2
+			// descriptiontxtbox
 			// 
-			this.textBox2.Location = new System.Drawing.Point(802, 113);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(199, 23);
-			this.textBox2.TabIndex = 5;
+			this.descriptiontxtbox.Location = new System.Drawing.Point(802, 113);
+			this.descriptiontxtbox.Name = "descriptiontxtbox";
+			this.descriptiontxtbox.Size = new System.Drawing.Size(199, 23);
+			this.descriptiontxtbox.TabIndex = 5;
 			// 
 			// label2
 			// 
@@ -92,21 +94,22 @@
 			this.label2.TabIndex = 4;
 			this.label2.Text = "Description";
 			// 
-			// button1
+			// materialbtn
 			// 
-			this.button1.Location = new System.Drawing.Point(802, 69);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(199, 23);
-			this.button1.TabIndex = 3;
-			this.button1.Text = "Filter";
-			this.button1.UseVisualStyleBackColor = true;
+			this.materialbtn.Location = new System.Drawing.Point(802, 69);
+			this.materialbtn.Name = "materialbtn";
+			this.materialbtn.Size = new System.Drawing.Size(199, 23);
+			this.materialbtn.TabIndex = 3;
+			this.materialbtn.Text = "Filter";
+			this.materialbtn.UseVisualStyleBackColor = true;
+			this.materialbtn.Click += new System.EventHandler(this.materialbtn_Click);
 			// 
-			// textBox1
+			// materialtxtbox
 			// 
-			this.textBox1.Location = new System.Drawing.Point(802, 40);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(199, 23);
-			this.textBox1.TabIndex = 2;
+			this.materialtxtbox.Location = new System.Drawing.Point(802, 40);
+			this.materialtxtbox.Name = "materialtxtbox";
+			this.materialtxtbox.Size = new System.Drawing.Size(199, 23);
+			this.materialtxtbox.TabIndex = 2;
 			// 
 			// label1
 			// 
@@ -146,12 +149,12 @@
 		#endregion
 
 		private GroupBox groupBox1;
-		private Button button3;
-		private Button button2;
-		private TextBox textBox2;
+		private Button reloadbtn;
+		private Button descriptionbtn;
+		private TextBox descriptiontxtbox;
 		private Label label2;
-		private Button button1;
-		private TextBox textBox1;
+		private Button materialbtn;
+		private TextBox materialtxtbox;
 		private Label label1;
 		private DataGridView dataGridView1;
 	}

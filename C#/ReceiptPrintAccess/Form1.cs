@@ -22,5 +22,54 @@ namespace ReceiptPrintAccess
 				dataGridView1.DataSource = _dataset.Tables["Stock"];
 			}
 		}
+
+		private void materialbtn_Click(object sender, EventArgs e)
+		{
+			descriptiontxtbox.Text = String.Empty;
+			if (!string.IsNullOrWhiteSpace(materialtxtbox.Text))
+			{
+				using (OleDbConnection cnn = new OleDbConnection(cnnStr))
+				{
+					OleDbCommand cmd = new OleDbCommand("SELECT MaterialCode, Description, Unit, CreateDateTime FROM Stock WHERE MaterialCode LIKE @code", cnn);
+					cmd.Parameters.Add("@code", string.Format("%{0}%", materialtxtbox.Text));
+					OleDbDataAdapter _adapter = new OleDbDataAdapter();
+					_adapter.SelectCommand = cmd;
+					DataSet _dataset = new DataSet();
+					_adapter.Fill(_dataset, "Stock");
+					dataGridView1.DataSource = _dataset.Tables["Stock"];
+				}
+			}
+		}
+
+		private void reloadbtn_Click(object sender, EventArgs e)
+		{
+			materialtxtbox.Text = String.Empty;
+			descriptiontxtbox.Text = String.Empty;
+			using (OleDbConnection cnn = new OleDbConnection(cnnStr))
+			{
+				OleDbDataAdapter _adapter = new OleDbDataAdapter("SELECT MaterialCode, Description, Unit, CreateDateTime FROM Stock", cnn);
+				DataSet _dataset = new DataSet();
+				_adapter.Fill(_dataset, "Stock");
+				dataGridView1.DataSource = _dataset.Tables["Stock"];
+			}
+		}
+
+		private void descriptionbtn_Click(object sender, EventArgs e)
+		{
+			materialtxtbox.Text = String.Empty;
+			if (!string.IsNullOrWhiteSpace(descriptiontxtbox.Text))
+			{
+				using (OleDbConnection cnn = new OleDbConnection(cnnStr))
+				{
+					OleDbCommand cmd = new OleDbCommand("SELECT MaterialCode, Description, Unit, CreateDateTime FROM Stock WHERE Description LIKE @code", cnn);
+					cmd.Parameters.Add("@code", string.Format("%{0}%", descriptiontxtbox.Text));
+					OleDbDataAdapter _adapter = new OleDbDataAdapter();
+					_adapter.SelectCommand = cmd;
+					DataSet _dataset = new DataSet();
+					_adapter.Fill(_dataset, "Stock");
+					dataGridView1.DataSource = _dataset.Tables["Stock"];
+				}
+			}
+		}
 	}
 }

@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using System.Data.OleDb;
 using Microsoft.VisualBasic.ApplicationServices;
 using System.IO;
+using ReceiptPrinter.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Data.SqlClient;
 //using System.Data.SqlClient;
 
 namespace ReceiptPrinter
@@ -23,18 +26,53 @@ namespace ReceiptPrinter
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			//Connection settings
-			string cnnString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\muss\\Desktop\\Database\\Database1.accdb";
-			//string cnnString2 = "Data Source=.;Initial Catalog=Customer;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-			//OleDbConnection cnn = new OleDbConnection(cnnString);
-			OleDbConnection cnn = new OleDbConnection(cnnString);
-			//SqlConnection cnn = new SqlConnection(cnnString2);
-			cnn.Open();
-			OleDbDataAdapter _dataAdapter = new OleDbDataAdapter("SELECT * FROM Stock", cnnString);
-			//SqlDataAdapter _dataAdapter = new SqlDataAdapter("SELECT * FROM Customer", cnnString2);
-			DataSet _dataSet = new DataSet();
-			_dataAdapter.Fill(_dataSet, "Stock");
-			databaseView.DataSource = _dataSet.Tables["Stock"];
+			using (var context = new ArcelikDbContext())
+			{
+				var stc = context.Stocks.FromSqlRaw("SELECT * FROM STOCKS").ToList();
+				databaseView.DataSource = stc;
+			}
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			using(var context = new ArcelikDbContext())
+			{
+				var stc = context.Stocks.FromSqlRaw("SELECT * FROM STOCKS").ToList();
+				databaseView.DataSource = stc;
+			}
+		}
+
+		private void filterbtn_Click(object sender, EventArgs e)
+		{
+			using (var context = new ArcelikDbContext())
+			{
+				if (metarialCodenmbbox.Text.IsNullOrEmpty() && descriptiontxtbox.Text.IsNullOrEmpty())
+				{
+					var stc = context.Stocks.FromSqlRaw("SELECT * FROM STOCKS").ToList();
+					databaseView.DataSource = stc;
+				}
+				if (!metarialCodenmbbox.Text.IsNullOrEmpty() && !descriptiontxtbox.Text.IsNullOrEmpty())
+				{
+					MessageBox.Show("Cannot fill both area!");
+				}
+				else if (!metarialCodenmbbox.Text.IsNullOrEmpty())
+				{
+
+					int metarialCode = Convert.ToInt32(metarialCodenmbbox.Text);
+					var stc = context.Stocks.FromSqlRaw("SELECT * FROM STOCKS").Where(s => s.MetarialCode == metarialCode).ToList();
+					databaseView.DataSource = stc;
+				}
+				else if (!descriptiontxtbox.Text.IsNullOrEmpty())
+				{
+					string description = descriptiontxtbox.Text;
+					var stc = context.Stocks.FromSqlRaw("SELECT * FROM STOCKS").Where(s => s.Description == description).ToList();
+					databaseView.DataSource = stc;
+				}
+				else
+				{
+					MessageBox.Show("No such entry!");
+				}
+			}
 		}
 	}
 }

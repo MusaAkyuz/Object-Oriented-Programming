@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "KpUvOh1tFdbEpgnlXRJ1kCHq4TJabs8LvPe6kt+8vjkZbKAGFPRK6kNyvNsTU38zIHcSmCv2jZoTTg1Sl82U+w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\muss\\Desktop\\My GitHub Repos\\Object-Oriented-Programming\\C#\\ReceiptPrintAccess\\ReceiptPrintAccess.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\muss\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
+    "C:\\Users\\muss\\.nuget\\packages\\system.configuration.configurationmanager\\7.0.0\\system.configuration.configurationmanager.7.0.0.nupkg.sha512",
+    "C:\\Users\\muss\\.nuget\\packages\\system.data.oledb\\7.0.0\\system.data.oledb.7.0.0.nupkg.sha512",
+    "C:\\Users\\muss\\.nuget\\packages\\system.diagnostics.performancecounter\\7.0.0\\system.diagnostics.performancecounter.7.0.0.nupkg.sha512",
+    "C:\\Users\\muss\\.nuget\\packages\\system.drawing.common\\7.0.0\\system.drawing.common.7.0.0.nupkg.sha512",
+    "C:\\Users\\muss\\.nuget\\packages\\system.security.cryptography.protecteddata\\7.0.0\\system.security.cryptography.protecteddata.7.0.0.nupkg.sha512",
+    "C:\\Users\\muss\\.nuget\\packages\\system.security.permissions\\7.0.0\\system.security.permissions.7.0.0.nupkg.sha512",
+    "C:\\Users\\muss\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,15 @@
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PatternFasade\bin\Debug\net6.0\PatternFasade.exe
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PatternFasade\bin\Debug\net6.0\PatternFasade.deps.json
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PatternFasade\bin\Debug\net6.0\PatternFasade.runtimeconfig.json
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PatternFasade\bin\Debug\net6.0\PatternFasade.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PatternFasade\bin\Debug\net6.0\PatternFasade.pdb
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PatternFasade\obj\Debug\net6.0\PatternFasade.csproj.AssemblyReference.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PatternFasade\obj\Debug\net6.0\PatternFasade.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PatternFasade\obj\Debug\net6.0\PatternFasade.AssemblyInfoInputs.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PatternFasade\obj\Debug\net6.0\PatternFasade.AssemblyInfo.cs
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PatternFasade\obj\Debug\net6.0\PatternFasade.csproj.CoreCompileInputs.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PatternFasade\obj\Debug\net6.0\PatternFasade.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PatternFasade\obj\Debug\net6.0\refint\PatternFasade.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PatternFasade\obj\Debug\net6.0\PatternFasade.pdb
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PatternFasade\obj\Debug\net6.0\PatternFasade.genruntimeconfig.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PatternFasade\obj\Debug\net6.0\ref\PatternFasade.dll

@@ -46,23 +46,23 @@ namespace ReceiptPrinter
 		{
 			using (var context = new ArcelikDbContext())
 			{
-				if (metarialCodenmbbox != String.Empty && descriptiontxtbox != String.Empty)
+				if (metarialCodenmbbox.Value != 0 && descriptiontxtbox.Text != String.Empty)
 				{
 					var stc = context.Stocks.FromSqlRaw("SELECT * FROM STOCKS").ToList();
 					databaseView.DataSource = stc;
 				}
-				if (!metarialCodenmbbox != String.Empty && !descriptiontxtbox != String.Empty)
+				if (metarialCodenmbbox.Value != 0 && descriptiontxtbox.Text != String.Empty)
 				{
 					MessageBox.Show("Cannot fill both area!");
 				}
-				else if (!metarialCodenmbbox != String.Empty)
+				else if (metarialCodenmbbox.Value != 0)
 				{
 
 					int metarialCode = Convert.ToInt32(metarialCodenmbbox.Text);
 					var stc = context.Stocks.FromSqlRaw("SELECT * FROM STOCKS").Where(s => s.MetarialCode == metarialCode).ToList();
 					databaseView.DataSource = stc;
 				}
-				else if (!descriptiontxtbox != String.Empty)
+				else if (descriptiontxtbox.Text != String.Empty)
 				{
 					string description = descriptiontxtbox.Text;
 					var stc = context.Stocks.FromSqlRaw("SELECT * FROM STOCKS").Where(s => s.Description == description).ToList();

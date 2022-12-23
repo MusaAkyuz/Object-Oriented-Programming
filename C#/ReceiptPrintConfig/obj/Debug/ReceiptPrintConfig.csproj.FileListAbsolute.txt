@@ -1,0 +1,11 @@
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\obj\Debug\ReceiptPrintConfig.csproj.AssemblyReference.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\obj\Debug\ReceiptPrintConfig.csproj.SuggestedBindingRedirects.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\obj\Debug\ReceiptPrintConfig.Form1.resources
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\obj\Debug\ReceiptPrintConfig.Properties.Resources.resources
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\obj\Debug\ReceiptPrintConfig.csproj.GenerateResource.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\obj\Debug\ReceiptPrintConfig.csproj.CoreCompileInputs.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\ReceiptPrintConfig.exe.config
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\ReceiptPrintConfig.exe
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\ReceiptPrintConfig.pdb
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\obj\Debug\ReceiptPrintConfig.exe
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\obj\Debug\ReceiptPrintConfig.pdb

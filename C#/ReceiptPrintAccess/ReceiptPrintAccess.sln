@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReceiptPrintAccess", "ReceiptPrintAccess.csproj", "{BC1BF527-6F6B-4AE7-8EE5-4F7CF3E432B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReceiptPrintAccess", "ReceiptPrintAccess.csproj", "{BC1BF527-6F6B-4AE7-8EE5-4F7CF3E432B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReceiptPrintConfig", "..\ReceiptPrintConfig\ReceiptPrintConfig.csproj", "{07CF9EAB-937E-4FA6-9A78-CB9528B62172}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{BC1BF527-6F6B-4AE7-8EE5-4F7CF3E432B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC1BF527-6F6B-4AE7-8EE5-4F7CF3E432B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC1BF527-6F6B-4AE7-8EE5-4F7CF3E432B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07CF9EAB-937E-4FA6-9A78-CB9528B62172}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07CF9EAB-937E-4FA6-9A78-CB9528B62172}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07CF9EAB-937E-4FA6-9A78-CB9528B62172}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07CF9EAB-937E-4FA6-9A78-CB9528B62172}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

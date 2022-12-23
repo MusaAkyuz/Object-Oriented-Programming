@@ -49,7 +49,9 @@ namespace ReceiptPrintConfig
 			{
 				while (dataReader.Read())
 				{
-					Row.Add("112");
+					var configSettings = new List<string>(ConfigurationSettings.AppSettings["ReceiverCompany1"].Split(new char[] {';'}));
+					Row.Add(configSettings[0]);
+					Row.Add(configSettings[1]);
 					Row.Add(dataReader["MaterialCode"].ToString());
 					Row.Add(dataReader["Description"].ToString());
 					Row.Add(dataReader["Unit"].ToString());

@@ -29,6 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.reloadbtn = new System.Windows.Forms.Button();
 			this.descriptionbtn = new System.Windows.Forms.Button();
 			this.descriptiontxtbox = new System.Windows.Forms.TextBox();
@@ -36,14 +37,15 @@
 			this.materialbtn = new System.Windows.Forms.Button();
 			this.materialtxtbox = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.label17 = new System.Windows.Forms.Label();
+			this.revisiontxtbox = new System.Windows.Forms.TextBox();
 			this.button4 = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
-			this.checkBox1 = new System.Windows.Forms.CheckBox();
-			this.checkBox2 = new System.Windows.Forms.CheckBox();
+			this.singlechkbox = new System.Windows.Forms.CheckBox();
+			this.quartedchkbox = new System.Windows.Forms.CheckBox();
 			this.addbelowbtn = new System.Windows.Forms.Button();
 			this.dataGridView2 = new System.Windows.Forms.DataGridView();
 			this.kartoncombobox = new System.Windows.Forms.ComboBox();
@@ -52,7 +54,7 @@
 			this.boxcodetxtbox = new System.Windows.Forms.TextBox();
 			this.label11 = new System.Windows.Forms.Label();
 			this.label12 = new System.Windows.Forms.Label();
-			this.recisiontxtbox = new System.Windows.Forms.TextBox();
+			this.lotnotxtbox = new System.Windows.Forms.TextBox();
 			this.label13 = new System.Windows.Forms.Label();
 			this.productiontxtbox = new System.Windows.Forms.TextBox();
 			this.label14 = new System.Windows.Forms.Label();
@@ -87,6 +89,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.groupBox1.AutoSize = true;
 			this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.groupBox1.Controls.Add(this.dataGridView1);
 			this.groupBox1.Controls.Add(this.reloadbtn);
 			this.groupBox1.Controls.Add(this.descriptionbtn);
 			this.groupBox1.Controls.Add(this.descriptiontxtbox);
@@ -94,13 +97,24 @@
 			this.groupBox1.Controls.Add(this.materialbtn);
 			this.groupBox1.Controls.Add(this.materialtxtbox);
 			this.groupBox1.Controls.Add(this.label1);
-			this.groupBox1.Controls.Add(this.dataGridView1);
 			this.groupBox1.Location = new System.Drawing.Point(12, 12);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(1018, 224);
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Stock Database";
+			// 
+			// dataGridView1
+			// 
+			this.dataGridView1.AllowUserToAddRows = false;
+			this.dataGridView1.AllowUserToResizeRows = false;
+			this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView1.Location = new System.Drawing.Point(7, 21);
+			this.dataGridView1.Name = "dataGridView1";
+			this.dataGridView1.Size = new System.Drawing.Size(815, 184);
+			this.dataGridView1.TabIndex = 9;
+			this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick_1);
 			// 
 			// reloadbtn
 			// 
@@ -164,20 +178,10 @@
 			this.label1.TabIndex = 1;
 			this.label1.Text = "Material Code";
 			// 
-			// dataGridView1
-			// 
-			this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-			this.dataGridView1.Location = new System.Drawing.Point(7, 21);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.ReadOnly = true;
-			this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-			this.dataGridView1.Size = new System.Drawing.Size(815, 184);
-			this.dataGridView1.TabIndex = 8;
-			this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-			// 
 			// groupBox2
 			// 
+			this.groupBox2.Controls.Add(this.label17);
+			this.groupBox2.Controls.Add(this.revisiontxtbox);
 			this.groupBox2.Controls.Add(this.button4);
 			this.groupBox2.Controls.Add(this.button3);
 			this.groupBox2.Controls.Add(this.button2);
@@ -190,7 +194,7 @@
 			this.groupBox2.Controls.Add(this.boxcodetxtbox);
 			this.groupBox2.Controls.Add(this.label11);
 			this.groupBox2.Controls.Add(this.label12);
-			this.groupBox2.Controls.Add(this.recisiontxtbox);
+			this.groupBox2.Controls.Add(this.lotnotxtbox);
 			this.groupBox2.Controls.Add(this.label13);
 			this.groupBox2.Controls.Add(this.productiontxtbox);
 			this.groupBox2.Controls.Add(this.label14);
@@ -218,6 +222,22 @@
 			this.groupBox2.TabIndex = 1;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Label Info";
+			// 
+			// label17
+			// 
+			this.label17.AutoSize = true;
+			this.label17.Location = new System.Drawing.Point(834, 38);
+			this.label17.Name = "label17";
+			this.label17.Size = new System.Drawing.Size(38, 13);
+			this.label17.TabIndex = 38;
+			this.label17.Text = "Karton";
+			// 
+			// revisiontxtbox
+			// 
+			this.revisiontxtbox.Location = new System.Drawing.Point(468, 133);
+			this.revisiontxtbox.Name = "revisiontxtbox";
+			this.revisiontxtbox.Size = new System.Drawing.Size(124, 20);
+			this.revisiontxtbox.TabIndex = 37;
 			// 
 			// button4
 			// 
@@ -250,8 +270,8 @@
 			// 
 			// groupBox3
 			// 
-			this.groupBox3.Controls.Add(this.checkBox1);
-			this.groupBox3.Controls.Add(this.checkBox2);
+			this.groupBox3.Controls.Add(this.singlechkbox);
+			this.groupBox3.Controls.Add(this.quartedchkbox);
 			this.groupBox3.Location = new System.Drawing.Point(720, 32);
 			this.groupBox3.Name = "groupBox3";
 			this.groupBox3.Size = new System.Drawing.Size(102, 58);
@@ -259,25 +279,25 @@
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Print Type";
 			// 
-			// checkBox1
+			// singlechkbox
 			// 
-			this.checkBox1.AutoSize = true;
-			this.checkBox1.Location = new System.Drawing.Point(6, 19);
-			this.checkBox1.Name = "checkBox1";
-			this.checkBox1.Size = new System.Drawing.Size(79, 17);
-			this.checkBox1.TabIndex = 31;
-			this.checkBox1.Text = "Single Print";
-			this.checkBox1.UseVisualStyleBackColor = true;
+			this.singlechkbox.AutoSize = true;
+			this.singlechkbox.Location = new System.Drawing.Point(6, 19);
+			this.singlechkbox.Name = "singlechkbox";
+			this.singlechkbox.Size = new System.Drawing.Size(79, 17);
+			this.singlechkbox.TabIndex = 31;
+			this.singlechkbox.Text = "Single Print";
+			this.singlechkbox.UseVisualStyleBackColor = true;
 			// 
-			// checkBox2
+			// quartedchkbox
 			// 
-			this.checkBox2.AutoSize = true;
-			this.checkBox2.Location = new System.Drawing.Point(6, 35);
-			this.checkBox2.Name = "checkBox2";
-			this.checkBox2.Size = new System.Drawing.Size(88, 17);
-			this.checkBox2.TabIndex = 32;
-			this.checkBox2.Text = "Quarted Print";
-			this.checkBox2.UseVisualStyleBackColor = true;
+			this.quartedchkbox.AutoSize = true;
+			this.quartedchkbox.Location = new System.Drawing.Point(6, 35);
+			this.quartedchkbox.Name = "quartedchkbox";
+			this.quartedchkbox.Size = new System.Drawing.Size(88, 17);
+			this.quartedchkbox.TabIndex = 32;
+			this.quartedchkbox.Text = "Quarted Print";
+			this.quartedchkbox.UseVisualStyleBackColor = true;
 			// 
 			// addbelowbtn
 			// 
@@ -291,6 +311,7 @@
 			// 
 			// dataGridView2
 			// 
+			this.dataGridView2.AllowUserToAddRows = false;
 			this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView2.Location = new System.Drawing.Point(7, 207);
@@ -304,7 +325,7 @@
 			this.kartoncombobox.Items.AddRange(new object[] {
             "Yes",
             "No"});
-			this.kartoncombobox.Location = new System.Drawing.Point(468, 131);
+			this.kartoncombobox.Location = new System.Drawing.Point(888, 35);
 			this.kartoncombobox.Name = "kartoncombobox";
 			this.kartoncombobox.Size = new System.Drawing.Size(124, 21);
 			this.kartoncombobox.TabIndex = 29;
@@ -329,6 +350,7 @@
 			// 
 			this.boxcodetxtbox.Location = new System.Drawing.Point(468, 156);
 			this.boxcodetxtbox.Name = "boxcodetxtbox";
+			this.boxcodetxtbox.ReadOnly = true;
 			this.boxcodetxtbox.Size = new System.Drawing.Size(124, 20);
 			this.boxcodetxtbox.TabIndex = 26;
 			// 
@@ -346,25 +368,25 @@
 			this.label12.AutoSize = true;
 			this.label12.Location = new System.Drawing.Point(380, 133);
 			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(38, 13);
+			this.label12.Size = new System.Drawing.Size(48, 13);
 			this.label12.TabIndex = 23;
-			this.label12.Text = "Karton";
+			this.label12.Text = "Revision";
 			// 
-			// recisiontxtbox
+			// lotnotxtbox
 			// 
-			this.recisiontxtbox.Location = new System.Drawing.Point(468, 107);
-			this.recisiontxtbox.Name = "recisiontxtbox";
-			this.recisiontxtbox.Size = new System.Drawing.Size(232, 20);
-			this.recisiontxtbox.TabIndex = 22;
+			this.lotnotxtbox.Location = new System.Drawing.Point(468, 107);
+			this.lotnotxtbox.Name = "lotnotxtbox";
+			this.lotnotxtbox.Size = new System.Drawing.Size(232, 20);
+			this.lotnotxtbox.TabIndex = 22;
 			// 
 			// label13
 			// 
 			this.label13.AutoSize = true;
 			this.label13.Location = new System.Drawing.Point(380, 108);
 			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(48, 13);
+			this.label13.Size = new System.Drawing.Size(39, 13);
 			this.label13.TabIndex = 21;
-			this.label13.Text = "Revision";
+			this.label13.Text = "Lot No";
 			// 
 			// productiontxtbox
 			// 
@@ -373,6 +395,7 @@
 			this.productiontxtbox.ReadOnly = true;
 			this.productiontxtbox.Size = new System.Drawing.Size(232, 20);
 			this.productiontxtbox.TabIndex = 20;
+			this.productiontxtbox.TextChanged += new System.EventHandler(this.productiontxtbox_TextChanged);
 			// 
 			// label14
 			// 
@@ -437,6 +460,7 @@
 			this.counttxtbox.Name = "counttxtbox";
 			this.counttxtbox.Size = new System.Drawing.Size(232, 20);
 			this.counttxtbox.TabIndex = 12;
+			this.counttxtbox.TextChanged += new System.EventHandler(this.counttxtbox_TextChanged);
 			// 
 			// label9
 			// 
@@ -454,6 +478,7 @@
 			this.unittxtbox.ReadOnly = true;
 			this.unittxtbox.Size = new System.Drawing.Size(232, 20);
 			this.unittxtbox.TabIndex = 10;
+			this.unittxtbox.TextChanged += new System.EventHandler(this.unittxtbox_TextChanged);
 			// 
 			// label10
 			// 
@@ -471,6 +496,7 @@
 			this.companycodetxtbox.ReadOnly = true;
 			this.companycodetxtbox.Size = new System.Drawing.Size(232, 20);
 			this.companycodetxtbox.TabIndex = 8;
+			this.companycodetxtbox.TextChanged += new System.EventHandler(this.companycodetxtbox_TextChanged);
 			// 
 			// label6
 			// 
@@ -488,6 +514,7 @@
 			this.description2txtbox.ReadOnly = true;
 			this.description2txtbox.Size = new System.Drawing.Size(232, 20);
 			this.description2txtbox.TabIndex = 6;
+			this.description2txtbox.TextChanged += new System.EventHandler(this.description2txtbox_TextChanged);
 			// 
 			// label7
 			// 
@@ -505,6 +532,7 @@
 			this.companynametxtbox.ReadOnly = true;
 			this.companynametxtbox.Size = new System.Drawing.Size(232, 20);
 			this.companynametxtbox.TabIndex = 4;
+			this.companynametxtbox.TextChanged += new System.EventHandler(this.companynametxtbox_TextChanged);
 			// 
 			// label5
 			// 
@@ -522,6 +550,7 @@
 			this.material2txtbox.ReadOnly = true;
 			this.material2txtbox.Size = new System.Drawing.Size(232, 20);
 			this.material2txtbox.TabIndex = 2;
+			this.material2txtbox.TextChanged += new System.EventHandler(this.material2txtbox_TextChanged);
 			// 
 			// label3
 			// 
@@ -564,7 +593,6 @@
 		private System.Windows.Forms.Button materialbtn;
 		private System.Windows.Forms.TextBox materialtxtbox;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.DataGridView dataGridView1;
 		private System.Windows.Forms.Button reloadbtn;
 		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.TextBox companycodetxtbox;
@@ -577,8 +605,8 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.GroupBox groupBox3;
-		private System.Windows.Forms.CheckBox checkBox1;
-		private System.Windows.Forms.CheckBox checkBox2;
+		private System.Windows.Forms.CheckBox singlechkbox;
+		private System.Windows.Forms.CheckBox quartedchkbox;
 		private System.Windows.Forms.Button addbelowbtn;
 		private System.Windows.Forms.DataGridView dataGridView2;
 		private System.Windows.Forms.ComboBox kartoncombobox;
@@ -587,7 +615,7 @@
 		private System.Windows.Forms.TextBox boxcodetxtbox;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.Label label12;
-		private System.Windows.Forms.TextBox recisiontxtbox;
+		private System.Windows.Forms.TextBox lotnotxtbox;
 		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.TextBox productiontxtbox;
 		private System.Windows.Forms.Label label14;
@@ -603,6 +631,9 @@
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.Button button4;
+		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.TextBox revisiontxtbox;
+		private System.Windows.Forms.Label label17;
 	}
 }
 

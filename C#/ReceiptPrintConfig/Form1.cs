@@ -40,6 +40,56 @@ namespace ReceiptPrintConfig
 			dataGridView2.Columns[7].Name = "Karton";
 
 			kartoncombobox.SelectedIndex = 0;
+
+			if (String.IsNullOrEmpty(material2txtbox.Text))
+			{
+				material2txtbox.BackColor = Color.Tomato;
+			}
+			if (String.IsNullOrEmpty(companynametxtbox.Text))
+			{
+				companynametxtbox.BackColor = Color.Tomato;
+			}
+			if (String.IsNullOrEmpty(companycodetxtbox.Text))
+			{
+				companycodetxtbox.BackColor = Color.Tomato;
+			}
+			if (String.IsNullOrEmpty(description2txtbox.Text))
+			{
+				description2txtbox.BackColor = Color.Tomato;
+			}
+			if (String.IsNullOrEmpty(unittxtbox.Text))
+			{
+				unittxtbox.BackColor = Color.Tomato;
+			}
+			if (String.IsNullOrEmpty(counttxtbox.Text))
+			{
+				counttxtbox.BackColor = Color.Tomato;
+			}
+			if (String.IsNullOrEmpty(productiontxtbox.Text))
+			{
+				productiontxtbox.BackColor = Color.Tomato;
+			}
+
+			using (OleDbConnection cnn = new OleDbConnection(db.GetConnectionStrings(providerName)))
+			{
+				cnn.Open();
+				string query = "SELECT Id, BoxCode FROM [Box]";
+				OleDbDataReader dataReader;
+				OleDbCommand cmd = new OleDbCommand(query, cnn);
+
+				dataReader = cmd.ExecuteReader();
+				if (dataReader.HasRows)
+				{
+					while(dataReader.Read())
+					{
+						boxcodetxtbox.Text = dataReader["Id"].ToString();
+					}
+				}
+			}
+			//foreach (DataGridViewColumn col in dataGridView1.Columns)
+			//{
+			//	dataGridView1.Columns[col.Index].DefaultCellStyle.BackColor = Color.Lavender;
+			//}
 		}
 
 		private void Form1_Load(object sender, EventArgs e)
@@ -71,6 +121,7 @@ namespace ReceiptPrintConfig
 
 		private void materialbtn_Click(object sender, EventArgs e)
 		{
+			descriptiontxtbox.Text = String.Empty;
 			dataGridView1.Rows.Clear();
 
 			using (OleDbConnection cnn = new OleDbConnection(db.GetConnectionStrings(providerName)))
@@ -85,7 +136,7 @@ namespace ReceiptPrintConfig
 
 					dataGridView1.Rows.Clear();
 
-					for (int i = 0; i < row.Count; i += 5)
+					for (int i = 0; i < row.Count; i += 6)
 					{
 						DataGridViewRow newRow = new DataGridViewRow();
 						newRow.CreateCells(dataGridView1);
@@ -109,6 +160,7 @@ namespace ReceiptPrintConfig
 
 		private void descriptionbtn_Click(object sender, EventArgs e)
 		{
+			materialtxtbox.Text = String.Empty;
 			dataGridView1.Rows.Clear();
 
 			using (OleDbConnection cnn = new OleDbConnection(db.GetConnectionStrings(providerName)))
@@ -123,7 +175,7 @@ namespace ReceiptPrintConfig
 
 					dataGridView1.Rows.Clear();
 
-					for (int i = 0; i < row.Count; i += 5)
+					for (int i = 0; i < row.Count; i += 6)
 					{
 						DataGridViewRow newRow = new DataGridViewRow();
 						newRow.CreateCells(dataGridView1);
@@ -147,10 +199,49 @@ namespace ReceiptPrintConfig
 
 		private void reloadbtn_Click(object sender, EventArgs e)
 		{
+			materialtxtbox.Text = String.Empty;
+			descriptiontxtbox.Text = String.Empty;
 			Form1_Load(sender, e);
 		}
 
-		private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+		private void addbelowbtn_Click(object sender, EventArgs e)
+		{
+			if (!String.IsNullOrEmpty(material2txtbox.Text) &&
+				!String.IsNullOrEmpty(counttxtbox.Text) &&
+				!String.IsNullOrEmpty(companycodetxtbox.Text) &&
+				!String.IsNullOrEmpty(companynametxtbox.Text) &&
+				!String.IsNullOrEmpty(description2txtbox.Text) &&
+				!String.IsNullOrEmpty(unittxtbox.Text) &&
+				!String.IsNullOrEmpty(productiontxtbox.Text))
+			{
+				DataGridViewRow newRow = new DataGridViewRow();
+				newRow.CreateCells(dataGridView2);
+				newRow.Cells[0].Value = companynametxtbox.Text;
+				newRow.Cells[1].Value = material2txtbox.Text;
+				newRow.Cells[2].Value = description2txtbox.Text;
+				newRow.Cells[3].Value = companycodetxtbox.Text;
+				newRow.Cells[4].Value = counttxtbox.Text;
+				newRow.Cells[5].Value = unittxtbox.Text;
+				newRow.Cells[6].Value = grossweighttxtbox.Text;
+				newRow.Cells[7].Value = kartoncombobox.SelectedItem;
+				dataGridView2.Rows.Add(newRow);
+			}
+		}
+
+		private void button4_Click(object sender, EventArgs e)
+		{
+			dataGridView2.Rows.Clear();
+		}
+
+		private void button3_Click(object sender, EventArgs e)
+		{
+			if (this.dataGridView2.SelectedRows.Count > 0)
+			{
+				dataGridView2.Rows.RemoveAt(dataGridView2.CurrentCell.RowIndex);
+			}
+		}
+
+		private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
 		{
 			if (e.RowIndex >= 0)
 			{
@@ -164,29 +255,88 @@ namespace ReceiptPrintConfig
 			}
 		}
 
-		private void addbelowbtn_Click(object sender, EventArgs e)
+		private void counttxtbox_TextChanged(object sender, EventArgs e)
 		{
-			DataGridViewRow newRow = new DataGridViewRow();
-			newRow.CreateCells(dataGridView2);
-			newRow.Cells[0].Value = companynametxtbox.Text;
-			newRow.Cells[1].Value = material2txtbox.Text;
-			newRow.Cells[2].Value = description2txtbox.Text;
-			newRow.Cells[3].Value = companycodetxtbox.Text;
-			newRow.Cells[4].Value = counttxtbox.Text;
-			newRow.Cells[5].Value = unittxtbox.Text;
-			newRow.Cells[6].Value = grossweighttxtbox.Text;
-			newRow.Cells[7].Value = kartoncombobox.SelectedItem;
-			dataGridView2.Rows.Add(newRow);
+			if (String.IsNullOrEmpty(counttxtbox.Text))
+			{
+				counttxtbox.BackColor = Color.Tomato;
+			}
+			else
+			{
+				counttxtbox.BackColor = DefaultBackColor;
+			}
 		}
 
-		private void button4_Click(object sender, EventArgs e)
+		private void material2txtbox_TextChanged(object sender, EventArgs e)
 		{
-			dataGridView2.Rows.Clear();
+			if(String.IsNullOrEmpty(material2txtbox.Text))
+			{
+				material2txtbox.BackColor = Color.Tomato;	
+			}
+			else
+			{
+				material2txtbox.BackColor = DefaultBackColor;
+			}
 		}
 
-		private void button3_Click(object sender, EventArgs e)
+		private void companynametxtbox_TextChanged(object sender, EventArgs e)
 		{
-			dataGridView2.Rows.RemoveAt(dataGridView2.CurrentCell.RowIndex);
+			if (String.IsNullOrEmpty(material2txtbox.Text))
+			{
+				companynametxtbox.BackColor = Color.Tomato;
+			}
+			else
+			{
+				companynametxtbox.BackColor = DefaultBackColor;
+			}
+		}
+
+		private void description2txtbox_TextChanged(object sender, EventArgs e)
+		{
+			if (String.IsNullOrEmpty(material2txtbox.Text))
+			{
+				description2txtbox.BackColor = Color.Tomato;
+			}
+			else
+			{
+				description2txtbox.BackColor = DefaultBackColor;
+			}
+		}
+
+		private void companycodetxtbox_TextChanged(object sender, EventArgs e)
+		{
+			if (String.IsNullOrEmpty(material2txtbox.Text))
+			{
+				companycodetxtbox.BackColor = Color.Tomato;
+			}
+			else
+			{
+				companycodetxtbox.BackColor = DefaultBackColor;
+			}
+		}
+
+		private void unittxtbox_TextChanged(object sender, EventArgs e)
+		{
+			if (String.IsNullOrEmpty(material2txtbox.Text))
+			{
+				unittxtbox.BackColor = Color.Tomato;
+			}
+			else
+			{
+				unittxtbox.BackColor = DefaultBackColor;
+			}
+		}
+
+		private void productiontxtbox_TextChanged(object sender, EventArgs e)
+		{
+			if (String.IsNullOrEmpty(material2txtbox.Text))
+			{
+				productiontxtbox.BackColor = Color.Tomato;
+			}
+			else
+			{
+				productiontxtbox.BackColor = DefaultBackColor;
+			}
 		}
 	}
 }

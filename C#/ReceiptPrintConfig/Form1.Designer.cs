@@ -38,6 +38,8 @@
 			this.materialtxtbox = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.saveDatabase = new System.Windows.Forms.Button();
+			this.newStock = new System.Windows.Forms.Button();
 			this.label17 = new System.Windows.Forms.Label();
 			this.revisiontxtbox = new System.Windows.Forms.TextBox();
 			this.deleteAll = new System.Windows.Forms.Button();
@@ -113,6 +115,7 @@
 			this.dataGridView1.Location = new System.Drawing.Point(7, 21);
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.ReadOnly = true;
+			this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dataGridView1.Size = new System.Drawing.Size(815, 184);
 			this.dataGridView1.TabIndex = 9;
 			this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick_1);
@@ -181,6 +184,8 @@
 			// 
 			// groupBox2
 			// 
+			this.groupBox2.Controls.Add(this.saveDatabase);
+			this.groupBox2.Controls.Add(this.newStock);
 			this.groupBox2.Controls.Add(this.label17);
 			this.groupBox2.Controls.Add(this.revisiontxtbox);
 			this.groupBox2.Controls.Add(this.deleteAll);
@@ -224,10 +229,29 @@
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Label Info";
 			// 
+			// saveDatabase
+			// 
+			this.saveDatabase.Location = new System.Drawing.Point(906, 65);
+			this.saveDatabase.Name = "saveDatabase";
+			this.saveDatabase.Size = new System.Drawing.Size(102, 48);
+			this.saveDatabase.TabIndex = 40;
+			this.saveDatabase.Text = "Save Database";
+			this.saveDatabase.UseVisualStyleBackColor = true;
+			// 
+			// newStock
+			// 
+			this.newStock.Location = new System.Drawing.Point(906, 16);
+			this.newStock.Name = "newStock";
+			this.newStock.Size = new System.Drawing.Size(102, 47);
+			this.newStock.TabIndex = 39;
+			this.newStock.Text = "New Stock";
+			this.newStock.UseVisualStyleBackColor = true;
+			this.newStock.Click += new System.EventHandler(this.newStock_Click);
+			// 
 			// label17
 			// 
 			this.label17.AutoSize = true;
-			this.label17.Location = new System.Drawing.Point(834, 38);
+			this.label17.Location = new System.Drawing.Point(714, 37);
 			this.label17.Name = "label17";
 			this.label17.Size = new System.Drawing.Size(38, 13);
 			this.label17.TabIndex = 38;
@@ -274,9 +298,9 @@
 			// 
 			this.groupBox3.Controls.Add(this.singlechkbox);
 			this.groupBox3.Controls.Add(this.quartedchkbox);
-			this.groupBox3.Location = new System.Drawing.Point(720, 32);
+			this.groupBox3.Location = new System.Drawing.Point(598, 133);
 			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(102, 58);
+			this.groupBox3.Size = new System.Drawing.Size(102, 68);
 			this.groupBox3.TabIndex = 33;
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Print Type";
@@ -284,7 +308,7 @@
 			// singlechkbox
 			// 
 			this.singlechkbox.AutoSize = true;
-			this.singlechkbox.Location = new System.Drawing.Point(6, 19);
+			this.singlechkbox.Location = new System.Drawing.Point(8, 24);
 			this.singlechkbox.Name = "singlechkbox";
 			this.singlechkbox.Size = new System.Drawing.Size(79, 17);
 			this.singlechkbox.TabIndex = 31;
@@ -294,7 +318,7 @@
 			// quartedchkbox
 			// 
 			this.quartedchkbox.AutoSize = true;
-			this.quartedchkbox.Location = new System.Drawing.Point(6, 35);
+			this.quartedchkbox.Location = new System.Drawing.Point(8, 40);
 			this.quartedchkbox.Name = "quartedchkbox";
 			this.quartedchkbox.Size = new System.Drawing.Size(88, 17);
 			this.quartedchkbox.TabIndex = 32;
@@ -303,9 +327,9 @@
 			// 
 			// addbelowbtn
 			// 
-			this.addbelowbtn.Location = new System.Drawing.Point(598, 130);
+			this.addbelowbtn.Location = new System.Drawing.Point(906, 155);
 			this.addbelowbtn.Name = "addbelowbtn";
-			this.addbelowbtn.Size = new System.Drawing.Size(102, 71);
+			this.addbelowbtn.Size = new System.Drawing.Size(102, 47);
 			this.addbelowbtn.TabIndex = 30;
 			this.addbelowbtn.Text = "Add Below";
 			this.addbelowbtn.UseVisualStyleBackColor = true;
@@ -330,9 +354,9 @@
 			this.kartoncombobox.Items.AddRange(new object[] {
             "Yes",
             "No"});
-			this.kartoncombobox.Location = new System.Drawing.Point(888, 35);
+			this.kartoncombobox.Location = new System.Drawing.Point(754, 34);
 			this.kartoncombobox.Name = "kartoncombobox";
-			this.kartoncombobox.Size = new System.Drawing.Size(124, 21);
+			this.kartoncombobox.Size = new System.Drawing.Size(134, 21);
 			this.kartoncombobox.TabIndex = 29;
 			// 
 			// grossweighttxtbox
@@ -639,6 +663,8 @@
 		private System.Windows.Forms.DataGridView dataGridView1;
 		private System.Windows.Forms.TextBox revisiontxtbox;
 		private System.Windows.Forms.Label label17;
+		private System.Windows.Forms.Button saveDatabase;
+		private System.Windows.Forms.Button newStock;
 	}
 }
 

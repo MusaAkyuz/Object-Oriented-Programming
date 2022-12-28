@@ -16,6 +16,7 @@ using MigraDoc.DocumentObjectModel;
 using MigraDoc.Rendering;
 using MigraDoc.DocumentObjectModel.Shapes;
 using MigraDoc.DocumentObjectModel.Tables;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ReceiptPrintConfig
 {
@@ -47,35 +48,6 @@ namespace ReceiptPrintConfig
 
 			kartoncombobox.SelectedIndex = 0;
 
-			if (String.IsNullOrEmpty(material2txtbox.Text))
-			{
-				material2txtbox.BackColor = System.Drawing.Color.Tomato;
-			}
-			if (String.IsNullOrEmpty(companynametxtbox.Text))
-			{
-				companynametxtbox.BackColor = System.Drawing.Color.Tomato;
-			}
-			if (String.IsNullOrEmpty(companycodetxtbox.Text))
-			{
-				companycodetxtbox.BackColor = System.Drawing.Color.Tomato;
-			}
-			if (String.IsNullOrEmpty(description2txtbox.Text))
-			{
-				description2txtbox.BackColor = System.Drawing.Color.Tomato;
-			}
-			if (String.IsNullOrEmpty(unittxtbox.Text))
-			{
-				unittxtbox.BackColor = System.Drawing.Color.Tomato;
-			}
-			if (String.IsNullOrEmpty(counttxtbox.Text))
-			{
-				counttxtbox.BackColor = System.Drawing.Color.Tomato;
-			}
-			if (String.IsNullOrEmpty(productiontxtbox.Text))
-			{
-				productiontxtbox.BackColor = System.Drawing.Color.Tomato;
-			}
-
 			using (OleDbConnection cnn = new OleDbConnection(db.GetConnectionStrings(providerName)))
 			{
 				cnn.Open();
@@ -100,6 +72,14 @@ namespace ReceiptPrintConfig
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
+			TextBoxControl(material2txtbox);
+			TextBoxControl(companynametxtbox);
+			TextBoxControl(description2txtbox);
+			TextBoxControl(companycodetxtbox);
+			TextBoxControl(unittxtbox);
+			TextBoxControl(counttxtbox);
+			TextBoxControl(productiontxtbox);
+
 			dataGridView1.Rows.Clear();
 
 			using (OleDbConnection cnn = new OleDbConnection(db.GetConnectionStrings(providerName)))
@@ -214,6 +194,7 @@ namespace ReceiptPrintConfig
 		{
 			if (!String.IsNullOrEmpty(material2txtbox.Text) &&
 				!String.IsNullOrEmpty(counttxtbox.Text) &&
+				!System.Text.RegularExpressions.Regex.IsMatch(counttxtbox.Text, "[^0-9]") &&
 				!String.IsNullOrEmpty(companycodetxtbox.Text) &&
 				!String.IsNullOrEmpty(companynametxtbox.Text) &&
 				!String.IsNullOrEmpty(description2txtbox.Text) &&
@@ -257,90 +238,6 @@ namespace ReceiptPrintConfig
 				unittxtbox.Text = row.Cells["Unit"].Value.ToString();
 				productiontxtbox.Text = row.Cells["Production Date"].Value.ToString();
 				description2txtbox.Text = row.Cells["Description"].Value.ToString();
-			}
-		}
-
-		private void counttxtbox_TextChanged(object sender, EventArgs e)
-		{
-			if (String.IsNullOrEmpty(counttxtbox.Text))
-			{
-				counttxtbox.BackColor = System.Drawing.Color.Tomato;
-			}
-			else
-			{
-				counttxtbox.BackColor = DefaultBackColor;
-			}
-		}
-
-		private void material2txtbox_TextChanged(object sender, EventArgs e)
-		{
-			if(String.IsNullOrEmpty(material2txtbox.Text))
-			{
-				material2txtbox.BackColor = System.Drawing.Color.Tomato;	
-			}
-			else
-			{
-				material2txtbox.BackColor = DefaultBackColor;
-			}
-		}
-
-		private void companynametxtbox_TextChanged(object sender, EventArgs e)
-		{
-			if (String.IsNullOrEmpty(material2txtbox.Text))
-			{
-				companynametxtbox.BackColor = System.Drawing.Color.Tomato;
-			}
-			else
-			{
-				companynametxtbox.BackColor = DefaultBackColor;
-			}
-		}
-
-		private void description2txtbox_TextChanged(object sender, EventArgs e)
-		{
-			if (String.IsNullOrEmpty(material2txtbox.Text))
-			{
-				description2txtbox.BackColor = System.Drawing.Color.Tomato;
-			}
-			else
-			{
-				description2txtbox.BackColor = DefaultBackColor;
-			}
-		}
-
-		private void companycodetxtbox_TextChanged(object sender, EventArgs e)
-		{
-			if (String.IsNullOrEmpty(material2txtbox.Text))
-			{
-				companycodetxtbox.BackColor = System.Drawing.Color.Tomato;
-			}
-			else
-			{
-				companycodetxtbox.BackColor = DefaultBackColor;
-			}
-		}
-
-		private void unittxtbox_TextChanged(object sender, EventArgs e)
-		{
-			if (String.IsNullOrEmpty(material2txtbox.Text))
-			{
-				unittxtbox.BackColor = System.Drawing.Color.Tomato;
-			}
-			else
-			{
-				unittxtbox.BackColor = DefaultBackColor;
-			}
-		}
-
-		private void productiontxtbox_TextChanged(object sender, EventArgs e)
-		{
-			if (String.IsNullOrEmpty(material2txtbox.Text))
-			{
-				productiontxtbox.BackColor = System.Drawing.Color.Tomato;
-			}
-			else
-			{
-				productiontxtbox.BackColor = DefaultBackColor;
 			}
 		}
 
@@ -408,6 +305,7 @@ namespace ReceiptPrintConfig
 			row.Cells[0].AddParagraph("Company name");
 			row.Cells[1].AddParagraph(":");
 			row.Cells[2].AddParagraph(companyName);
+			row.Cells[2].Format.Font.Bold = true;
 
 			row = table.AddRow();
 			row.Cells[0].AddParagraph("Material Code");
@@ -433,6 +331,7 @@ namespace ReceiptPrintConfig
 			row.Cells[0].AddParagraph("Unit");
 			row.Cells[1].AddParagraph(":");
 			row.Cells[2].AddParagraph(unit);
+			row.Cells[2].Format.Font.Bold = true;
 
 			row = table.AddRow();
 			row.Cells[0].AddParagraph("Box Gross");
@@ -486,6 +385,98 @@ namespace ReceiptPrintConfig
 			{
 				MessageBox.Show("There is no data to print!");
 			}
+		}
+
+		private void newStock_Click(object sender, EventArgs e)
+		{
+			////ReadOnly part
+			//material2txtbox.ReadOnly = false;
+			//companynametxtbox.ReadOnly = false;
+			//description2txtbox.ReadOnly = false;
+			//companycodetxtbox.ReadOnly = false;
+			//unittxtbox.ReadOnly = false;
+			//counttxtbox.ReadOnly = true;
+			//companycodetxtbox.ReadOnly = true;
+			//operatortxtbox.ReadOnly = true;
+			//billtxtbox.ReadOnly = true;
+			//billdatetxtbox.ReadOnly = true;
+			//productiontxtbox.ReadOnly = false;
+			//lotnotxtbox.ReadOnly = true;
+			//revisiontxtbox.ReadOnly = true;
+			//boxcodetxtbox.ReadOnly = true;
+			//grossweighttxtbox.ReadOnly = true;
+			//singlechkbox.Enabled = false;
+			//quartedchkbox.Enabled = false;
+			//kartoncombobox.Enabled = false;
+			
+		}
+
+		public void TextBoxControl(System.Windows.Forms.TextBox txt, string regex = null)
+		{
+			if(txt.Enabled == true)
+			{
+				if(!String.IsNullOrEmpty(regex))
+				{
+					if (String.IsNullOrEmpty(txt.Text) || System.Text.RegularExpressions.Regex.IsMatch(txt.Text, regex))
+					{
+						txt.BackColor = System.Drawing.Color.Tomato;
+					}
+					else
+					{
+						txt.BackColor = DefaultBackColor;
+					}
+				}
+				else
+				{
+					if (String.IsNullOrEmpty(txt.Text))
+					{
+						txt.BackColor = System.Drawing.Color.Tomato;
+					}
+					else
+					{
+						txt.BackColor = DefaultBackColor;
+					}
+				}
+			}
+			else
+			{
+				txt.BackColor = DefaultBackColor;
+			}
+		}
+
+		private void material2txtbox_TextChanged(object sender, EventArgs e)
+		{
+			TextBoxControl(material2txtbox);
+		}
+
+		private void companynametxtbox_TextChanged(object sender, EventArgs e)
+		{
+			TextBoxControl(companynametxtbox);
+		}
+
+		private void description2txtbox_TextChanged(object sender, EventArgs e)
+		{
+			TextBoxControl(description2txtbox);
+		}
+
+		private void companycodetxtbox_TextChanged(object sender, EventArgs e)
+		{
+			TextBoxControl(companycodetxtbox);
+		}
+
+		private void unittxtbox_TextChanged(object sender, EventArgs e)
+		{
+			TextBoxControl(unittxtbox);
+		}
+
+		private void counttxtbox_TextChanged(object sender, EventArgs e)
+		{
+			TextBoxControl(counttxtbox, "[^0-9]");
+		}
+
+		private void productiontxtbox_TextChanged(object sender, EventArgs e)
+		{
+			TextBoxControl(productiontxtbox);
 		}
 	}
 }

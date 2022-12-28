@@ -40,9 +40,9 @@
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.label17 = new System.Windows.Forms.Label();
 			this.revisiontxtbox = new System.Windows.Forms.TextBox();
-			this.button4 = new System.Windows.Forms.Button();
-			this.button3 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
+			this.deleteAll = new System.Windows.Forms.Button();
+			this.deleteSelected = new System.Windows.Forms.Button();
+			this.print = new System.Windows.Forms.Button();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.singlechkbox = new System.Windows.Forms.CheckBox();
 			this.quartedchkbox = new System.Windows.Forms.CheckBox();
@@ -112,6 +112,7 @@
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView1.Location = new System.Drawing.Point(7, 21);
 			this.dataGridView1.Name = "dataGridView1";
+			this.dataGridView1.ReadOnly = true;
 			this.dataGridView1.Size = new System.Drawing.Size(815, 184);
 			this.dataGridView1.TabIndex = 9;
 			this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick_1);
@@ -182,9 +183,9 @@
 			// 
 			this.groupBox2.Controls.Add(this.label17);
 			this.groupBox2.Controls.Add(this.revisiontxtbox);
-			this.groupBox2.Controls.Add(this.button4);
-			this.groupBox2.Controls.Add(this.button3);
-			this.groupBox2.Controls.Add(this.button2);
+			this.groupBox2.Controls.Add(this.deleteAll);
+			this.groupBox2.Controls.Add(this.deleteSelected);
+			this.groupBox2.Controls.Add(this.print);
 			this.groupBox2.Controls.Add(this.groupBox3);
 			this.groupBox2.Controls.Add(this.addbelowbtn);
 			this.groupBox2.Controls.Add(this.dataGridView2);
@@ -239,34 +240,35 @@
 			this.revisiontxtbox.Size = new System.Drawing.Size(124, 20);
 			this.revisiontxtbox.TabIndex = 37;
 			// 
-			// button4
+			// deleteAll
 			// 
-			this.button4.Location = new System.Drawing.Point(680, 364);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(107, 23);
-			this.button4.TabIndex = 36;
-			this.button4.Text = "Delete All";
-			this.button4.UseVisualStyleBackColor = true;
-			this.button4.Click += new System.EventHandler(this.button4_Click);
+			this.deleteAll.Location = new System.Drawing.Point(680, 364);
+			this.deleteAll.Name = "deleteAll";
+			this.deleteAll.Size = new System.Drawing.Size(107, 23);
+			this.deleteAll.TabIndex = 36;
+			this.deleteAll.Text = "Delete All";
+			this.deleteAll.UseVisualStyleBackColor = true;
+			this.deleteAll.Click += new System.EventHandler(this.deleteAll_Click);
 			// 
-			// button3
+			// deleteSelected
 			// 
-			this.button3.Location = new System.Drawing.Point(793, 364);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(107, 23);
-			this.button3.TabIndex = 35;
-			this.button3.Text = "Delete Selected";
-			this.button3.UseVisualStyleBackColor = true;
-			this.button3.Click += new System.EventHandler(this.button3_Click);
+			this.deleteSelected.Location = new System.Drawing.Point(793, 364);
+			this.deleteSelected.Name = "deleteSelected";
+			this.deleteSelected.Size = new System.Drawing.Size(107, 23);
+			this.deleteSelected.TabIndex = 35;
+			this.deleteSelected.Text = "Delete Selected";
+			this.deleteSelected.UseVisualStyleBackColor = true;
+			this.deleteSelected.Click += new System.EventHandler(this.deleteSelected_Click);
 			// 
-			// button2
+			// print
 			// 
-			this.button2.Location = new System.Drawing.Point(906, 365);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(106, 23);
-			this.button2.TabIndex = 34;
-			this.button2.Text = "Print";
-			this.button2.UseVisualStyleBackColor = true;
+			this.print.Location = new System.Drawing.Point(906, 365);
+			this.print.Name = "print";
+			this.print.Size = new System.Drawing.Size(106, 23);
+			this.print.TabIndex = 34;
+			this.print.Text = "Print";
+			this.print.UseVisualStyleBackColor = true;
+			this.print.Click += new System.EventHandler(this.print_Click);
 			// 
 			// groupBox3
 			// 
@@ -312,10 +314,13 @@
 			// dataGridView2
 			// 
 			this.dataGridView2.AllowUserToAddRows = false;
+			this.dataGridView2.AllowUserToResizeRows = false;
 			this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView2.Location = new System.Drawing.Point(7, 207);
 			this.dataGridView2.Name = "dataGridView2";
+			this.dataGridView2.ReadOnly = true;
+			this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dataGridView2.Size = new System.Drawing.Size(1005, 151);
 			this.dataGridView2.TabIndex = 8;
 			// 
@@ -603,7 +608,7 @@
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.TextBox material2txtbox;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Button print;
 		private System.Windows.Forms.GroupBox groupBox3;
 		private System.Windows.Forms.CheckBox singlechkbox;
 		private System.Windows.Forms.CheckBox quartedchkbox;
@@ -629,8 +634,8 @@
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.TextBox unittxtbox;
 		private System.Windows.Forms.Label label10;
-		private System.Windows.Forms.Button button3;
-		private System.Windows.Forms.Button button4;
+		private System.Windows.Forms.Button deleteSelected;
+		private System.Windows.Forms.Button deleteAll;
 		private System.Windows.Forms.DataGridView dataGridView1;
 		private System.Windows.Forms.TextBox revisiontxtbox;
 		private System.Windows.Forms.Label label17;

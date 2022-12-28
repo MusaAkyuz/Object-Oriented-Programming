@@ -10,6 +10,12 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.Collections;
 using System.Data.OleDb;
+using System.Diagnostics;
+using System.Xml.Linq;
+using MigraDoc.DocumentObjectModel;
+using MigraDoc.Rendering;
+using MigraDoc.DocumentObjectModel.Shapes;
+using MigraDoc.DocumentObjectModel.Tables;
 
 namespace ReceiptPrintConfig
 {
@@ -43,31 +49,31 @@ namespace ReceiptPrintConfig
 
 			if (String.IsNullOrEmpty(material2txtbox.Text))
 			{
-				material2txtbox.BackColor = Color.Tomato;
+				material2txtbox.BackColor = System.Drawing.Color.Tomato;
 			}
 			if (String.IsNullOrEmpty(companynametxtbox.Text))
 			{
-				companynametxtbox.BackColor = Color.Tomato;
+				companynametxtbox.BackColor = System.Drawing.Color.Tomato;
 			}
 			if (String.IsNullOrEmpty(companycodetxtbox.Text))
 			{
-				companycodetxtbox.BackColor = Color.Tomato;
+				companycodetxtbox.BackColor = System.Drawing.Color.Tomato;
 			}
 			if (String.IsNullOrEmpty(description2txtbox.Text))
 			{
-				description2txtbox.BackColor = Color.Tomato;
+				description2txtbox.BackColor = System.Drawing.Color.Tomato;
 			}
 			if (String.IsNullOrEmpty(unittxtbox.Text))
 			{
-				unittxtbox.BackColor = Color.Tomato;
+				unittxtbox.BackColor = System.Drawing.Color.Tomato;
 			}
 			if (String.IsNullOrEmpty(counttxtbox.Text))
 			{
-				counttxtbox.BackColor = Color.Tomato;
+				counttxtbox.BackColor = System.Drawing.Color.Tomato;
 			}
 			if (String.IsNullOrEmpty(productiontxtbox.Text))
 			{
-				productiontxtbox.BackColor = Color.Tomato;
+				productiontxtbox.BackColor = System.Drawing.Color.Tomato;
 			}
 
 			using (OleDbConnection cnn = new OleDbConnection(db.GetConnectionStrings(providerName)))
@@ -228,17 +234,16 @@ namespace ReceiptPrintConfig
 			}
 		}
 
-		private void button4_Click(object sender, EventArgs e)
-		{
-			dataGridView2.Rows.Clear();
-		}
-
-		private void button3_Click(object sender, EventArgs e)
+		private void deleteSelected_Click(object sender, EventArgs e)
 		{
 			if (this.dataGridView2.SelectedRows.Count > 0)
 			{
 				dataGridView2.Rows.RemoveAt(dataGridView2.CurrentCell.RowIndex);
 			}
+		}
+		private void deleteAll_Click(object sender, EventArgs e)
+		{
+			dataGridView2.Rows.Clear();
 		}
 
 		private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
@@ -259,7 +264,7 @@ namespace ReceiptPrintConfig
 		{
 			if (String.IsNullOrEmpty(counttxtbox.Text))
 			{
-				counttxtbox.BackColor = Color.Tomato;
+				counttxtbox.BackColor = System.Drawing.Color.Tomato;
 			}
 			else
 			{
@@ -271,7 +276,7 @@ namespace ReceiptPrintConfig
 		{
 			if(String.IsNullOrEmpty(material2txtbox.Text))
 			{
-				material2txtbox.BackColor = Color.Tomato;	
+				material2txtbox.BackColor = System.Drawing.Color.Tomato;	
 			}
 			else
 			{
@@ -283,7 +288,7 @@ namespace ReceiptPrintConfig
 		{
 			if (String.IsNullOrEmpty(material2txtbox.Text))
 			{
-				companynametxtbox.BackColor = Color.Tomato;
+				companynametxtbox.BackColor = System.Drawing.Color.Tomato;
 			}
 			else
 			{
@@ -295,7 +300,7 @@ namespace ReceiptPrintConfig
 		{
 			if (String.IsNullOrEmpty(material2txtbox.Text))
 			{
-				description2txtbox.BackColor = Color.Tomato;
+				description2txtbox.BackColor = System.Drawing.Color.Tomato;
 			}
 			else
 			{
@@ -307,7 +312,7 @@ namespace ReceiptPrintConfig
 		{
 			if (String.IsNullOrEmpty(material2txtbox.Text))
 			{
-				companycodetxtbox.BackColor = Color.Tomato;
+				companycodetxtbox.BackColor = System.Drawing.Color.Tomato;
 			}
 			else
 			{
@@ -319,7 +324,7 @@ namespace ReceiptPrintConfig
 		{
 			if (String.IsNullOrEmpty(material2txtbox.Text))
 			{
-				unittxtbox.BackColor = Color.Tomato;
+				unittxtbox.BackColor = System.Drawing.Color.Tomato;
 			}
 			else
 			{
@@ -331,11 +336,155 @@ namespace ReceiptPrintConfig
 		{
 			if (String.IsNullOrEmpty(material2txtbox.Text))
 			{
-				productiontxtbox.BackColor = Color.Tomato;
+				productiontxtbox.BackColor = System.Drawing.Color.Tomato;
 			}
 			else
 			{
 				productiontxtbox.BackColor = DefaultBackColor;
+			}
+		}
+
+		private Document CreateDocument(string companyName,
+										string materialCode,
+										string description,
+										string companyCode,
+										string count,
+										string unit,
+										string boxGross,
+										string karton)
+		{
+			// Create a new MigraDoc document
+			Document document = new Document();
+
+			// Add a section to the document
+			Section section = document.AddSection();
+			section.PageSetup.TopMargin = "1.5cm";
+
+			//Arçelik and qr code image
+			var image = section.AddImage("arcelik.png");
+			image.Width = new Unit(150, UnitType.Point); ;
+			image.Height = new Unit(150, UnitType.Point);
+			image.Left = ShapePosition.Center;
+			image.RelativeVertical = RelativeVertical.Line;
+			image.RelativeHorizontal = RelativeHorizontal.Margin;
+			image.Top = ShapePosition.Top;
+			image.WrapFormat.Style = WrapStyle.Through;
+			image = section.AddImage("qr.png");
+			image.Width = new Unit(80, UnitType.Point); ;
+			image.Height = new Unit(80, UnitType.Point);
+			image.Left = ShapePosition.Right;
+
+			Paragraph par;
+
+			//Arçelik A.Ş.
+			par = section.AddParagraph();
+			par.Format.SpaceBefore = "3.3cm";
+			par.Format.Alignment = ParagraphAlignment.Center;
+			par.Format.Font.Size = 15;
+			par.Format.Font.Bold = true;
+			par.AddText("Arçelik A.Ş.");
+
+			//PCI
+			par = section.AddParagraph();
+			par.Format.Alignment = ParagraphAlignment.Center;
+			par.Format.Font.Size = 11;
+			par.AddText("PCI");
+
+			//Malzeme Tanıtım Kartı
+			par = section.AddParagraph();
+			par.Format.Alignment = ParagraphAlignment.Center;
+			par.Format.Font.Size = 11;
+			par.AddText("Malzeme Tanitim Karti");
+			par.Format.SpaceAfter = "1.4cm";
+
+			//All information
+			Table table = section.AddTable();
+			table.Format.SpaceBefore = "0.3cm";
+			Column _headers = table.AddColumn("3cm");
+			Column _doublePoint = table.AddColumn("0.5cm");
+			Column _values = table.AddColumn("3cm");
+
+			Row row = table.AddRow();
+			row.Cells[0].AddParagraph("Company name");
+			row.Cells[1].AddParagraph(":");
+			row.Cells[2].AddParagraph(companyName);
+
+			row = table.AddRow();
+			row.Cells[0].AddParagraph("Material Code");
+			row.Cells[1].AddParagraph(":");
+			row.Cells[2].AddParagraph(materialCode);
+
+			row = table.AddRow();
+			row.Cells[0].AddParagraph("Description");
+			row.Cells[1].AddParagraph(":");
+			row.Cells[2].AddParagraph(description);
+
+			row = table.AddRow();
+			row.Cells[0].AddParagraph("Company Code");
+			row.Cells[1].AddParagraph(":");
+			row.Cells[2].AddParagraph(companyCode);
+
+			row = table.AddRow();
+			row.Cells[0].AddParagraph("Count");
+			row.Cells[1].AddParagraph(":");
+			row.Cells[2].AddParagraph(count);
+
+			row = table.AddRow();
+			row.Cells[0].AddParagraph("Unit");
+			row.Cells[1].AddParagraph(":");
+			row.Cells[2].AddParagraph(unit);
+
+			row = table.AddRow();
+			row.Cells[0].AddParagraph("Box Gross");
+			row.Cells[1].AddParagraph(":");
+			row.Cells[2].AddParagraph(boxGross);
+
+			row = table.AddRow();
+			row.Cells[0].AddParagraph("Karton");
+			row.Cells[1].AddParagraph(":");
+			row.Cells[2].AddParagraph(karton);
+
+			return document;
+		}
+
+		private void print_Click(object sender, EventArgs e)
+		{
+			ArrayList printerData = new ArrayList();
+
+			if (dataGridView2.Rows.Count > 0)
+			{
+				foreach (DataGridViewRow row in dataGridView2.Rows)
+				{
+					// Create a MigraDoc document
+					Document document = CreateDocument(companyName: row.Cells[0].Value.ToString(),
+													   materialCode: row.Cells[1].Value.ToString(),
+													   description: row.Cells[2].Value.ToString(),
+													   companyCode: row.Cells[3].Value.ToString(),
+													   count: row.Cells[4].Value.ToString(),
+													   unit: row.Cells[5].Value.ToString(),
+													   boxGross: row.Cells[6].Value.ToString(),
+													   karton: row.Cells[7].Value.ToString());
+					document.UseCmykColor = true;
+					const bool unicode = false;
+					PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer(unicode);
+
+					// Associate the MigraDoc document with a renderer
+					pdfRenderer.Document = document;
+
+					// Layout and render document to PDF
+					pdfRenderer.RenderDocument();
+
+					// Save the document...
+					string filename = "C:\\Users\\muss\\Desktop\\Receiver";
+					filename += DateTime.Now.ToFileTime() + ".pdf";
+					pdfRenderer.PdfDocument.Save(filename);
+					// ...and start a viewer.
+					Process.Start(filename);
+				}
+			}
+			else
+			{
+				MessageBox.Show("There is no data to print!");
 			}
 		}
 	}

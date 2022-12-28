@@ -1,5 +1,6 @@
 ﻿using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Shapes;
+using MigraDoc.DocumentObjectModel.Tables;
 using MigraDoc.Rendering;
 using PdfSharp.Pdf;
 using System;
@@ -67,16 +68,45 @@ namespace PdfCreatorDemoNET
 
 			// Add a section to the document
 			Section section = document.AddSection();
-
+			section.PageSetup.TopMargin = "1.5cm";
 			// Add a paragraph to the section
-			Paragraph paragraph = section.AddParagraph();
+			//Paragraph paragraph = section.AddParagraph();
 
-			paragraph.Format.Font.Color = Color.FromCmyk(100, 30, 20, 50);
 
-			// Add some text to the paragraph
+			//Add some text to the paragraph
 			//paragraph.AddFormattedText("Hello, World!", TextFormat.Bold);
 			var image = section.AddImage("arcelik.png");
+			image.Width = new Unit(150, UnitType.Point); ;
+			image.Height = new Unit(150, UnitType.Point);
 			image.Left = ShapePosition.Center;
+			image.RelativeVertical = RelativeVertical.Line;
+			image.RelativeHorizontal = RelativeHorizontal.Margin;
+			image.Top = ShapePosition.Top;
+			image.WrapFormat.Style = WrapStyle.Through;
+			image = section.AddImage("qr.png");
+			image.Width = new Unit(80, UnitType.Point); ;
+			image.Height = new Unit(80, UnitType.Point);
+			image.Left = ShapePosition.Right;
+			
+			Paragraph par =	section.AddParagraph("Deneme");
+
+			//Table pageFormatTable = section.AddTable();
+			//Column first = pageFormatTable.AddColumn("5cm");
+			//first.Format.Alignment = ParagraphAlignment.Center;
+			//Column second = pageFormatTable.AddColumn("5cm");
+			//second.Format.Alignment = ParagraphAlignment.Center;
+			//Column third = pageFormatTable.AddColumn("5cm");
+			//third.Format.Alignment = ParagraphAlignment.Left;
+
+			//Row r = pageFormatTable.AddRow();
+			//Paragraph header = r.Cells[0].AddParagraph();
+			//var image = r.Cells[1].AddImage("arcelik.png");
+			//var image2 = r.Cells[2].AddImage("Tardis1.png");
+			//image.Left = ShapePosition.Center;
+
+			//r.Cells[0].VerticalAlignment = VerticalAlignment.Center;
+			//r.Cells[1].VerticalAlignment = VerticalAlignment.Center;
+			//r.Cells[2].VerticalAlignment = VerticalAlignment.Center;
 
 			return document;
 		}

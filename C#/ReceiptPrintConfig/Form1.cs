@@ -45,32 +45,9 @@ namespace ReceiptPrintConfig
 			dataGridView2.Columns[5].Name = "Unit";
 			dataGridView2.Columns[6].Name = "Box Gross";
 			dataGridView2.Columns[7].Name = "Karton";
-
-			kartoncombobox.SelectedIndex = 0;
-
-			using (OleDbConnection cnn = new OleDbConnection(db.GetConnectionStrings(providerName)))
-			{
-				cnn.Open();
-				string query = "SELECT Id, BoxCode FROM [Box]";
-				OleDbDataReader dataReader;
-				OleDbCommand cmd = new OleDbCommand(query, cnn);
-
-				dataReader = cmd.ExecuteReader();
-				if (dataReader.HasRows)
-				{
-					while(dataReader.Read())
-					{
-						boxcodetxtbox.Text = dataReader["Id"].ToString();
-					}
-				}
-			}
-			//foreach (DataGridViewColumn col in dataGridView1.Columns)
-			//{
-			//	dataGridView1.Columns[col.Index].DefaultCellStyle.BackColor = Color.Lavender;
-			//}
 		}
 
-		private void Form1_Load(object sender, EventArgs e)
+		public void CallTextBoxControl()
 		{
 			TextBoxControl(material2txtbox);
 			TextBoxControl(companynametxtbox);
@@ -79,7 +56,66 @@ namespace ReceiptPrintConfig
 			TextBoxControl(unittxtbox);
 			TextBoxControl(counttxtbox);
 			TextBoxControl(productiontxtbox);
+		}
 
+		private void Form1_Load(object sender, EventArgs e)
+		{
+			material2txtbox.Enabled = true;
+			material2txtbox.ReadOnly = true;
+			material2txtbox.Text = null;
+
+			companynametxtbox.Enabled = true;
+			companynametxtbox.Text = null;
+
+			description2txtbox.Enabled = true;
+			description2txtbox.ReadOnly = true;
+			description2txtbox.Text = null;
+
+			companycodetxtbox.Enabled = true;
+			companycodetxtbox.Text = null;
+
+			unittxtbox.Enabled = true;
+			unittxtbox.ReadOnly = true;
+			unittxtbox.Text = null;
+
+			counttxtbox.Enabled = true;
+			counttxtbox.Text = null;
+
+			operatortxtbox.Enabled = true;
+			operatortxtbox.Text = null;
+			billtxtbox.Enabled = true;
+			billtxtbox.Text = null;
+			billdatetxtbox.Enabled = true;
+			billdatetxtbox.Text = null;
+
+			productiontxtbox.Enabled = true;
+			productiontxtbox.Text = null;
+			productiontxtbox.ReadOnly = true;
+			
+			lotnotxtbox.Enabled = true;
+			lotnotxtbox.Text = null;
+			addbelowbtn.Enabled = true;
+			deleteAll.Enabled = true;
+			deleteSelected.Enabled = true;
+			dataGridView2.Enabled = true;
+			print.Enabled = true;
+			revisiontxtbox.Enabled = true;
+			revisiontxtbox.Text = null;
+			boxcodetxtbox.Enabled = true;
+			grossweighttxtbox.Enabled = true;
+			grossweighttxtbox.Text = null;
+			singlechkbox.Enabled = true;
+			quartedchkbox.Enabled = true;
+			kartoncombobox.Enabled = true;
+			materialtxtbox.Enabled = true;
+			descriptiontxtbox.Enabled = true;
+			descriptiontxtbox.Text = null;
+			materialbtn.Enabled = true;
+			descriptionbtn.Enabled = true;
+			reloadbtn.Enabled = true;
+			dataGridView1.Enabled = true;
+
+			CallTextBoxControl();
 			dataGridView1.Rows.Clear();
 
 			using (OleDbConnection cnn = new OleDbConnection(db.GetConnectionStrings(providerName)))
@@ -101,8 +137,25 @@ namespace ReceiptPrintConfig
 					newRow.Cells[5].Value = row[i + 5];
 					dataGridView1.Rows.Add(newRow);
 				}
+
+				cnn.Open();
+				string query2 = "SELECT Id, BoxCode FROM [Box]";
+				OleDbDataReader dataReader;
+				OleDbCommand cmd = new OleDbCommand(query2, cnn);
+
+				dataReader = cmd.ExecuteReader();
+				if (dataReader.HasRows)
+				{
+					while (dataReader.Read())
+					{
+						boxcodetxtbox.Text = dataReader["Id"].ToString();
+						//revisiontxtbox.Text = dataReader["BoxCode"].ToString();
+					}
+				}
 			}
-			dataGridView1.SelectedCells[0].Selected = true;
+
+			//dataGridView1.SelectedCells[0].Selected = true;
+			kartoncombobox.SelectedIndex = 0;
 		}
 
 		private void materialbtn_Click(object sender, EventArgs e)
@@ -190,8 +243,29 @@ namespace ReceiptPrintConfig
 			Form1_Load(sender, e);
 		}
 
+		public List<List<string>> allData = new List<List<string>>();
+		public int listId = 0;
 		private void addbelowbtn_Click(object sender, EventArgs e)
 		{
+			listId++;
+			allData.Add(new List<string> {material2txtbox.Text,
+										  companynametxtbox.Text,
+										  description2txtbox.Text,
+										  companycodetxtbox.Text,
+										  unittxtbox.Text,
+										  counttxtbox.Text,
+										  operatortxtbox.Text,
+										  billtxtbox.Text,
+										  billdatetxtbox.Text,
+										  productiontxtbox.Text,
+										  lotnotxtbox.Text,
+										  revisiontxtbox.Text,
+										  boxcodetxtbox.Text,
+										  grossweighttxtbox.Text,
+										  singlechkbox.Checked.ToString(),
+										  quartedchkbox.Checked.ToString(),
+										  kartoncombobox.Text});
+
 			if (!String.IsNullOrEmpty(material2txtbox.Text) &&
 				!String.IsNullOrEmpty(counttxtbox.Text) &&
 				!System.Text.RegularExpressions.Regex.IsMatch(counttxtbox.Text, "[^0-9]") &&
@@ -241,14 +315,15 @@ namespace ReceiptPrintConfig
 			}
 		}
 
-		private Document CreateDocument(string companyName,
-										string materialCode,
-										string description,
-										string companyCode,
+		private Document CreateDocument(string materialCode,
+										string lotno,
+										string companyName,
+										string billno,
+										string billnoDate,
+										string boxcode,
 										string count,
 										string unit,
-										string boxGross,
-										string karton)
+										string productiondate)
 		{
 			// Create a new MigraDoc document
 			Document document = new Document();
@@ -302,46 +377,59 @@ namespace ReceiptPrintConfig
 			Column _values = table.AddColumn("3cm");
 
 			Row row = table.AddRow();
-			row.Cells[0].AddParagraph("Company name");
-			row.Cells[1].AddParagraph(":");
-			row.Cells[2].AddParagraph(companyName);
-			row.Cells[2].Format.Font.Bold = true;
 
 			row = table.AddRow();
-			row.Cells[0].AddParagraph("Material Code");
+			row.Cells[0].AddParagraph("Malzeme Kodu");
 			row.Cells[1].AddParagraph(":");
 			row.Cells[2].AddParagraph(materialCode);
 
-			row = table.AddRow();
-			row.Cells[0].AddParagraph("Description");
+			row.Cells[0].AddParagraph("Lot No");
 			row.Cells[1].AddParagraph(":");
-			row.Cells[2].AddParagraph(description);
+			row.Cells[2].AddParagraph(lotno);
+			row.Cells[2].Format.Font.Bold = true;
+			row.Cells[2].Format.Font.Size = 16;
 
 			row = table.AddRow();
-			row.Cells[0].AddParagraph("Company Code");
+			row.Cells[0].AddParagraph("Firma Adı");
 			row.Cells[1].AddParagraph(":");
-			row.Cells[2].AddParagraph(companyCode);
+			row.Cells[2].AddParagraph(companyName);
 
 			row = table.AddRow();
-			row.Cells[0].AddParagraph("Count");
+			row.Cells[0].AddParagraph("İrsaliye No");
+			row.Cells[1].AddParagraph(":");
+			row.Cells[2].AddParagraph(billno);
+
+			row = table.AddRow();
+			row.Cells[0].AddParagraph("İrsaliye Tarihi");
+			row.Cells[1].AddParagraph(":");
+			row.Cells[2].AddParagraph(billnoDate);
+
+			row = table.AddRow();
+			row.Cells[0].AddParagraph("Kutu Kodu");
+			row.Cells[1].AddParagraph(":");
+			row.Cells[2].AddParagraph(boxcode);
+
+			row = table.AddRow();
+			row.Cells[0].AddParagraph("Üretim Tarihi");
+			row.Cells[1].AddParagraph(":");
+			row.Cells[2].AddParagraph(productiondate);
+
+			row = table.AddRow();
+			row.Cells[0].AddParagraph("Miktar");
 			row.Cells[1].AddParagraph(":");
 			row.Cells[2].AddParagraph(count);
-
-			row = table.AddRow();
-			row.Cells[0].AddParagraph("Unit");
-			row.Cells[1].AddParagraph(":");
-			row.Cells[2].AddParagraph(unit);
 			row.Cells[2].Format.Font.Bold = true;
+			row.Cells[2].Format.Font.Size = 16;
 
 			row = table.AddRow();
-			row.Cells[0].AddParagraph("Box Gross");
+			row.Cells[0].AddParagraph("Birim");
 			row.Cells[1].AddParagraph(":");
-			row.Cells[2].AddParagraph(boxGross);
+			row.Cells[2].AddParagraph("Adet");
 
 			row = table.AddRow();
-			row.Cells[0].AddParagraph("Karton");
+			row.Cells[0].AddParagraph("Toplam Adet");
 			row.Cells[1].AddParagraph(":");
-			row.Cells[2].AddParagraph(karton);
+			row.Cells[2].AddParagraph(count);
 
 			return document;
 		}
@@ -352,17 +440,19 @@ namespace ReceiptPrintConfig
 
 			if (dataGridView2.Rows.Count > 0)
 			{
-				foreach (DataGridViewRow row in dataGridView2.Rows)
+				foreach (var list in allData)
 				{
+
 					// Create a MigraDoc document
-					Document document = CreateDocument(companyName: row.Cells[0].Value.ToString(),
-													   materialCode: row.Cells[1].Value.ToString(),
-													   description: row.Cells[2].Value.ToString(),
-													   companyCode: row.Cells[3].Value.ToString(),
-													   count: row.Cells[4].Value.ToString(),
-													   unit: row.Cells[5].Value.ToString(),
-													   boxGross: row.Cells[6].Value.ToString(),
-													   karton: row.Cells[7].Value.ToString());
+					Document document = CreateDocument(materialCode: list[0],
+													   lotno: list[10],
+													   companyName: list[1],
+													   billno: list[7],
+													   billnoDate: list[8],
+													   boxcode: list[12],
+													   count: list[5],
+													   unit: list[4],
+													   productiondate: list[9]);
 					document.UseCmykColor = true;
 					const bool unicode = false;
 					PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer(unicode);
@@ -375,11 +465,14 @@ namespace ReceiptPrintConfig
 
 					// Save the document...
 					string filename = "C:\\Users\\muss\\Desktop\\Receiver";
-					filename += DateTime.Now.ToFileTime() + ".pdf";
+					long time = DateTime.Now.ToFileTime();
+					BoxCodeUpdateMain(time);
+					filename += time + ".pdf";
 					pdfRenderer.PdfDocument.Save(filename);
 					// ...and start a viewer.
 					Process.Start(filename);
 				}
+				Form1_Load(sender, e);
 			}
 			else
 			{
@@ -387,28 +480,81 @@ namespace ReceiptPrintConfig
 			}
 		}
 
+		public void BoxCodeUpdateMain(long time)
+		{
+			using (OleDbConnection cnn = new OleDbConnection(db.GetConnectionStrings(providerName)))
+			{
+				string query = "INSERT INTO Box (BoxCode) VALUES (@code)";
+				OleDbParameter parameter = new OleDbParameter();
+				parameter.ParameterName = "@code";
+				parameter.Value = time.ToString();
+				DatabaseTransaction db = new DatabaseTransaction();
+				db.BoxCodeUpdate(cnn, query, parameter);
+			}
+				
+		}
+
 		private void newStock_Click(object sender, EventArgs e)
 		{
-			////ReadOnly part
-			//material2txtbox.ReadOnly = false;
-			//companynametxtbox.ReadOnly = false;
-			//description2txtbox.ReadOnly = false;
-			//companycodetxtbox.ReadOnly = false;
-			//unittxtbox.ReadOnly = false;
-			//counttxtbox.ReadOnly = true;
-			//companycodetxtbox.ReadOnly = true;
-			//operatortxtbox.ReadOnly = true;
-			//billtxtbox.ReadOnly = true;
-			//billdatetxtbox.ReadOnly = true;
-			//productiontxtbox.ReadOnly = false;
-			//lotnotxtbox.ReadOnly = true;
-			//revisiontxtbox.ReadOnly = true;
-			//boxcodetxtbox.ReadOnly = true;
-			//grossweighttxtbox.ReadOnly = true;
-			//singlechkbox.Enabled = false;
-			//quartedchkbox.Enabled = false;
-			//kartoncombobox.Enabled = false;
-			
+			var configSettings = new List<string>(ConfigurationSettings.AppSettings["ReceiverCompany1"].Split(new char[] { ';' }));
+
+			//Enable part
+			material2txtbox.Enabled = true;
+			material2txtbox.ReadOnly = false;
+			material2txtbox.Text = null;
+
+			companynametxtbox.Enabled = false;
+			companynametxtbox.Text = configSettings[1].ToString();
+
+			description2txtbox.Enabled = true;
+			description2txtbox.ReadOnly = false;
+			description2txtbox.Text = null;
+
+			companycodetxtbox.Enabled = false;
+			companycodetxtbox.Text = configSettings[0].ToString();
+
+			unittxtbox.Enabled = true;
+			unittxtbox.ReadOnly = false;
+			unittxtbox.Text = null;
+
+			counttxtbox.Enabled = false;
+			counttxtbox.Text = null;
+
+			operatortxtbox.Enabled = false;
+			operatortxtbox.Text = null;
+			billtxtbox.Enabled = false;
+			billtxtbox.Text = null;
+			billdatetxtbox.Enabled = false;
+			billdatetxtbox.Text = null;
+
+			productiontxtbox.Enabled = false;
+			productiontxtbox.Text = null;
+			productiontxtbox.ReadOnly = true;
+
+			lotnotxtbox.Enabled = false;
+			lotnotxtbox.Text = null;
+			addbelowbtn.Enabled = false;
+			deleteAll.Enabled = false;
+			deleteSelected.Enabled = false;
+			dataGridView2.Enabled = false;
+			print.Enabled = false;
+			revisiontxtbox.Enabled = false;
+			revisiontxtbox.Text = null;
+			boxcodetxtbox.Enabled = false;
+			boxcodetxtbox.Text = null;
+			grossweighttxtbox.Enabled = false;
+			grossweighttxtbox.Text = null;
+			singlechkbox.Enabled = false;
+			quartedchkbox.Enabled = false;
+			kartoncombobox.Enabled = false;
+			materialtxtbox.Enabled = false;
+			descriptiontxtbox.Enabled = false;
+			materialbtn.Enabled = false;
+			descriptionbtn.Enabled = false;
+			reloadbtn.Enabled = false;
+			dataGridView1.Enabled = false;
+
+			CallTextBoxControl();
 		}
 
 		public void TextBoxControl(System.Windows.Forms.TextBox txt, string regex = null)
@@ -474,9 +620,51 @@ namespace ReceiptPrintConfig
 			TextBoxControl(counttxtbox, "[^0-9]");
 		}
 
-		private void productiontxtbox_TextChanged(object sender, EventArgs e)
+		private void productiontxtbox_TextChanged_1(object sender, EventArgs e)
 		{
 			TextBoxControl(productiontxtbox);
+		}
+
+		private void saveDatabase_Click(object sender, EventArgs e)
+		{
+			bool validation = !String.IsNullOrEmpty(material2txtbox.Text) &&
+			   !String.IsNullOrEmpty(description2txtbox.Text) &&
+			   !String.IsNullOrEmpty(unittxtbox.Text);
+
+			if (validation)
+			{
+				try
+				{
+					//Database Insert
+					using (OleDbConnection cnn = new OleDbConnection(db.GetConnectionStrings(providerName)))
+					{
+						DatabaseTransaction db = new DatabaseTransaction();
+
+						string query = "INSERT INTO Stock (MaterialCode, Description, Unit, CreateDateTime) VALUES (@code, @desc, @unit, @date)";
+
+						List<OleDbParameter> par = new List<OleDbParameter>();
+						par.Add(new OleDbParameter("@code", material2txtbox.Text));
+						par.Add(new OleDbParameter("@desc", description2txtbox.Text));
+						par.Add(new OleDbParameter("@unit", unittxtbox.Text));
+						par.Add(new OleDbParameter("@date", DateTime.Now.ToString("dd-MM-yyyy h:mm:ss tt")));
+
+						db.DatabaseInsert(cnn, query, par);
+					}
+					Form1_Load(sender, e);
+				}
+				catch (System.FormatException message)
+				{
+					MessageBox.Show("Check date format!");
+				}
+				catch
+				{
+					MessageBox.Show("Unknown error");
+				}
+			}
+			else
+			{
+				MessageBox.Show("Fill required contents!");
+			}
 		}
 	}
 }

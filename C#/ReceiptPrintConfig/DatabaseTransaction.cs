@@ -63,5 +63,27 @@ namespace ReceiptPrintConfig
 
 			return Row;
 		}
+
+		public void DatabaseInsert(OleDbConnection cnn, string query, List<OleDbParameter> parameters)
+		{
+			cnn.Open();
+			OleDbCommand cmd = new OleDbCommand(query, cnn);
+			foreach(var par in parameters)
+			{
+				cmd.Parameters.Add(par.ParameterName, par.Value);
+			}
+			cmd.ExecuteNonQuery();
+		}
+
+		public void BoxCodeUpdate(OleDbConnection cnn, string query, OleDbParameter parameter = null)
+		{
+			cnn.Open();
+			OleDbCommand cmd = new OleDbCommand(query, cnn);
+			if(parameter != null)
+			{
+				cmd.Parameters.Add(parameter.ParameterName, parameter.Value);
+			}
+			cmd.ExecuteNonQuery();
+		}
 	}
 }

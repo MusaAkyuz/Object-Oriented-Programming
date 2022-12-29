@@ -58,7 +58,6 @@
 			this.label12 = new System.Windows.Forms.Label();
 			this.lotnotxtbox = new System.Windows.Forms.TextBox();
 			this.label13 = new System.Windows.Forms.Label();
-			this.productiontxtbox = new System.Windows.Forms.TextBox();
 			this.label14 = new System.Windows.Forms.Label();
 			this.billdatetxtbox = new System.Windows.Forms.TextBox();
 			this.label15 = new System.Windows.Forms.Label();
@@ -78,6 +77,7 @@
 			this.label5 = new System.Windows.Forms.Label();
 			this.material2txtbox = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
+			this.productiontxtbox = new System.Windows.Forms.TextBox();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.groupBox2.SuspendLayout();
@@ -184,6 +184,7 @@
 			// 
 			// groupBox2
 			// 
+			this.groupBox2.Controls.Add(this.productiontxtbox);
 			this.groupBox2.Controls.Add(this.saveDatabase);
 			this.groupBox2.Controls.Add(this.newStock);
 			this.groupBox2.Controls.Add(this.label17);
@@ -202,7 +203,6 @@
 			this.groupBox2.Controls.Add(this.label12);
 			this.groupBox2.Controls.Add(this.lotnotxtbox);
 			this.groupBox2.Controls.Add(this.label13);
-			this.groupBox2.Controls.Add(this.productiontxtbox);
 			this.groupBox2.Controls.Add(this.label14);
 			this.groupBox2.Controls.Add(this.billdatetxtbox);
 			this.groupBox2.Controls.Add(this.label15);
@@ -237,6 +237,7 @@
 			this.saveDatabase.TabIndex = 40;
 			this.saveDatabase.Text = "Save Database";
 			this.saveDatabase.UseVisualStyleBackColor = true;
+			this.saveDatabase.Click += new System.EventHandler(this.saveDatabase_Click);
 			// 
 			// newStock
 			// 
@@ -417,15 +418,6 @@
 			this.label13.TabIndex = 21;
 			this.label13.Text = "Lot No";
 			// 
-			// productiontxtbox
-			// 
-			this.productiontxtbox.Location = new System.Drawing.Point(468, 83);
-			this.productiontxtbox.Name = "productiontxtbox";
-			this.productiontxtbox.ReadOnly = true;
-			this.productiontxtbox.Size = new System.Drawing.Size(232, 20);
-			this.productiontxtbox.TabIndex = 20;
-			this.productiontxtbox.TextChanged += new System.EventHandler(this.productiontxtbox_TextChanged);
-			// 
 			// label14
 			// 
 			this.label14.AutoSize = true;
@@ -590,6 +582,15 @@
 			this.label3.TabIndex = 0;
 			this.label3.Text = "Material Code";
 			// 
+			// productiontxtbox
+			// 
+			this.productiontxtbox.Location = new System.Drawing.Point(468, 83);
+			this.productiontxtbox.Name = "productiontxtbox";
+			this.productiontxtbox.ReadOnly = true;
+			this.productiontxtbox.Size = new System.Drawing.Size(232, 20);
+			this.productiontxtbox.TabIndex = 42;
+			this.productiontxtbox.TextChanged += new System.EventHandler(this.productiontxtbox_TextChanged_1);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -646,7 +647,6 @@
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.TextBox lotnotxtbox;
 		private System.Windows.Forms.Label label13;
-		private System.Windows.Forms.TextBox productiontxtbox;
 		private System.Windows.Forms.Label label14;
 		private System.Windows.Forms.TextBox billdatetxtbox;
 		private System.Windows.Forms.Label label15;
@@ -665,6 +665,7 @@
 		private System.Windows.Forms.Label label17;
 		private System.Windows.Forms.Button saveDatabase;
 		private System.Windows.Forms.Button newStock;
+		private System.Windows.Forms.TextBox productiontxtbox;
 	}
 }
 

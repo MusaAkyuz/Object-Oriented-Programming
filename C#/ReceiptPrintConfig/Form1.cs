@@ -17,6 +17,8 @@ using MigraDoc.Rendering;
 using MigraDoc.DocumentObjectModel.Shapes;
 using MigraDoc.DocumentObjectModel.Tables;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using QRCoder;
+using System.Drawing.Imaging;
 
 namespace ReceiptPrintConfig
 {
@@ -323,7 +325,8 @@ namespace ReceiptPrintConfig
 										string boxcode,
 										string count,
 										string unit,
-										string productiondate)
+										string productiondate,
+										string companyCode)
 		{
 			// Create a new MigraDoc document
 			Document document = new Document();
@@ -341,8 +344,37 @@ namespace ReceiptPrintConfig
 			image.RelativeHorizontal = RelativeHorizontal.Margin;
 			image.Top = ShapePosition.Top;
 			image.WrapFormat.Style = WrapStyle.Through;
+
+			DateTime dateForQrCode = DateTime.Parse(billnoDate);
+			string qrCodeDateFormatBill = dateForQrCode.Day + "." + 
+										  dateForQrCode.Month + "." + 
+										  dateForQrCode.Year;
+
+			dateForQrCode = DateTime.Parse(productiondate);
+			string qrCodeDateFormatProduction = dateForQrCode.Day + "." + 
+												dateForQrCode.Month + "." + 
+												dateForQrCode.Year;
+
+			string qrCodeString = materialCode + ">" + 
+								  lotno + ">" + 
+								  companyCode + ">" + 
+								  billno + ">" + 
+								  qrCodeDateFormatBill + ">" + 
+								  boxcode + ">" + 
+								  qrCodeDateFormatProduction + ">" + 
+								  count + ">" + 
+								  unit + ">" + 
+								  count;
+
+			QRCodeGenerator qrGenerator = new QRCodeGenerator();
+			QRCodeData qrCodeData = qrGenerator.CreateQrCode(qrCodeString, QRCodeGenerator.ECCLevel.Q);
+			QRCode qrCode = new QRCode(qrCodeData);
+			Bitmap qrCodeImage = qrCode.GetGraphic(20);
+			qrCodeImage.Save("qr.png", ImageFormat.Png);
+			
+
 			image = section.AddImage("qr.png");
-			image.Width = new Unit(80, UnitType.Point); ;
+			image.Width = new Unit(80, UnitType.Point);
 			image.Height = new Unit(80, UnitType.Point);
 			image.Left = ShapePosition.Right;
 
@@ -452,7 +484,8 @@ namespace ReceiptPrintConfig
 													   boxcode: list[12],
 													   count: list[5],
 													   unit: list[4],
-													   productiondate: list[9]);
+													   productiondate: list[9],
+													   companyCode: list[3]);
 					document.UseCmykColor = true;
 					const bool unicode = false;
 					PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer(unicode);

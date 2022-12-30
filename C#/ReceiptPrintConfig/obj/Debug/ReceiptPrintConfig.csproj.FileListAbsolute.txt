@@ -32,8 +32,6 @@ C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrin
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\de\PdfSharp.Charting-gdi.resources.dll
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\obj\Debug\ReceiptPrintConfig.csproj.CopyComplete
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\BitMiracle.LibTiff.NET.dll
-C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\IronBarCode.dll
-C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\IronSoftware.Drawing.Common.dll
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\SixLabors.ImageSharp.dll
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\System.Buffers.dll
@@ -43,8 +41,6 @@ C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrin
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\System.Text.Encoding.CodePages.dll
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\BitMiracle.LibTiff.NET.xml
-C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\IronBarCode.xml
-C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\IronSoftware.Drawing.Common.pdb
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\SixLabors.ImageSharp.xml
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\System.Buffers.xml
@@ -53,3 +49,4 @@ C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrin
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\System.Text.Encoding.CodePages.xml
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\QRCoder.dll

@@ -38,6 +38,9 @@
 			this.materialtxtbox = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.backbtn = new System.Windows.Forms.Button();
+			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+			this.productiontxtbox = new System.Windows.Forms.TextBox();
 			this.saveDatabase = new System.Windows.Forms.Button();
 			this.newStock = new System.Windows.Forms.Button();
 			this.label17 = new System.Windows.Forms.Label();
@@ -77,7 +80,6 @@
 			this.label5 = new System.Windows.Forms.Label();
 			this.material2txtbox = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
-			this.productiontxtbox = new System.Windows.Forms.TextBox();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.groupBox2.SuspendLayout();
@@ -104,7 +106,7 @@
 			this.groupBox1.Size = new System.Drawing.Size(1018, 224);
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Stock Database";
+			this.groupBox1.Text = "Stock Information";
 			// 
 			// dataGridView1
 			// 
@@ -184,6 +186,8 @@
 			// 
 			// groupBox2
 			// 
+			this.groupBox2.Controls.Add(this.backbtn);
+			this.groupBox2.Controls.Add(this.dateTimePicker1);
 			this.groupBox2.Controls.Add(this.productiontxtbox);
 			this.groupBox2.Controls.Add(this.saveDatabase);
 			this.groupBox2.Controls.Add(this.newStock);
@@ -229,21 +233,48 @@
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Label Info";
 			// 
+			// backbtn
+			// 
+			this.backbtn.Location = new System.Drawing.Point(906, 62);
+			this.backbtn.Name = "backbtn";
+			this.backbtn.Size = new System.Drawing.Size(102, 39);
+			this.backbtn.TabIndex = 44;
+			this.backbtn.Text = "Back";
+			this.backbtn.UseVisualStyleBackColor = true;
+			this.backbtn.Click += new System.EventHandler(this.backbtn_Click);
+			// 
+			// dateTimePicker1
+			// 
+			this.dateTimePicker1.Location = new System.Drawing.Point(598, 59);
+			this.dateTimePicker1.Name = "dateTimePicker1";
+			this.dateTimePicker1.Size = new System.Drawing.Size(102, 20);
+			this.dateTimePicker1.TabIndex = 43;
+			this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+			// 
+			// productiontxtbox
+			// 
+			this.productiontxtbox.Location = new System.Drawing.Point(468, 83);
+			this.productiontxtbox.Name = "productiontxtbox";
+			this.productiontxtbox.ReadOnly = true;
+			this.productiontxtbox.Size = new System.Drawing.Size(232, 20);
+			this.productiontxtbox.TabIndex = 42;
+			this.productiontxtbox.TextChanged += new System.EventHandler(this.productiontxtbox_TextChanged_1);
+			// 
 			// saveDatabase
 			// 
-			this.saveDatabase.Location = new System.Drawing.Point(906, 65);
+			this.saveDatabase.Location = new System.Drawing.Point(906, 105);
 			this.saveDatabase.Name = "saveDatabase";
-			this.saveDatabase.Size = new System.Drawing.Size(102, 48);
+			this.saveDatabase.Size = new System.Drawing.Size(102, 37);
 			this.saveDatabase.TabIndex = 40;
-			this.saveDatabase.Text = "Save Database";
+			this.saveDatabase.Text = "Save";
 			this.saveDatabase.UseVisualStyleBackColor = true;
 			this.saveDatabase.Click += new System.EventHandler(this.saveDatabase_Click);
 			// 
 			// newStock
 			// 
-			this.newStock.Location = new System.Drawing.Point(906, 16);
+			this.newStock.Location = new System.Drawing.Point(906, 21);
 			this.newStock.Name = "newStock";
-			this.newStock.Size = new System.Drawing.Size(102, 47);
+			this.newStock.Size = new System.Drawing.Size(102, 37);
 			this.newStock.TabIndex = 39;
 			this.newStock.Text = "New Stock";
 			this.newStock.UseVisualStyleBackColor = true;
@@ -254,9 +285,9 @@
 			this.label17.AutoSize = true;
 			this.label17.Location = new System.Drawing.Point(714, 37);
 			this.label17.Name = "label17";
-			this.label17.Size = new System.Drawing.Size(38, 13);
+			this.label17.Size = new System.Drawing.Size(56, 13);
 			this.label17.TabIndex = 38;
-			this.label17.Text = "Karton";
+			this.label17.Text = "Cardboard";
 			// 
 			// revisiontxtbox
 			// 
@@ -305,6 +336,7 @@
 			this.groupBox3.TabIndex = 33;
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Print Type";
+			this.groupBox3.Visible = false;
 			// 
 			// singlechkbox
 			// 
@@ -315,6 +347,7 @@
 			this.singlechkbox.TabIndex = 31;
 			this.singlechkbox.Text = "Single Print";
 			this.singlechkbox.UseVisualStyleBackColor = true;
+			this.singlechkbox.Visible = false;
 			// 
 			// quartedchkbox
 			// 
@@ -325,6 +358,7 @@
 			this.quartedchkbox.TabIndex = 32;
 			this.quartedchkbox.Text = "Quarted Print";
 			this.quartedchkbox.UseVisualStyleBackColor = true;
+			this.quartedchkbox.Visible = false;
 			// 
 			// addbelowbtn
 			// 
@@ -355,9 +389,9 @@
 			this.kartoncombobox.Items.AddRange(new object[] {
             "Yes",
             "No"});
-			this.kartoncombobox.Location = new System.Drawing.Point(754, 34);
+			this.kartoncombobox.Location = new System.Drawing.Point(776, 34);
 			this.kartoncombobox.Name = "kartoncombobox";
-			this.kartoncombobox.Size = new System.Drawing.Size(134, 21);
+			this.kartoncombobox.Size = new System.Drawing.Size(112, 21);
 			this.kartoncombobox.TabIndex = 29;
 			// 
 			// grossweighttxtbox
@@ -431,7 +465,8 @@
 			// 
 			this.billdatetxtbox.Location = new System.Drawing.Point(468, 58);
 			this.billdatetxtbox.Name = "billdatetxtbox";
-			this.billdatetxtbox.Size = new System.Drawing.Size(232, 20);
+			this.billdatetxtbox.ReadOnly = true;
+			this.billdatetxtbox.Size = new System.Drawing.Size(124, 20);
 			this.billdatetxtbox.TabIndex = 18;
 			// 
 			// label15
@@ -582,15 +617,6 @@
 			this.label3.TabIndex = 0;
 			this.label3.Text = "Material Code";
 			// 
-			// productiontxtbox
-			// 
-			this.productiontxtbox.Location = new System.Drawing.Point(468, 83);
-			this.productiontxtbox.Name = "productiontxtbox";
-			this.productiontxtbox.ReadOnly = true;
-			this.productiontxtbox.Size = new System.Drawing.Size(232, 20);
-			this.productiontxtbox.TabIndex = 42;
-			this.productiontxtbox.TextChanged += new System.EventHandler(this.productiontxtbox_TextChanged_1);
-			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -666,6 +692,8 @@
 		private System.Windows.Forms.Button saveDatabase;
 		private System.Windows.Forms.Button newStock;
 		private System.Windows.Forms.TextBox productiontxtbox;
+		private System.Windows.Forms.DateTimePicker dateTimePicker1;
+		private System.Windows.Forms.Button backbtn;
 	}
 }
 

@@ -15,6 +15,7 @@ namespace ReceiptPrintConfig
 	{
 		private static ArrayList Row = new ArrayList();
 
+		// Get Connection String from Configuration AppConfig
 		public string GetConnectionStrings(string providerName)
 		{
 			ConnectionStringSettingsCollection settings =
@@ -33,6 +34,7 @@ namespace ReceiptPrintConfig
 			return null;
 		}
 
+		// GetsFromDatabase
 		public ArrayList QueryToArrayList(OleDbConnection cnn, string query, OleDbParameter parameter = null)
 		{
 			Row.Clear();
@@ -64,6 +66,7 @@ namespace ReceiptPrintConfig
 			return Row;
 		}
 
+		// Insert Operations to New Stock Button
 		public void DatabaseInsert(OleDbConnection cnn, string query, List<OleDbParameter> parameters)
 		{
 			cnn.Open();
@@ -75,6 +78,8 @@ namespace ReceiptPrintConfig
 			cmd.ExecuteNonQuery();
 		}
 
+		// Insert operation for BoxCode value
+		// Increase when per receipt print
 		public void BoxCodeUpdate(OleDbConnection cnn, string query, OleDbParameter parameter = null)
 		{
 			cnn.Open();

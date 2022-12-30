@@ -30,6 +30,9 @@ namespace ReceiptPrintConfig
 		public Form1()
 		{
 			InitializeComponent();
+
+			// DataGridView Initial Settings
+			#region DataGridViewInitialSettings
 			dataGridView1.ColumnCount = 6;
 			dataGridView1.Columns[0].Name = "Company Code"; 
 			dataGridView1.Columns[1].Name = "Company Name";
@@ -47,6 +50,7 @@ namespace ReceiptPrintConfig
 			dataGridView2.Columns[5].Name = "Unit";
 			dataGridView2.Columns[6].Name = "Box Gross";
 			dataGridView2.Columns[7].Name = "Karton";
+			#endregion
 		}
 
 		public void CallTextBoxControl()
@@ -62,6 +66,7 @@ namespace ReceiptPrintConfig
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
+			#region Form1InitialSettings
 			material2txtbox.Enabled = true;
 			material2txtbox.ReadOnly = true;
 			material2txtbox.Text = null;
@@ -116,6 +121,9 @@ namespace ReceiptPrintConfig
 			descriptionbtn.Enabled = true;
 			reloadbtn.Enabled = true;
 			dataGridView1.Enabled = true;
+			dateTimePicker1.Enabled = true;
+			backbtn.Enabled = false;
+			#endregion
 
 			CallTextBoxControl();
 			dataGridView1.Rows.Clear();
@@ -249,8 +257,17 @@ namespace ReceiptPrintConfig
 		public int listId = 0;
 		private void addbelowbtn_Click(object sender, EventArgs e)
 		{
-			listId++;
-			allData.Add(new List<string> {material2txtbox.Text,
+			if (!String.IsNullOrEmpty(material2txtbox.Text) &&
+				!String.IsNullOrEmpty(counttxtbox.Text) &&
+				!System.Text.RegularExpressions.Regex.IsMatch(counttxtbox.Text, "[^0-9]") &&
+				!String.IsNullOrEmpty(companycodetxtbox.Text) &&
+				!String.IsNullOrEmpty(companynametxtbox.Text) &&
+				!String.IsNullOrEmpty(description2txtbox.Text) &&
+				!String.IsNullOrEmpty(unittxtbox.Text) &&
+				!String.IsNullOrEmpty(productiontxtbox.Text))
+			{
+				listId++;
+				allData.Add(new List<string> {material2txtbox.Text,
 										  companynametxtbox.Text,
 										  description2txtbox.Text,
 										  companycodetxtbox.Text,
@@ -268,15 +285,6 @@ namespace ReceiptPrintConfig
 										  quartedchkbox.Checked.ToString(),
 										  kartoncombobox.Text});
 
-			if (!String.IsNullOrEmpty(material2txtbox.Text) &&
-				!String.IsNullOrEmpty(counttxtbox.Text) &&
-				!System.Text.RegularExpressions.Regex.IsMatch(counttxtbox.Text, "[^0-9]") &&
-				!String.IsNullOrEmpty(companycodetxtbox.Text) &&
-				!String.IsNullOrEmpty(companynametxtbox.Text) &&
-				!String.IsNullOrEmpty(description2txtbox.Text) &&
-				!String.IsNullOrEmpty(unittxtbox.Text) &&
-				!String.IsNullOrEmpty(productiontxtbox.Text))
-			{
 				DataGridViewRow newRow = new DataGridViewRow();
 				newRow.CreateCells(dataGridView2);
 				newRow.Cells[0].Value = companynametxtbox.Text;
@@ -317,155 +325,6 @@ namespace ReceiptPrintConfig
 			}
 		}
 
-		private Document CreateDocument(string materialCode,
-										string lotno,
-										string companyName,
-										string billno,
-										string billnoDate,
-										string boxcode,
-										string count,
-										string unit,
-										string productiondate,
-										string companyCode)
-		{
-			// Create a new MigraDoc document
-			Document document = new Document();
-
-			// Add a section to the document
-			Section section = document.AddSection();
-			section.PageSetup.TopMargin = "1.5cm";
-
-			//Arçelik and qr code image
-			var image = section.AddImage("arcelik.png");
-			image.Width = new Unit(150, UnitType.Point); ;
-			image.Height = new Unit(150, UnitType.Point);
-			image.Left = ShapePosition.Center;
-			image.RelativeVertical = RelativeVertical.Line;
-			image.RelativeHorizontal = RelativeHorizontal.Margin;
-			image.Top = ShapePosition.Top;
-			image.WrapFormat.Style = WrapStyle.Through;
-
-			DateTime dateForQrCode = DateTime.Parse(billnoDate);
-			string qrCodeDateFormatBill = dateForQrCode.Day + "." + 
-										  dateForQrCode.Month + "." + 
-										  dateForQrCode.Year;
-
-			dateForQrCode = DateTime.Parse(productiondate);
-			string qrCodeDateFormatProduction = dateForQrCode.Day + "." + 
-												dateForQrCode.Month + "." + 
-												dateForQrCode.Year;
-
-			string qrCodeString = materialCode + ">" + 
-								  lotno + ">" + 
-								  companyCode + ">" + 
-								  billno + ">" + 
-								  qrCodeDateFormatBill + ">" + 
-								  boxcode + ">" + 
-								  qrCodeDateFormatProduction + ">" + 
-								  count + ">" + 
-								  unit + ">" + 
-								  count;
-
-			QRCodeGenerator qrGenerator = new QRCodeGenerator();
-			QRCodeData qrCodeData = qrGenerator.CreateQrCode(qrCodeString, QRCodeGenerator.ECCLevel.Q);
-			QRCode qrCode = new QRCode(qrCodeData);
-			Bitmap qrCodeImage = qrCode.GetGraphic(20);
-			qrCodeImage.Save("qr.png", ImageFormat.Png);
-			
-
-			image = section.AddImage("qr.png");
-			image.Width = new Unit(80, UnitType.Point);
-			image.Height = new Unit(80, UnitType.Point);
-			image.Left = ShapePosition.Right;
-
-			Paragraph par;
-
-			//Arçelik A.Ş.
-			par = section.AddParagraph();
-			par.Format.SpaceBefore = "3.3cm";
-			par.Format.Alignment = ParagraphAlignment.Center;
-			par.Format.Font.Size = 15;
-			par.Format.Font.Bold = true;
-			par.AddText("Arçelik A.Ş.");
-
-			//PCI
-			par = section.AddParagraph();
-			par.Format.Alignment = ParagraphAlignment.Center;
-			par.Format.Font.Size = 11;
-			par.AddText("PCI");
-
-			//Malzeme Tanıtım Kartı
-			par = section.AddParagraph();
-			par.Format.Alignment = ParagraphAlignment.Center;
-			par.Format.Font.Size = 11;
-			par.AddText("Malzeme Tanitim Karti");
-			par.Format.SpaceAfter = "1.4cm";
-
-			//All information
-			Table table = section.AddTable();
-			table.Format.SpaceBefore = "0.3cm";
-			Column _headers = table.AddColumn("3cm");
-			Column _doublePoint = table.AddColumn("0.5cm");
-			Column _values = table.AddColumn("3cm");
-
-			Row row = table.AddRow();
-
-			row = table.AddRow();
-			row.Cells[0].AddParagraph("Malzeme Kodu");
-			row.Cells[1].AddParagraph(":");
-			row.Cells[2].AddParagraph(materialCode);
-
-			row.Cells[0].AddParagraph("Lot No");
-			row.Cells[1].AddParagraph(":");
-			row.Cells[2].AddParagraph(lotno);
-			row.Cells[2].Format.Font.Bold = true;
-			row.Cells[2].Format.Font.Size = 16;
-
-			row = table.AddRow();
-			row.Cells[0].AddParagraph("Firma Adı");
-			row.Cells[1].AddParagraph(":");
-			row.Cells[2].AddParagraph(companyName);
-
-			row = table.AddRow();
-			row.Cells[0].AddParagraph("İrsaliye No");
-			row.Cells[1].AddParagraph(":");
-			row.Cells[2].AddParagraph(billno);
-
-			row = table.AddRow();
-			row.Cells[0].AddParagraph("İrsaliye Tarihi");
-			row.Cells[1].AddParagraph(":");
-			row.Cells[2].AddParagraph(billnoDate);
-
-			row = table.AddRow();
-			row.Cells[0].AddParagraph("Kutu Kodu");
-			row.Cells[1].AddParagraph(":");
-			row.Cells[2].AddParagraph(boxcode);
-
-			row = table.AddRow();
-			row.Cells[0].AddParagraph("Üretim Tarihi");
-			row.Cells[1].AddParagraph(":");
-			row.Cells[2].AddParagraph(productiondate);
-
-			row = table.AddRow();
-			row.Cells[0].AddParagraph("Miktar");
-			row.Cells[1].AddParagraph(":");
-			row.Cells[2].AddParagraph(count);
-			row.Cells[2].Format.Font.Bold = true;
-			row.Cells[2].Format.Font.Size = 16;
-
-			row = table.AddRow();
-			row.Cells[0].AddParagraph("Birim");
-			row.Cells[1].AddParagraph(":");
-			row.Cells[2].AddParagraph("Adet");
-
-			row = table.AddRow();
-			row.Cells[0].AddParagraph("Toplam Adet");
-			row.Cells[1].AddParagraph(":");
-			row.Cells[2].AddParagraph(count);
-
-			return document;
-		}
-
 		private void print_Click(object sender, EventArgs e)
 		{
 			ArrayList printerData = new ArrayList();
@@ -474,9 +333,9 @@ namespace ReceiptPrintConfig
 			{
 				foreach (var list in allData)
 				{
-
+					DocumantTransactions doc = new DocumantTransactions();
 					// Create a MigraDoc document
-					Document document = CreateDocument(materialCode: list[0],
+					Document document = doc.CreateDocument(materialCode: list[0],
 													   lotno: list[10],
 													   companyName: list[1],
 													   billno: list[7],
@@ -586,6 +445,8 @@ namespace ReceiptPrintConfig
 			descriptionbtn.Enabled = false;
 			reloadbtn.Enabled = false;
 			dataGridView1.Enabled = false;
+			dateTimePicker1.Enabled = false;
+			backbtn.Enabled = true;
 
 			CallTextBoxControl();
 		}
@@ -658,6 +519,11 @@ namespace ReceiptPrintConfig
 			TextBoxControl(productiontxtbox);
 		}
 
+		private void backbtn_Click(object sender, EventArgs e)
+		{
+			Form1_Load(sender, e);
+		}
+
 		private void saveDatabase_Click(object sender, EventArgs e)
 		{
 			bool validation = !String.IsNullOrEmpty(material2txtbox.Text) &&
@@ -685,7 +551,7 @@ namespace ReceiptPrintConfig
 					}
 					Form1_Load(sender, e);
 				}
-				catch (System.FormatException message)
+				catch (System.FormatException)
 				{
 					MessageBox.Show("Check date format!");
 				}
@@ -698,6 +564,12 @@ namespace ReceiptPrintConfig
 			{
 				MessageBox.Show("Fill required contents!");
 			}
+		}
+
+		private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+		{
+			DateTime date = dateTimePicker1.Value;
+			billdatetxtbox.Text = date.ToString();
 		}
 	}
 }

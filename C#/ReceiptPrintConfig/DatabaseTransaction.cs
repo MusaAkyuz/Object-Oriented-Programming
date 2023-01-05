@@ -49,8 +49,10 @@ namespace ReceiptPrintConfig
 
 			if (dataReader.HasRows)
 			{
+				int counter = 0;
 				while (dataReader.Read())
 				{
+					Row.Add(counter);
 					var configSettings = new List<string>(ConfigurationSettings.AppSettings["ReceiverCompany1"].Split(new char[] {';'}));
 					Row.Add(configSettings[0]);
 					Row.Add(configSettings[1]);

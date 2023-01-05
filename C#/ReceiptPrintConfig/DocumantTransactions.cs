@@ -98,8 +98,8 @@ namespace ReceiptPrintConfig
 			// Printing qr code image
 			#region PrintingQrCodeImage
 			image = section.AddImage("qr.png");
-			image.Width = new Unit(80, UnitType.Point);
-			image.Height = new Unit(80, UnitType.Point);
+			image.Width = new Unit(120, UnitType.Point);
+			image.Height = new Unit(120, UnitType.Point);
 			image.Left = ShapePosition.Right;
 			image.WrapFormat.Style = WrapStyle.Through;
 			#endregion
@@ -112,20 +112,20 @@ namespace ReceiptPrintConfig
 			par = section.AddParagraph();
 			par.Format.SpaceBefore = "5.4cm";
 			par.Format.Alignment = ParagraphAlignment.Center;
-			par.Format.Font.Size = 15;
+			par.Format.Font.Size = 20;
 			par.Format.Font.Bold = true;
 			par.AddText("Arçelik A.Ş.");
 
 			//PCI
 			par = section.AddParagraph();
 			par.Format.Alignment = ParagraphAlignment.Center;
-			par.Format.Font.Size = 11;
+			par.Format.Font.Size = 16;
 			par.AddText("PCI");
 
 			//Malzeme Tanıtım Kartı
 			par = section.AddParagraph();
 			par.Format.Alignment = ParagraphAlignment.Center;
-			par.Format.Font.Size = 11;
+			par.Format.Font.Size = 16;
 			par.AddText("Malzeme Tanitim Karti");
 			par.Format.SpaceAfter = "0.2cm";
 			#endregion
@@ -136,10 +136,10 @@ namespace ReceiptPrintConfig
 			//All information about receiver from Application Form
 			#region InfromationTab
 			Table table = section.AddTable();
-			table.Format.SpaceBefore = "0.1cm";
-			Column _headers = table.AddColumn("3cm");
+			table.Format.SpaceBefore = "0.3cm";
+			Column _headers = table.AddColumn("5cm");
 			Column _doublePoint = table.AddColumn("0.5cm");
-			Column _values = table.AddColumn("3cm");
+			Column _values = table.AddColumn("5cm");
 			_headers.Borders.Visible = false;
 			_doublePoint.Borders.Visible = false;
 			_values.Borders.Visible = false;
@@ -149,57 +149,85 @@ namespace ReceiptPrintConfig
 
 			row = table.AddRow();
 			row.Cells[0].AddParagraph("Malzeme Kodu");
+			row.Cells[0].Format.Font.Size = 16;
 			row.Cells[1].AddParagraph(":");
+			row.Cells[1].Format.Font.Size = 16;
 			row.Cells[2].AddParagraph(materialCode);
 			row.Cells[2].Format.Font.Bold = true;
-			row.Cells[2].Format.Font.Size = 20;
+			row.Cells[2].Format.Font.Size = 25;
 
 			row = table.AddRow();
 			row.Cells[0].AddParagraph("Lot No");
+			row.Cells[0].Format.Font.Size = 16;
 			row.Cells[1].AddParagraph(":");
+			row.Cells[1].Format.Font.Size = 16;
 			row.Cells[2].AddParagraph(lotno);
-			
+			row.Cells[2].Format.Font.Size = 16;
+
 			row = table.AddRow();
 			row.Cells[0].AddParagraph("Firma Adı");
+			row.Cells[0].Format.Font.Size = 16;
 			row.Cells[1].AddParagraph(":");
+			row.Cells[1].Format.Font.Size = 16;
 			row.Cells[2].AddParagraph(companyName);
+			row.Cells[2].Format.Font.Size = 16;
 
 			row = table.AddRow();
 			row.Cells[0].AddParagraph("İrsaliye No");
+			row.Cells[0].Format.Font.Size = 16;
 			row.Cells[1].AddParagraph(":");
+			row.Cells[1].Format.Font.Size = 16;
 			row.Cells[2].AddParagraph(billno);
+			row.Cells[2].Format.Font.Size = 16;
 
 			row = table.AddRow();
 			row.Cells[0].AddParagraph("İrsaliye Tarihi");
+			row.Cells[0].Format.Font.Size = 16;
 			row.Cells[1].AddParagraph(":");
+			row.Cells[1].Format.Font.Size = 16;
 			row.Cells[2].AddParagraph(qrCodeDateFormatBill + "");
+			row.Cells[2].Format.Font.Size = 16;
 
 			row = table.AddRow();
 			row.Cells[0].AddParagraph("Kutu Kodu");
+			row.Cells[0].Format.Font.Size = 16;
 			row.Cells[1].AddParagraph(":");
+			row.Cells[1].Format.Font.Size = 16;
 			row.Cells[2].AddParagraph(boxcode);
+			row.Cells[2].Format.Font.Size = 16;
 
 			row = table.AddRow();
 			row.Cells[0].AddParagraph("Üretim Tarihi");
+			row.Cells[0].Format.Font.Size = 16;
 			row.Cells[1].AddParagraph(":");
+			row.Cells[1].Format.Font.Size = 16;
 			row.Cells[2].AddParagraph(qrCodeDateFormatProduction + "");
+			row.Cells[2].Format.Font.Size = 16;
 
 			row = table.AddRow();
 			row.Cells[0].AddParagraph("Miktar");
+			row.Cells[0].Format.Font.Size = 16;
 			row.Cells[1].AddParagraph(":");
+			row.Cells[1].Format.Font.Size = 16;
 			row.Cells[2].AddParagraph(count);
 			row.Cells[2].Format.Font.Bold = true;
-			row.Cells[2].Format.Font.Size = 20;
+			row.Cells[2].Format.Font.Size = 25;
 
 			row = table.AddRow();
 			row.Cells[0].AddParagraph("Birim");
+			row.Cells[0].Format.Font.Size = 16;
 			row.Cells[1].AddParagraph(":");
+			row.Cells[1].Format.Font.Size = 16;
 			row.Cells[2].AddParagraph("Adet");
+			row.Cells[2].Format.Font.Size = 16;
 
 			row = table.AddRow();
 			row.Cells[0].AddParagraph("Toplam Adet");
+			row.Cells[0].Format.Font.Size = 16;
 			row.Cells[1].AddParagraph(":");
+			row.Cells[1].Format.Font.Size = 16;
 			row.Cells[2].AddParagraph(count);
+			row.Cells[2].Format.Font.Size = 16;
 			#endregion
 
 			return document;
@@ -224,18 +252,18 @@ namespace ReceiptPrintConfig
 			Column _empty2 = new Column();
 			Column gkk = new Column();
 
-			reach = table.AddColumn("3.5cm");
-			_empty = table.AddColumn("0.5cm");
-			rohs = table.AddColumn("3.5cm");
-			_empty2 = table.AddColumn("0.5cm");
-			gkk = table.AddColumn("3.5cm");
+			reach = table.AddColumn("4cm");
+			_empty = table.AddColumn("0.8cm");
+			rohs = table.AddColumn("4cm");
+			_empty2 = table.AddColumn("0.8cm");
+			gkk = table.AddColumn("4cm");
 
 			Row row = new Row();
 			row = table.AddRow();
 			row.Cells[0].AddParagraph("REACH \n/ PAH");
 			row.Cells[0].Format.Alignment = ParagraphAlignment.Center;
 			row.Cells[0].Format.Font.Bold = true;
-			row.Cells[0].Format.Font.Size = 12;
+			row.Cells[0].Format.Font.Size = 16;
 			row.Cells[0].Borders.Visible = true;
 			row.Cells[0].Borders.Width = 1.6;
 			row.Cells[0].Format.SpaceAfter = "0.5cm";
@@ -250,7 +278,7 @@ namespace ReceiptPrintConfig
 			row.Cells[2].AddParagraph("ROHS");
 			row.Cells[2].Format.Alignment = ParagraphAlignment.Center;
 			row.Cells[2].Format.Font.Bold = true;
-			row.Cells[2].Format.Font.Size = 12;
+			row.Cells[2].Format.Font.Size = 16;
 			row.Cells[2].Borders.Visible = true;
 			row.Cells[2].Borders.Width = 1.6;
 			row.Cells[2].Format.SpaceAfter = "0.8cm";
@@ -267,7 +295,7 @@ namespace ReceiptPrintConfig
 			row.Cells[4].Format.Font.Bold = true;
 			row.Cells[4].Borders.Visible = true;
 			row.Cells[4].Borders.Width = 1.6;
-			row.Cells[4].Format.Font.Size = 12;
+			row.Cells[4].Format.Font.Size = 16;
 			row.Cells[4].Format.SpaceAfter = "0.8cm";
 			row.Cells[4].Format.SpaceBefore = "0.8cm";
 

@@ -19,6 +19,8 @@ using MigraDoc.DocumentObjectModel.Tables;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using QRCoder;
 using System.Drawing.Imaging;
+using static System.Net.Mime.MediaTypeNames;
+using System.Text.RegularExpressions;
 
 namespace ReceiptPrintConfig
 {
@@ -33,13 +35,12 @@ namespace ReceiptPrintConfig
 
 			// DataGridView Initial Settings
 			#region DataGridViewInitialSettings
-			dataGridView1.ColumnCount = 6;
+			dataGridView1.ColumnCount = 5;
 			dataGridView1.Columns[0].Name = "Company Code"; 
 			dataGridView1.Columns[1].Name = "Company Name";
 			dataGridView1.Columns[2].Name = "Material Code";
 			dataGridView1.Columns[3].Name = "Description";
 			dataGridView1.Columns[4].Name = "Unit";
-			dataGridView1.Columns[5].Name = "Production Date";
 
 			dataGridView2.ColumnCount = 8;
 			dataGridView2.Columns[0].Name = "Company Name";
@@ -55,18 +56,20 @@ namespace ReceiptPrintConfig
 
 		public void CallTextBoxControl()
 		{
-			TextBoxControl(material2txtbox);
-			TextBoxControl(companynametxtbox);
-			TextBoxControl(description2txtbox);
-			TextBoxControl(companycodetxtbox);
-			TextBoxControl(unittxtbox);
-			TextBoxControl(counttxtbox);
-			TextBoxControl(productiontxtbox);
+			TextBoxControl(matLabel, material2txtbox);
+			TextBoxControl(comLabel, companynametxtbox);
+			TextBoxControl(descLabel, description2txtbox);
+			TextBoxControl(comCodeLabel, companycodetxtbox);
+			TextBoxControl(unitLabel, unittxtbox);
+			TextBoxControl(countLabel, counttxtbox, "[^0-9]");
 		}
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
 			#region Form1InitialSettings
+			
+			newStock.Enabled = true;
+			saveDatabase.Enabled = false;
 			material2txtbox.Enabled = true;
 			material2txtbox.ReadOnly = true;
 			material2txtbox.Text = null;
@@ -92,12 +95,11 @@ namespace ReceiptPrintConfig
 			operatortxtbox.Text = null;
 			billtxtbox.Enabled = true;
 			billtxtbox.Text = null;
-			billdatetxtbox.Enabled = true;
-			billdatetxtbox.Text = null;
 
-			productiontxtbox.Enabled = true;
-			productiontxtbox.Text = null;
-			productiontxtbox.ReadOnly = true;
+			//productiontxtbox.Enabled = true;
+			//productiontxtbox.Text = null;
+			//productiontxtbox.ReadOnly = true;
+			dateTimePicker2.Enabled = true;
 			
 			lotnotxtbox.Enabled = true;
 			lotnotxtbox.Text = null;
@@ -115,14 +117,18 @@ namespace ReceiptPrintConfig
 			quartedchkbox.Enabled = true;
 			kartoncombobox.Enabled = true;
 			materialtxtbox.Enabled = true;
-			descriptiontxtbox.Enabled = true;
-			descriptiontxtbox.Text = null;
 			materialbtn.Enabled = true;
-			descriptionbtn.Enabled = true;
 			reloadbtn.Enabled = true;
 			dataGridView1.Enabled = true;
 			dateTimePicker1.Enabled = true;
 			backbtn.Enabled = false;
+
+			matLabel.Visible= true;
+			comCodeLabel.Visible= true;
+			descLabel.Visible= true;
+			comLabel.Visible= true;
+			unitLabel.Visible= true;
+			countLabel.Visible= true;
 			#endregion
 
 			CallTextBoxControl();
@@ -131,20 +137,21 @@ namespace ReceiptPrintConfig
 			using (OleDbConnection cnn = new OleDbConnection(db.GetConnectionStrings(providerName)))
 			{
 				string query = "SELECT MaterialCode, Description, Unit, CreateDateTime FROM Stock";
+
+				//Bir adet public ArrayList oluşturulup her değişikliği ile onu da değiştirelim. 
 				ArrayList row = db.QueryToArrayList(cnn, query, null);
 
 				dataGridView1.Rows.Clear();
 
-				for (int i = 0; i < row.Count; i+=6)
+				for (int i = 0; i < row.Count; i+=7)
 				{
 					DataGridViewRow newRow = new DataGridViewRow();
 					newRow.CreateCells(dataGridView1);
-					newRow.Cells[0].Value = row[i];
-					newRow.Cells[1].Value = row[i + 1];
-					newRow.Cells[2].Value = row[i + 2];
-					newRow.Cells[3].Value = row[i + 3];
-					newRow.Cells[4].Value = row[i + 4];
-					newRow.Cells[5].Value = row[i + 5];
+					newRow.Cells[0].Value = row[i + 1];
+					newRow.Cells[1].Value = row[i + 2];
+					newRow.Cells[2].Value = row[i + 3];
+					newRow.Cells[3].Value = row[i + 4];
+					newRow.Cells[4].Value = row[i + 5];
 					dataGridView1.Rows.Add(newRow);
 				}
 
@@ -170,7 +177,6 @@ namespace ReceiptPrintConfig
 
 		private void materialbtn_Click(object sender, EventArgs e)
 		{
-			descriptiontxtbox.Text = String.Empty;
 			dataGridView1.Rows.Clear();
 
 			using (OleDbConnection cnn = new OleDbConnection(db.GetConnectionStrings(providerName)))
@@ -185,16 +191,15 @@ namespace ReceiptPrintConfig
 
 					dataGridView1.Rows.Clear();
 
-					for (int i = 0; i < row.Count; i += 6)
+					for (int i = 0; i < row.Count; i += 7)
 					{
 						DataGridViewRow newRow = new DataGridViewRow();
 						newRow.CreateCells(dataGridView1);
-						newRow.Cells[0].Value = row[i];
-						newRow.Cells[1].Value = row[i + 1];
-						newRow.Cells[2].Value = row[i + 2];
-						newRow.Cells[3].Value = row[i + 3];
-						newRow.Cells[4].Value = row[i + 4];
-						newRow.Cells[5].Value = row[i + 5];
+						newRow.Cells[0].Value = row[i + 1];
+						newRow.Cells[1].Value = row[i + 2];
+						newRow.Cells[2].Value = row[i + 3];
+						newRow.Cells[3].Value = row[i + 4];
+						newRow.Cells[4].Value = row[i + 5];
 						dataGridView1.Rows.Add(newRow);
 					}
 				}
@@ -207,49 +212,9 @@ namespace ReceiptPrintConfig
 			}
 		}
 
-		private void descriptionbtn_Click(object sender, EventArgs e)
-		{
-			materialtxtbox.Text = String.Empty;
-			dataGridView1.Rows.Clear();
-
-			using (OleDbConnection cnn = new OleDbConnection(db.GetConnectionStrings(providerName)))
-			{
-				string query = "SELECT MaterialCode, Description, Unit, CreateDateTime FROM Stock WHERE Description LIKE @code";
-				OleDbParameter parameter = new OleDbParameter();
-				parameter.ParameterName = "@code";
-				parameter.Value = descriptiontxtbox.Text.ToLower();
-				if (descriptiontxtbox.Text != "")
-				{
-					ArrayList row = db.QueryToArrayList(cnn, query, parameter);
-
-					dataGridView1.Rows.Clear();
-
-					for (int i = 0; i < row.Count; i += 6)
-					{
-						DataGridViewRow newRow = new DataGridViewRow();
-						newRow.CreateCells(dataGridView1);
-						newRow.Cells[0].Value = row[i];
-						newRow.Cells[1].Value = row[i + 1];
-						newRow.Cells[2].Value = row[i + 2];
-						newRow.Cells[3].Value = row[i + 3];
-						newRow.Cells[4].Value = row[i + 4];
-						newRow.Cells[5].Value = row[i + 5];
-						dataGridView1.Rows.Add(newRow);
-					}
-				}
-				else
-				{
-					Form1_Load(sender, e);
-				}
-
-				cnn.Close();
-			}
-		}
-
 		private void reloadbtn_Click(object sender, EventArgs e)
 		{
 			materialtxtbox.Text = String.Empty;
-			descriptiontxtbox.Text = String.Empty;
 			Form1_Load(sender, e);
 		}
 
@@ -264,7 +229,7 @@ namespace ReceiptPrintConfig
 				!String.IsNullOrEmpty(companynametxtbox.Text) &&
 				!String.IsNullOrEmpty(description2txtbox.Text) &&
 				!String.IsNullOrEmpty(unittxtbox.Text) &&
-				!String.IsNullOrEmpty(productiontxtbox.Text))
+				!String.IsNullOrEmpty(dateTimePicker2.Text))
 			{
 				listId++;
 				allData.Add(new List<string> {material2txtbox.Text,
@@ -275,15 +240,17 @@ namespace ReceiptPrintConfig
 										  counttxtbox.Text,
 										  operatortxtbox.Text,
 										  billtxtbox.Text,
-										  billdatetxtbox.Text,
-										  productiontxtbox.Text,
+										  dateTimePicker1.Text,
+										  dateTimePicker2.Text,
 										  lotnotxtbox.Text,
 										  revisiontxtbox.Text,
 										  boxcodetxtbox.Text,
 										  grossweighttxtbox.Text,
 										  singlechkbox.Checked.ToString(),
 										  quartedchkbox.Checked.ToString(),
-										  kartoncombobox.Text});
+										  kartoncombobox.Text,
+										  listId.ToString()}
+										  );
 
 				DataGridViewRow newRow = new DataGridViewRow();
 				newRow.CreateCells(dataGridView2);
@@ -303,25 +270,27 @@ namespace ReceiptPrintConfig
 		{
 			if (this.dataGridView2.SelectedRows.Count > 0)
 			{
+				int index = this.dataGridView2.CurrentCell.RowIndex;
+				allData.RemoveAt(index);
 				dataGridView2.Rows.RemoveAt(dataGridView2.CurrentCell.RowIndex);
 			}
 		}
 		private void deleteAll_Click(object sender, EventArgs e)
 		{
 			dataGridView2.Rows.Clear();
+			allData.Clear();
 		}
 
 		private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
 		{
 			if (e.RowIndex >= 0)
 			{
-				DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-				material2txtbox.Text = row.Cells["Material Code"].Value.ToString();
-				companycodetxtbox.Text = row.Cells["Company Code"].Value.ToString();
-				companynametxtbox.Text = row.Cells["Company Name"].Value.ToString();
-				unittxtbox.Text = row.Cells["Unit"].Value.ToString();
-				productiontxtbox.Text = row.Cells["Production Date"].Value.ToString();
-				description2txtbox.Text = row.Cells["Description"].Value.ToString();
+				DataGridViewRow dt = dataGridView1.Rows[e.RowIndex];
+				companycodetxtbox.Text = dt.Cells["Company Code"].Value.ToString();
+				companynametxtbox.Text = dt.Cells["Company Name"].Value.ToString();
+				material2txtbox.Text = dt.Cells["Material Code"].Value.ToString();
+				description2txtbox.Text = dt.Cells["Description"].Value.ToString();
+				unittxtbox.Text = dt.Cells["Unit"].Value.ToString();
 			}
 		}
 
@@ -356,7 +325,7 @@ namespace ReceiptPrintConfig
 					pdfRenderer.RenderDocument();
 
 					// Save the document...
-					string filename = "C:\\Users\\muss\\Desktop\\Receiver";
+					string filename = "TempDocument\\Receiver";
 					long time = DateTime.Now.ToFileTime();
 					BoxCodeUpdateMain(time);
 					filename += time + ".pdf";
@@ -391,6 +360,8 @@ namespace ReceiptPrintConfig
 			var configSettings = new List<string>(ConfigurationSettings.AppSettings["ReceiverCompany1"].Split(new char[] { ';' }));
 
 			//Enable part
+			newStock.Enabled = false;
+			saveDatabase.Enabled = true;
 			material2txtbox.Enabled = true;
 			material2txtbox.ReadOnly = false;
 			material2txtbox.Text = null;
@@ -416,12 +387,11 @@ namespace ReceiptPrintConfig
 			operatortxtbox.Text = null;
 			billtxtbox.Enabled = false;
 			billtxtbox.Text = null;
-			billdatetxtbox.Enabled = false;
-			billdatetxtbox.Text = null;
 
-			productiontxtbox.Enabled = false;
-			productiontxtbox.Text = null;
-			productiontxtbox.ReadOnly = true;
+			//dateTimePicker2.Enabled = false;
+			//productiontxtbox.Text = null;
+			//productiontxtbox.ReadOnly = true;
+			dateTimePicker2.Enabled = false;
 
 			lotnotxtbox.Enabled = false;
 			lotnotxtbox.Text = null;
@@ -440,9 +410,7 @@ namespace ReceiptPrintConfig
 			quartedchkbox.Enabled = false;
 			kartoncombobox.Enabled = false;
 			materialtxtbox.Enabled = false;
-			descriptiontxtbox.Enabled = false;
 			materialbtn.Enabled = false;
-			descriptionbtn.Enabled = false;
 			reloadbtn.Enabled = false;
 			dataGridView1.Enabled = false;
 			dateTimePicker1.Enabled = false;
@@ -451,7 +419,7 @@ namespace ReceiptPrintConfig
 			CallTextBoxControl();
 		}
 
-		public void TextBoxControl(System.Windows.Forms.TextBox txt, string regex = null)
+		public void TextBoxControl(System.Windows.Forms.Label lbl, System.Windows.Forms.TextBox txt, string regex = null)
 		{
 			if(txt.Enabled == true)
 			{
@@ -459,64 +427,59 @@ namespace ReceiptPrintConfig
 				{
 					if (String.IsNullOrEmpty(txt.Text) || System.Text.RegularExpressions.Regex.IsMatch(txt.Text, regex))
 					{
-						txt.BackColor = System.Drawing.Color.Tomato;
+						lbl.Visible = true;
 					}
 					else
 					{
-						txt.BackColor = DefaultBackColor;
+						lbl.Visible = false;
 					}
 				}
 				else
 				{
 					if (String.IsNullOrEmpty(txt.Text))
 					{
-						txt.BackColor = System.Drawing.Color.Tomato;
+						lbl.Visible = true;
 					}
 					else
 					{
-						txt.BackColor = DefaultBackColor;
+						lbl.Visible = false;
 					}
 				}
 			}
 			else
 			{
-				txt.BackColor = DefaultBackColor;
+				lbl.Visible = false;
 			}
 		}
 
 		private void material2txtbox_TextChanged(object sender, EventArgs e)
 		{
-			TextBoxControl(material2txtbox);
+			TextBoxControl(matLabel ,material2txtbox);
 		}
 
 		private void companynametxtbox_TextChanged(object sender, EventArgs e)
 		{
-			TextBoxControl(companynametxtbox);
+			TextBoxControl(comLabel ,companynametxtbox);
 		}
 
 		private void description2txtbox_TextChanged(object sender, EventArgs e)
 		{
-			TextBoxControl(description2txtbox);
+			TextBoxControl(descLabel ,description2txtbox);
 		}
 
 		private void companycodetxtbox_TextChanged(object sender, EventArgs e)
 		{
-			TextBoxControl(companycodetxtbox);
+			TextBoxControl(comCodeLabel, companycodetxtbox);
 		}
 
 		private void unittxtbox_TextChanged(object sender, EventArgs e)
 		{
-			TextBoxControl(unittxtbox);
+			TextBoxControl(unitLabel, unittxtbox);
 		}
 
 		private void counttxtbox_TextChanged(object sender, EventArgs e)
 		{
-			TextBoxControl(counttxtbox, "[^0-9]");
-		}
-
-		private void productiontxtbox_TextChanged_1(object sender, EventArgs e)
-		{
-			TextBoxControl(productiontxtbox);
+			TextBoxControl(countLabel, counttxtbox, "[^0-9]");
 		}
 
 		private void backbtn_Click(object sender, EventArgs e)
@@ -564,12 +527,6 @@ namespace ReceiptPrintConfig
 			{
 				MessageBox.Show("Fill required contents!");
 			}
-		}
-
-		private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-		{
-			DateTime date = dateTimePicker1.Value;
-			billdatetxtbox.Text = date.ToString();
 		}
 	}
 }

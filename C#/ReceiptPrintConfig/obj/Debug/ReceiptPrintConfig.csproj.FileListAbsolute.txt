@@ -14,21 +14,15 @@ C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrin
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\MigraDoc.RtfRendering-gdi.dll
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\PdfSharp-gdi.dll
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\PdfSharp.Charting-gdi.dll
-C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\PdfSharp.Charting.dll
-C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\PdfSharp.dll
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\MigraDoc.DocumentObjectModel-gdi.xml
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\MigraDoc.Rendering-gdi.xml
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\MigraDoc.RtfRendering-gdi.xml
-C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\PdfSharp.xml
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\PdfSharp-gdi.xml
-C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\PdfSharp.Charting.xml
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\PdfSharp.Charting-gdi.xml
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\de\MigraDoc.DocumentObjectModel-gdi.resources.dll
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\de\MigraDoc.Rendering-gdi.resources.dll
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\de\MigraDoc.RtfRendering-gdi.resources.dll
-C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\de\PdfSharp.resources.dll
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\de\PdfSharp-gdi.resources.dll
-C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\de\PdfSharp.Charting.resources.dll
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\de\PdfSharp.Charting-gdi.resources.dll
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\obj\Debug\ReceiptPrintConfig.csproj.CopyComplete
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\BitMiracle.LibTiff.NET.dll
@@ -50,3 +44,56 @@ C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrin
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\System.Text.Encoding.CodePages.xml
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\QRCoder.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\Spire.Pdf.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\Microsoft.mshtml.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ReceiptPrintConfig\bin\Debug\Spire.Pdf.xml
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\ReceiptPrintConfig.exe.config
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\ReceiptPrintConfig.exe
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\ReceiptPrintConfig.pdb
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\BitMiracle.LibTiff.NET.dll
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\MigraDoc.DocumentObjectModel-gdi.dll
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\MigraDoc.Rendering-gdi.dll
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\MigraDoc.RtfRendering-gdi.dll
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\PdfSharp-gdi.dll
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\PdfSharp.Charting-gdi.dll
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\PDFtoPrinter.dll
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\QRCoder.dll
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\SixLabors.ImageSharp.dll
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\Spire.Pdf.dll
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\System.Buffers.dll
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\System.Drawing.Common.dll
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\System.Memory.dll
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\System.Text.Encoding.CodePages.dll
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\Microsoft.mshtml.dll
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\BitMiracle.LibTiff.NET.xml
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\MigraDoc.DocumentObjectModel-gdi.xml
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\MigraDoc.Rendering-gdi.xml
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\MigraDoc.RtfRendering-gdi.xml
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\PdfSharp-gdi.xml
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\PdfSharp.Charting-gdi.xml
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\SixLabors.ImageSharp.xml
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\Spire.Pdf.xml
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\System.Buffers.xml
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\System.Drawing.Common.xml
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\System.Memory.xml
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\System.Text.Encoding.CodePages.xml
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\de\MigraDoc.DocumentObjectModel-gdi.resources.dll
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\de\MigraDoc.Rendering-gdi.resources.dll
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\de\MigraDoc.RtfRendering-gdi.resources.dll
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\de\PdfSharp-gdi.resources.dll
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\bin\Debug\de\PdfSharp.Charting-gdi.resources.dll
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\obj\Debug\ReceiptPrintConfig.csproj.AssemblyReference.cache
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\obj\Debug\ReceiptPrintConfig.csproj.SuggestedBindingRedirects.cache
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\obj\Debug\ReceiptPrintConfig.Form1.resources
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\obj\Debug\ReceiptPrintConfig.Properties.Resources.resources
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\obj\Debug\ReceiptPrintConfig.csproj.GenerateResource.cache
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\obj\Debug\ReceiptPrintConfig.csproj.CoreCompileInputs.cache
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\obj\Debug\ReceiptPrintConfig.csproj.CopyComplete
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\obj\Debug\ReceiptPrintConfig.exe
+C:\Users\muss\Desktop\New folder\ReceiptPrintConfig\obj\Debug\ReceiptPrintConfig.pdb

@@ -19,8 +19,15 @@ using MigraDoc.DocumentObjectModel.Tables;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using QRCoder;
 using System.Drawing.Imaging;
+using System.Drawing.Printing;
 using static System.Net.Mime.MediaTypeNames;
 using System.Text.RegularExpressions;
+using PdfSharp.Pdf;
+using System.Drawing.Printing;
+using System.Threading;
+using Spire.Pdf;
+using System.Management;
+using PDFtoPrinter;
 
 namespace ReceiptPrintConfig
 {
@@ -28,6 +35,10 @@ namespace ReceiptPrintConfig
 	{
 		private string providerName = "Deneme";
 		DatabaseTransaction db = new DatabaseTransaction();
+		public List<List<string>> allData = new List<List<string>>();
+		public int listId = 0;
+		public string boxCode;
+		private List<string> printers = new List<string>();
 
 		public Form1()
 		{
@@ -42,15 +53,13 @@ namespace ReceiptPrintConfig
 			dataGridView1.Columns[3].Name = "Description";
 			dataGridView1.Columns[4].Name = "Unit";
 
-			dataGridView2.ColumnCount = 8;
+			dataGridView2.ColumnCount = 6;
 			dataGridView2.Columns[0].Name = "Company Name";
 			dataGridView2.Columns[1].Name = "Material Code";
 			dataGridView2.Columns[2].Name = "Description";
 			dataGridView2.Columns[3].Name = "Company Code";
 			dataGridView2.Columns[4].Name = "Count";
 			dataGridView2.Columns[5].Name = "Unit";
-			dataGridView2.Columns[6].Name = "Box Gross";
-			dataGridView2.Columns[7].Name = "Karton";
 			#endregion
 		}
 
@@ -60,7 +69,6 @@ namespace ReceiptPrintConfig
 			TextBoxControl(comLabel, companynametxtbox);
 			TextBoxControl(descLabel, description2txtbox);
 			TextBoxControl(comCodeLabel, companycodetxtbox);
-			TextBoxControl(unitLabel, unittxtbox);
 			TextBoxControl(countLabel, counttxtbox, "[^0-9]");
 		}
 
@@ -84,15 +92,9 @@ namespace ReceiptPrintConfig
 			companycodetxtbox.Enabled = true;
 			companycodetxtbox.Text = null;
 
-			unittxtbox.Enabled = true;
-			unittxtbox.ReadOnly = true;
-			unittxtbox.Text = null;
-
 			counttxtbox.Enabled = true;
 			counttxtbox.Text = null;
 
-			operatortxtbox.Enabled = true;
-			operatortxtbox.Text = null;
 			billtxtbox.Enabled = true;
 			billtxtbox.Text = null;
 
@@ -107,15 +109,11 @@ namespace ReceiptPrintConfig
 			deleteAll.Enabled = true;
 			deleteSelected.Enabled = true;
 			dataGridView2.Enabled = true;
-			print.Enabled = true;
+			createDocumant.Enabled = true;
 			revisiontxtbox.Enabled = true;
 			revisiontxtbox.Text = null;
-			boxcodetxtbox.Enabled = true;
-			grossweighttxtbox.Enabled = true;
-			grossweighttxtbox.Text = null;
 			singlechkbox.Enabled = true;
 			quartedchkbox.Enabled = true;
-			kartoncombobox.Enabled = true;
 			materialtxtbox.Enabled = true;
 			materialbtn.Enabled = true;
 			reloadbtn.Enabled = true;
@@ -129,9 +127,22 @@ namespace ReceiptPrintConfig
 			comLabel.Visible= true;
 			unitLabel.Visible= true;
 			countLabel.Visible= true;
+
+			numericUpDown1.Enabled = true;
+			numericUpDown1.Value = 1;
+			label2.Visible = false;
+
+			printersRefresh.Enabled = true;
+			printerCombo.Enabled = true;
+			print.Enabled = true;
+
+			unitCombo.Enabled = false;
+			unitCombo.Text = null;
 			#endregion
 
+			PrinterRefresh();
 			CallTextBoxControl();
+			UnitBoxControl();
 			dataGridView1.Rows.Clear();
 
 			using (OleDbConnection cnn = new OleDbConnection(db.GetConnectionStrings(providerName)))
@@ -155,24 +166,10 @@ namespace ReceiptPrintConfig
 					dataGridView1.Rows.Add(newRow);
 				}
 
-				cnn.Open();
-				string query2 = "SELECT Id, BoxCode FROM [Box]";
-				OleDbDataReader dataReader;
-				OleDbCommand cmd = new OleDbCommand(query2, cnn);
-
-				dataReader = cmd.ExecuteReader();
-				if (dataReader.HasRows)
-				{
-					while (dataReader.Read())
-					{
-						boxcodetxtbox.Text = dataReader["Id"].ToString();
-						//revisiontxtbox.Text = dataReader["BoxCode"].ToString();
-					}
-				}
+				boxCode = GetBoxCodeId();
 			}
 
 			//dataGridView1.SelectedCells[0].Selected = true;
-			kartoncombobox.SelectedIndex = 0;
 		}
 
 		private void materialbtn_Click(object sender, EventArgs e)
@@ -218,8 +215,6 @@ namespace ReceiptPrintConfig
 			Form1_Load(sender, e);
 		}
 
-		public List<List<string>> allData = new List<List<string>>();
-		public int listId = 0;
 		private void addbelowbtn_Click(object sender, EventArgs e)
 		{
 			if (!String.IsNullOrEmpty(material2txtbox.Text) &&
@@ -228,41 +223,65 @@ namespace ReceiptPrintConfig
 				!String.IsNullOrEmpty(companycodetxtbox.Text) &&
 				!String.IsNullOrEmpty(companynametxtbox.Text) &&
 				!String.IsNullOrEmpty(description2txtbox.Text) &&
-				!String.IsNullOrEmpty(unittxtbox.Text) &&
-				!String.IsNullOrEmpty(dateTimePicker2.Text))
+				!String.IsNullOrEmpty(dateTimePicker2.Text) &&
+				!String.IsNullOrEmpty(numericUpDown1.Value.ToString()) &&
+				numericUpDown1.Value > 0)
 			{
-				listId++;
-				allData.Add(new List<string> {material2txtbox.Text,
-										  companynametxtbox.Text,
-										  description2txtbox.Text,
-										  companycodetxtbox.Text,
-										  unittxtbox.Text,
-										  counttxtbox.Text,
-										  operatortxtbox.Text,
-										  billtxtbox.Text,
-										  dateTimePicker1.Text,
-										  dateTimePicker2.Text,
-										  lotnotxtbox.Text,
-										  revisiontxtbox.Text,
-										  boxcodetxtbox.Text,
-										  grossweighttxtbox.Text,
-										  singlechkbox.Checked.ToString(),
-										  quartedchkbox.Checked.ToString(),
-										  kartoncombobox.Text,
-										  listId.ToString()}
-										  );
+				for(int x = 0; x < numericUpDown1.Value; x++)
+				{
+					if (String.IsNullOrEmpty(billtxtbox.Text))
+					{
+						listId++;
+						allData.Add(new List<string> {material2txtbox.Text,
+													  companynametxtbox.Text,
+													  description2txtbox.Text,
+													  companycodetxtbox.Text,
+													  unitCombo.SelectedItem.ToString(),
+													  counttxtbox.Text,
+													  "",
+													  "", //bill date
+													  dateTimePicker2.Text, //production date
+													  lotnotxtbox.Text,
+													  revisiontxtbox.Text,
+													  boxCode,
+													  singlechkbox.Checked.ToString(),
+													  quartedchkbox.Checked.ToString(),
+													  listId.ToString(),
+													  numericUpDown1.Value.ToString()}
+												);
+					}
+					else
+					{
+						listId++;
+						allData.Add(new List<string> {material2txtbox.Text,
+													  companynametxtbox.Text,
+													  description2txtbox.Text,
+													  companycodetxtbox.Text,
+													  unitCombo.SelectedItem.ToString(),
+													  counttxtbox.Text,
+													  billtxtbox.Text,
+													  dateTimePicker1.Text, //bill date
+													  dateTimePicker2.Text, //production date
+													  lotnotxtbox.Text,
+													  revisiontxtbox.Text,
+													  boxCode,
+													  singlechkbox.Checked.ToString(),
+													  quartedchkbox.Checked.ToString(),
+													  listId.ToString(),
+													  numericUpDown1.Value.ToString()}
+												  );
+					}
 
-				DataGridViewRow newRow = new DataGridViewRow();
-				newRow.CreateCells(dataGridView2);
-				newRow.Cells[0].Value = companynametxtbox.Text;
-				newRow.Cells[1].Value = material2txtbox.Text;
-				newRow.Cells[2].Value = description2txtbox.Text;
-				newRow.Cells[3].Value = companycodetxtbox.Text;
-				newRow.Cells[4].Value = counttxtbox.Text;
-				newRow.Cells[5].Value = unittxtbox.Text;
-				newRow.Cells[6].Value = grossweighttxtbox.Text;
-				newRow.Cells[7].Value = kartoncombobox.SelectedItem;
-				dataGridView2.Rows.Add(newRow);
+					DataGridViewRow newRow = new DataGridViewRow();
+					newRow.CreateCells(dataGridView2);
+					newRow.Cells[0].Value = companynametxtbox.Text;
+					newRow.Cells[1].Value = material2txtbox.Text;
+					newRow.Cells[2].Value = description2txtbox.Text;
+					newRow.Cells[3].Value = companycodetxtbox.Text;
+					newRow.Cells[4].Value = (Convert.ToUInt32(counttxtbox.Text) / numericUpDown1.Value).ToString("0.");
+					newRow.Cells[5].Value = unitCombo.SelectedItem.ToString();
+					dataGridView2.Rows.Add(newRow);
+				}
 			}
 		}
 
@@ -290,30 +309,30 @@ namespace ReceiptPrintConfig
 				companynametxtbox.Text = dt.Cells["Company Name"].Value.ToString();
 				material2txtbox.Text = dt.Cells["Material Code"].Value.ToString();
 				description2txtbox.Text = dt.Cells["Description"].Value.ToString();
-				unittxtbox.Text = dt.Cells["Unit"].Value.ToString();
+				unitCombo.SelectedItem = dt.Cells["Unit"].Value.ToString();
 			}
 		}
 
 		private void print_Click(object sender, EventArgs e)
 		{
-			ArrayList printerData = new ArrayList();
-
 			if (dataGridView2.Rows.Count > 0)
 			{
 				foreach (var list in allData)
 				{
+					var boxCode2 = GetBoxCodeId();
 					DocumantTransactions doc = new DocumantTransactions();
 					// Create a MigraDoc document
 					Document document = doc.CreateDocument(materialCode: list[0],
-													   lotno: list[10],
+													   lotno: list[9],
 													   companyName: list[1],
-													   billno: list[7],
-													   billnoDate: list[8],
-													   boxcode: list[12],
+													   billno: list[6],
+													   billnoDate: list[7],
+													   boxcode: GetBoxCodeId(),
 													   count: list[5],
 													   unit: list[4],
-													   productiondate: list[9],
-													   companyCode: list[3]);
+													   productiondate: list[8],
+													   companyCode: list[3],
+													   numOfBox: list[15]);
 					document.UseCmykColor = true;
 					const bool unicode = false;
 					PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer(unicode);
@@ -327,11 +346,11 @@ namespace ReceiptPrintConfig
 					// Save the document...
 					string filename = "TempDocument\\Receiver";
 					long time = DateTime.Now.ToFileTime();
-					BoxCodeUpdateMain(time);
+					BoxCodeUpdateMain(boxCode2);
 					filename += time + ".pdf";
 					pdfRenderer.PdfDocument.Save(filename);
 					// ...and start a viewer.
-					Process.Start(filename);
+					PDFtoPrinter.Process.Start(filename);
 				}
 				Form1_Load(sender, e);
 			}
@@ -341,24 +360,49 @@ namespace ReceiptPrintConfig
 			}
 		}
 
-		public void BoxCodeUpdateMain(long time)
+		public void BoxCodeUpdateMain(string boxCode)
 		{
 			using (OleDbConnection cnn = new OleDbConnection(db.GetConnectionStrings(providerName)))
 			{
 				string query = "INSERT INTO Box (BoxCode) VALUES (@code)";
 				OleDbParameter parameter = new OleDbParameter();
 				parameter.ParameterName = "@code";
-				parameter.Value = time.ToString();
+				parameter.Value = boxCode;
 				DatabaseTransaction db = new DatabaseTransaction();
 				db.BoxCodeUpdate(cnn, query, parameter);
 			}
-				
+
+		}
+
+		public string GetBoxCodeId()
+		{
+			using (OleDbConnection cnn = new OleDbConnection(db.GetConnectionStrings(providerName)))
+			{
+				cnn.Open();
+				string query2 = "SELECT Id, BoxCode FROM [Box]";
+				OleDbDataReader dataReader;
+				OleDbCommand cmd = new OleDbCommand(query2, cnn);
+
+				dataReader = cmd.ExecuteReader();
+				if (dataReader.HasRows)
+				{
+					while (dataReader.Read())
+					{
+						boxCode = dataReader["Id"].ToString();
+						//numericUpDown1.Value.ToString() = dataReader["Id"].ToString();
+						//revisiontxtbox.Text = dataReader["BoxCode"].ToString();
+					}
+				}
+			}
+
+			return boxCode;
 		}
 
 		private void newStock_Click(object sender, EventArgs e)
 		{
 			var configSettings = new List<string>(ConfigurationSettings.AppSettings["ReceiverCompany1"].Split(new char[] { ';' }));
 
+			#region Settings
 			//Enable part
 			newStock.Enabled = false;
 			saveDatabase.Enabled = true;
@@ -376,15 +420,9 @@ namespace ReceiptPrintConfig
 			companycodetxtbox.Enabled = false;
 			companycodetxtbox.Text = configSettings[0].ToString();
 
-			unittxtbox.Enabled = true;
-			unittxtbox.ReadOnly = false;
-			unittxtbox.Text = null;
-
 			counttxtbox.Enabled = false;
 			counttxtbox.Text = null;
 
-			operatortxtbox.Enabled = false;
-			operatortxtbox.Text = null;
 			billtxtbox.Enabled = false;
 			billtxtbox.Text = null;
 
@@ -399,22 +437,28 @@ namespace ReceiptPrintConfig
 			deleteAll.Enabled = false;
 			deleteSelected.Enabled = false;
 			dataGridView2.Enabled = false;
-			print.Enabled = false;
+			createDocumant.Enabled = false;
 			revisiontxtbox.Enabled = false;
 			revisiontxtbox.Text = null;
-			boxcodetxtbox.Enabled = false;
-			boxcodetxtbox.Text = null;
-			grossweighttxtbox.Enabled = false;
-			grossweighttxtbox.Text = null;
 			singlechkbox.Enabled = false;
 			quartedchkbox.Enabled = false;
-			kartoncombobox.Enabled = false;
 			materialtxtbox.Enabled = false;
 			materialbtn.Enabled = false;
 			reloadbtn.Enabled = false;
 			dataGridView1.Enabled = false;
 			dateTimePicker1.Enabled = false;
 			backbtn.Enabled = true;
+
+			label2.Visible = false;
+			numericUpDown1.Enabled = false;
+
+			printersRefresh.Enabled = false;
+			printerCombo.Enabled = false;
+			print.Enabled = false;
+
+			unitCombo.Enabled = true;
+			unitCombo.Text = null;
+			#endregion
 
 			CallTextBoxControl();
 		}
@@ -472,11 +516,6 @@ namespace ReceiptPrintConfig
 			TextBoxControl(comCodeLabel, companycodetxtbox);
 		}
 
-		private void unittxtbox_TextChanged(object sender, EventArgs e)
-		{
-			TextBoxControl(unitLabel, unittxtbox);
-		}
-
 		private void counttxtbox_TextChanged(object sender, EventArgs e)
 		{
 			TextBoxControl(countLabel, counttxtbox, "[^0-9]");
@@ -491,7 +530,7 @@ namespace ReceiptPrintConfig
 		{
 			bool validation = !String.IsNullOrEmpty(material2txtbox.Text) &&
 			   !String.IsNullOrEmpty(description2txtbox.Text) &&
-			   !String.IsNullOrEmpty(unittxtbox.Text);
+			   !String.IsNullOrEmpty(unitCombo.Text);
 
 			if (validation)
 			{
@@ -507,7 +546,7 @@ namespace ReceiptPrintConfig
 						List<OleDbParameter> par = new List<OleDbParameter>();
 						par.Add(new OleDbParameter("@code", material2txtbox.Text));
 						par.Add(new OleDbParameter("@desc", description2txtbox.Text));
-						par.Add(new OleDbParameter("@unit", unittxtbox.Text));
+						par.Add(new OleDbParameter("@unit", unitCombo.SelectedItem.ToString()));
 						par.Add(new OleDbParameter("@date", DateTime.Now.ToString("dd-MM-yyyy h:mm:ss tt")));
 
 						db.DatabaseInsert(cnn, query, par);
@@ -526,6 +565,215 @@ namespace ReceiptPrintConfig
 			else
 			{
 				MessageBox.Show("Fill required contents!");
+			}
+
+			Form1_Load(sender, e);
+		}
+
+		private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+		{
+			if(numericUpDown1.Value < 1)
+			{
+				label2.Visible = true;
+			}
+			else
+			{
+				label2.Visible = false;
+			}
+		}
+
+		private void print_Click_1(object sender, EventArgs e)
+		{
+			//ArrayList printerData = new ArrayList();
+			////----
+			Document splicedDocument = new Document();
+			//Section section = splicedDocument.AddSection();
+			////----
+			///
+
+			if(printers.Contains(printerCombo.SelectedItem))
+			{
+				if (dataGridView2.Rows.Count > 0)
+				{
+					foreach (var list in allData)
+					{
+						//System.Threading.Thread.Sleep(100);
+						var boxCode2 = GetBoxCodeId();
+						DocumantTransactions doc = new DocumantTransactions();
+						// Create a MigraDoc document
+						Document document = doc.CreateDocument(materialCode: list[0],
+															   lotno: list[9],
+															   companyName: list[1],
+															   billno: list[6],
+															   billnoDate: list[7],
+															   boxcode: GetBoxCodeId(),
+															   count: list[5],
+															   unit: list[4],
+															   productiondate: list[8],
+															   companyCode: list[3],
+															   numOfBox: list[15]);
+
+						var section2 = document.Sections[0].Clone();
+						splicedDocument.Add(section2);
+
+						//document.UseCmykColor = true;
+						//const bool unicode = false;
+						//PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer(unicode);
+
+						// Associate the MigraDoc document with a renderer
+						//pdfRenderer.Document = document;
+
+						// Layout and render document to PDF
+						//pdfRenderer.RenderDocument();
+
+						// Save the document...
+						//string filename = "TempDocument\\Receiver";
+						//long time = DateTime.Now.ToFileTime();
+						BoxCodeUpdateMain(boxCode2);
+						//filename += time + ".pdf";
+						//pdfRenderer.PdfDocument.Save(filename);
+
+						//for (var sectionIndex = 0; sectionIndex < document.Sections.Count; sectionIndex++)
+						//{
+
+						//}
+					}
+
+					PdfDocumentRenderer pdfRenderer2 = new PdfDocumentRenderer();
+
+					// Associate the MigraDoc document with a renderer
+					pdfRenderer2.Document = splicedDocument;
+
+					// Layout and render document to PDF
+					pdfRenderer2.RenderDocument();
+
+					// Save the document...
+					string filename2 = "TempDocument\\Receiver";
+					filename2 += boxCode + ".pdf";
+					pdfRenderer2.PdfDocument.Save(filename2);
+					// ...and start a viewer.
+					PrintDocument pd = new PrintDocument();
+
+					try
+					{
+						//using (PrintDialog Dialog = new PrintDialog())
+						//{
+						//	Dialog.ShowDialog();
+
+						//	ProcessStartInfo printProcessInfo = new ProcessStartInfo()
+						//	{
+						//		Verb = "print",
+						//		CreateNoWindow = true,
+						//		FileName = filename2,
+						//		WindowStyle = ProcessWindowStyle.Hidden
+						//	};
+
+						//	Process printProcess = new Process();
+						//	printProcess.StartInfo = printProcessInfo;
+						//	printProcess.Start();
+
+						//	printProcess.WaitForInputIdle();
+
+						//	Thread.Sleep(3000);
+
+						//	if (false == printProcess.CloseMainWindow())
+						//	{
+						//		printProcess.Kill();
+						//	}
+						//}
+						//using (var doc = PdfDocument(filename2))
+						//{
+
+						//-------------------------------------------------------
+
+						//}
+						//Spire.Pdf.PdfDocument doc = new Spire.Pdf.PdfDocument(filename2);
+						//doc.PrintSettings.PrinterName = printerCombo.SelectedItem.ToString();
+						//doc.PrintSettings.PrintController = new StandardPrintController();
+						//doc.Print();
+
+						//------------------------------------------------------
+
+						//PdfDocument doc = new PdfDocument(filename2);
+						//PrintDialog pt = new PrintDialog();
+						//pt.PrinterSettings.PrinterName = printerCombo.SelectedItem.ToString();
+
+						//var startInfo = new ProcessStartInfo
+						//{
+						//	FileName = filename2,
+						//	CreateNoWindow = true,
+						//	ErrorDialog = false,
+						//	UseShellExecute = false,
+						//	Verb = "print",
+						//	WindowStyle = ProcessWindowStyle.Minimized,
+						//	RedirectStandardInput = true,
+						//	RedirectStandardOutput = false
+						//};
+
+						//using (var process = Process.Start(startInfo))
+						//{
+						//	process.CloseMainWindow();
+						//	process.Kill();
+						//}
+
+						//-----------------------------------------------------------------
+
+						var printer = new PDFtoPrinterPrinter();
+						printer.Print(new PrintingOptions(printerCombo.SelectedItem.ToString(), filename2));
+
+					}
+					catch
+					{
+						MessageBox.Show("Error");
+						Form1_Load(sender, e);
+					}
+					
+					Form1_Load(sender, e);
+				}
+				else
+				{
+					MessageBox.Show("There is no data to print!");
+				}
+			}
+			else
+			{
+				MessageBox.Show("Printer is not Okay!");
+			}
+		}
+
+		private void printersRefresh_Click(object sender, EventArgs e)
+		{
+			PrinterRefresh();
+		}
+
+		public void PrinterRefresh()
+		{
+			printers.Clear();
+			printerCombo.Items.Clear();
+			foreach (String printer in PrinterSettings.InstalledPrinters)
+			{
+				printerCombo.Items.Add(printer.ToString());
+				printers.Add(printer.ToString());
+			}
+
+			PrinterSettings settings = new PrinterSettings();
+			printerCombo.Text = settings.PrinterName;
+		}
+
+		private void unitCombo_TextChanged(object sender, EventArgs e)
+		{
+			UnitBoxControl();	
+		}
+
+		public void UnitBoxControl()
+		{
+			if (String.IsNullOrEmpty(unitCombo.Text))
+			{
+				unitLabel.Visible = true;
+			}
+			else
+			{
+				unitLabel.Visible = false;
 			}
 		}
 	}

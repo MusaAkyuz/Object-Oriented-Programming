@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using PdfSharp.Charting;
 using static System.Net.Mime.MediaTypeNames;
 using System.Windows.Media.Media3D;
+using System.Xml.Linq;
 
 namespace ReceiptPrintConfig
 {
@@ -30,7 +31,8 @@ namespace ReceiptPrintConfig
 										string count,
 										string unit,
 										string productiondate,
-										string companyCode)
+										string companyCode,
+										string numOfBox)
 		{
 			// Create a new MigraDoc document
 			Document document = new Document();
@@ -61,22 +63,29 @@ namespace ReceiptPrintConfig
 			#region QrCodeCreating
 			string qrCodeDateFormatBill = null;
 			string qrCodeDateFormatProduction = null;
+
+			int count2 = Int32.Parse(count);
+			int numOfBox2 = Int32.Parse(numOfBox);
+
 			if (!String.IsNullOrEmpty(billnoDate))
 			{
 				DateTime dateForQrCode = DateTime.Parse(billnoDate);
-				qrCodeDateFormatBill = dateForQrCode.Day + "." +
-											  dateForQrCode.Month + "." +
-											  dateForQrCode.Year;
+				//qrCodeDateFormatBill = dateForQrCode.Day + "." +
+				//							  dateForQrCode.Month + "." +
+				//							  dateForQrCode.Year;
+				//Convert.ToDateTime(dateForQrCode).ToString("MM-dd-yyyy");
+				qrCodeDateFormatBill = dateForQrCode.ToString("dd.MM.yyyy");
 			}
-			
-			if(!String.IsNullOrEmpty(productiondate))
+
+			if (!String.IsNullOrEmpty(productiondate))
 			{
 				DateTime dateForQrCode = DateTime.Parse(productiondate);
-				qrCodeDateFormatProduction = dateForQrCode.Day + "." +
-													dateForQrCode.Month + "." +
-													dateForQrCode.Year;
+				//qrCodeDateFormatProduction = dateForQrCode.Day + "." +
+				//									dateForQrCode.Month + "." +
+				//									dateForQrCode.Year;
+				qrCodeDateFormatProduction = dateForQrCode.ToString("dd.MM.yyyy");
 			}
-			
+
 			string qrCodeString = materialCode + ">" +
 								  lotno + ">" +
 								  companyCode + ">" +
@@ -84,20 +93,20 @@ namespace ReceiptPrintConfig
 								  qrCodeDateFormatBill + ">" +
 								  boxcode + ">" +
 								  qrCodeDateFormatProduction + ">" +
-								  count + ">" +
+								  (count2 / numOfBox2).ToString() + ">" +
 								  unit + ">" +
-								  count;
+								  (count2 / numOfBox2).ToString();
 
 			QRCodeGenerator qrGenerator = new QRCodeGenerator();
 			QRCodeData qrCodeData = qrGenerator.CreateQrCode(qrCodeString, QRCodeGenerator.ECCLevel.Q);
 			QRCode qrCode = new QRCode(qrCodeData);
 			Bitmap qrCodeImage = qrCode.GetGraphic(20);
-			qrCodeImage.Save("qr.png", ImageFormat.Png);
+			qrCodeImage.Save("qr" + boxcode + ".png", ImageFormat.Png);
 			#endregion
 
 			// Printing qr code image
 			#region PrintingQrCodeImage
-			image = section.AddImage("qr.png");
+			image = section.AddImage("qr" + boxcode + ".png");
 			image.Width = new Unit(120, UnitType.Point);
 			image.Height = new Unit(120, UnitType.Point);
 			image.Left = ShapePosition.Right;
@@ -209,7 +218,7 @@ namespace ReceiptPrintConfig
 			row.Cells[0].Format.Font.Size = 16;
 			row.Cells[1].AddParagraph(":");
 			row.Cells[1].Format.Font.Size = 16;
-			row.Cells[2].AddParagraph(count);
+			row.Cells[2].AddParagraph((count2 / numOfBox2).ToString());
 			row.Cells[2].Format.Font.Bold = true;
 			row.Cells[2].Format.Font.Size = 25;
 
@@ -218,7 +227,7 @@ namespace ReceiptPrintConfig
 			row.Cells[0].Format.Font.Size = 16;
 			row.Cells[1].AddParagraph(":");
 			row.Cells[1].Format.Font.Size = 16;
-			row.Cells[2].AddParagraph("Adet");
+			row.Cells[2].AddParagraph(unit);
 			row.Cells[2].Format.Font.Size = 16;
 
 			row = table.AddRow();
@@ -226,14 +235,14 @@ namespace ReceiptPrintConfig
 			row.Cells[0].Format.Font.Size = 16;
 			row.Cells[1].AddParagraph(":");
 			row.Cells[1].Format.Font.Size = 16;
-			row.Cells[2].AddParagraph(count);
+			row.Cells[2].AddParagraph((int.Parse(count) / int.Parse(numOfBox)).ToString());
 			row.Cells[2].Format.Font.Size = 16;
 			#endregion
 
 			return document;
 		}
 
-		// TextFrome REACH/PAH ROSH GKK
+		// TextFreme REACH/PAH ROSH GKK
 		private void AddLeftBox(Section section)
 		{
 			var frame = section.AddTextFrame();

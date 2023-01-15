@@ -36,6 +36,12 @@
 			this.materialtxtbox = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.unitCombo = new System.Windows.Forms.ComboBox();
+			this.printersRefresh = new System.Windows.Forms.Button();
+			this.printerCombo = new System.Windows.Forms.ComboBox();
+			this.print = new System.Windows.Forms.Button();
+			this.label2 = new System.Windows.Forms.Label();
+			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
 			this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
 			this.countLabel = new System.Windows.Forms.Label();
 			this.unitLabel = new System.Windows.Forms.Label();
@@ -47,20 +53,15 @@
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.saveDatabase = new System.Windows.Forms.Button();
 			this.newStock = new System.Windows.Forms.Button();
-			this.cardLabelM = new System.Windows.Forms.Label();
 			this.revisiontxtbox = new System.Windows.Forms.TextBox();
 			this.deleteAll = new System.Windows.Forms.Button();
 			this.deleteSelected = new System.Windows.Forms.Button();
-			this.print = new System.Windows.Forms.Button();
+			this.createDocumant = new System.Windows.Forms.Button();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.singlechkbox = new System.Windows.Forms.CheckBox();
 			this.quartedchkbox = new System.Windows.Forms.CheckBox();
 			this.addbelowbtn = new System.Windows.Forms.Button();
 			this.dataGridView2 = new System.Windows.Forms.DataGridView();
-			this.kartoncombobox = new System.Windows.Forms.ComboBox();
-			this.grossweighttxtbox = new System.Windows.Forms.TextBox();
-			this.grosLabelM = new System.Windows.Forms.Label();
-			this.boxcodetxtbox = new System.Windows.Forms.TextBox();
 			this.boxLabelM = new System.Windows.Forms.Label();
 			this.revLabelM = new System.Windows.Forms.Label();
 			this.lotnotxtbox = new System.Windows.Forms.TextBox();
@@ -69,11 +70,8 @@
 			this.billDateLabelM = new System.Windows.Forms.Label();
 			this.billtxtbox = new System.Windows.Forms.TextBox();
 			this.billNoLabelM = new System.Windows.Forms.Label();
-			this.operatortxtbox = new System.Windows.Forms.TextBox();
-			this.opLabelM = new System.Windows.Forms.Label();
 			this.counttxtbox = new System.Windows.Forms.TextBox();
 			this.countLabelM = new System.Windows.Forms.Label();
-			this.unittxtbox = new System.Windows.Forms.TextBox();
 			this.unitLabelM = new System.Windows.Forms.Label();
 			this.companycodetxtbox = new System.Windows.Forms.TextBox();
 			this.comCodeLabelM = new System.Windows.Forms.Label();
@@ -86,6 +84,7 @@
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.groupBox2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
 			this.groupBox3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
 			this.SuspendLayout();
@@ -161,6 +160,12 @@
 			// 
 			// groupBox2
 			// 
+			this.groupBox2.Controls.Add(this.unitCombo);
+			this.groupBox2.Controls.Add(this.printersRefresh);
+			this.groupBox2.Controls.Add(this.printerCombo);
+			this.groupBox2.Controls.Add(this.print);
+			this.groupBox2.Controls.Add(this.label2);
+			this.groupBox2.Controls.Add(this.numericUpDown1);
 			this.groupBox2.Controls.Add(this.dateTimePicker2);
 			this.groupBox2.Controls.Add(this.countLabel);
 			this.groupBox2.Controls.Add(this.unitLabel);
@@ -172,18 +177,13 @@
 			this.groupBox2.Controls.Add(this.dateTimePicker1);
 			this.groupBox2.Controls.Add(this.saveDatabase);
 			this.groupBox2.Controls.Add(this.newStock);
-			this.groupBox2.Controls.Add(this.cardLabelM);
 			this.groupBox2.Controls.Add(this.revisiontxtbox);
 			this.groupBox2.Controls.Add(this.deleteAll);
 			this.groupBox2.Controls.Add(this.deleteSelected);
-			this.groupBox2.Controls.Add(this.print);
+			this.groupBox2.Controls.Add(this.createDocumant);
 			this.groupBox2.Controls.Add(this.groupBox3);
 			this.groupBox2.Controls.Add(this.addbelowbtn);
 			this.groupBox2.Controls.Add(this.dataGridView2);
-			this.groupBox2.Controls.Add(this.kartoncombobox);
-			this.groupBox2.Controls.Add(this.grossweighttxtbox);
-			this.groupBox2.Controls.Add(this.grosLabelM);
-			this.groupBox2.Controls.Add(this.boxcodetxtbox);
 			this.groupBox2.Controls.Add(this.boxLabelM);
 			this.groupBox2.Controls.Add(this.revLabelM);
 			this.groupBox2.Controls.Add(this.lotnotxtbox);
@@ -192,11 +192,8 @@
 			this.groupBox2.Controls.Add(this.billDateLabelM);
 			this.groupBox2.Controls.Add(this.billtxtbox);
 			this.groupBox2.Controls.Add(this.billNoLabelM);
-			this.groupBox2.Controls.Add(this.operatortxtbox);
-			this.groupBox2.Controls.Add(this.opLabelM);
 			this.groupBox2.Controls.Add(this.counttxtbox);
 			this.groupBox2.Controls.Add(this.countLabelM);
-			this.groupBox2.Controls.Add(this.unittxtbox);
 			this.groupBox2.Controls.Add(this.unitLabelM);
 			this.groupBox2.Controls.Add(this.companycodetxtbox);
 			this.groupBox2.Controls.Add(this.comCodeLabelM);
@@ -213,6 +210,73 @@
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Label Info";
 			// 
+			// unitCombo
+			// 
+			this.unitCombo.FormattingEnabled = true;
+			this.unitCombo.Items.AddRange(new object[] {
+            "PCS",
+            "PC",
+            "Adet"});
+			this.unitCombo.Location = new System.Drawing.Point(139, 129);
+			this.unitCombo.Name = "unitCombo";
+			this.unitCombo.Size = new System.Drawing.Size(213, 21);
+			this.unitCombo.TabIndex = 58;
+			this.unitCombo.TextChanged += new System.EventHandler(this.unitCombo_TextChanged);
+			// 
+			// printersRefresh
+			// 
+			this.printersRefresh.Location = new System.Drawing.Point(489, 363);
+			this.printersRefresh.Name = "printersRefresh";
+			this.printersRefresh.Size = new System.Drawing.Size(102, 23);
+			this.printersRefresh.TabIndex = 57;
+			this.printersRefresh.Text = "Refresh Printers";
+			this.printersRefresh.UseVisualStyleBackColor = true;
+			this.printersRefresh.Click += new System.EventHandler(this.printersRefresh_Click);
+			// 
+			// printerCombo
+			// 
+			this.printerCombo.FormattingEnabled = true;
+			this.printerCombo.Location = new System.Drawing.Point(597, 364);
+			this.printerCombo.Name = "printerCombo";
+			this.printerCombo.Size = new System.Drawing.Size(155, 21);
+			this.printerCombo.TabIndex = 56;
+			this.printerCombo.Text = "Available Printers";
+			// 
+			// print
+			// 
+			this.print.Location = new System.Drawing.Point(758, 363);
+			this.print.Name = "print";
+			this.print.Size = new System.Drawing.Size(106, 23);
+			this.print.TabIndex = 55;
+			this.print.Text = "Print";
+			this.print.UseVisualStyleBackColor = true;
+			this.print.Click += new System.EventHandler(this.print_Click_1);
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.BackColor = System.Drawing.Color.Transparent;
+			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.ForeColor = System.Drawing.Color.OrangeRed;
+			this.label2.Location = new System.Drawing.Point(454, 157);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(20, 18);
+			this.label2.TabIndex = 54;
+			this.label2.Text = "**";
+			// 
+			// numericUpDown1
+			// 
+			this.numericUpDown1.Location = new System.Drawing.Point(489, 157);
+			this.numericUpDown1.Name = "numericUpDown1";
+			this.numericUpDown1.Size = new System.Drawing.Size(103, 20);
+			this.numericUpDown1.TabIndex = 53;
+			this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+			// 
 			// dateTimePicker2
 			// 
 			this.dateTimePicker2.Location = new System.Drawing.Point(489, 83);
@@ -226,7 +290,7 @@
 			this.countLabel.BackColor = System.Drawing.Color.Transparent;
 			this.countLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.countLabel.ForeColor = System.Drawing.Color.OrangeRed;
-			this.countLabel.Location = new System.Drawing.Point(62, 155);
+			this.countLabel.Location = new System.Drawing.Point(75, 155);
 			this.countLabel.Name = "countLabel";
 			this.countLabel.Size = new System.Drawing.Size(20, 18);
 			this.countLabel.TabIndex = 50;
@@ -329,15 +393,6 @@
 			this.newStock.UseVisualStyleBackColor = true;
 			this.newStock.Click += new System.EventHandler(this.newStock_Click);
 			// 
-			// cardLabelM
-			// 
-			this.cardLabelM.AutoSize = true;
-			this.cardLabelM.Location = new System.Drawing.Point(714, 37);
-			this.cardLabelM.Name = "cardLabelM";
-			this.cardLabelM.Size = new System.Drawing.Size(38, 13);
-			this.cardLabelM.TabIndex = 38;
-			this.cardLabelM.Text = "Carton";
-			// 
 			// revisiontxtbox
 			// 
 			this.revisiontxtbox.Location = new System.Drawing.Point(489, 133);
@@ -347,7 +402,7 @@
 			// 
 			// deleteAll
 			// 
-			this.deleteAll.Location = new System.Drawing.Point(680, 364);
+			this.deleteAll.Location = new System.Drawing.Point(7, 364);
 			this.deleteAll.Name = "deleteAll";
 			this.deleteAll.Size = new System.Drawing.Size(107, 23);
 			this.deleteAll.TabIndex = 36;
@@ -357,7 +412,7 @@
 			// 
 			// deleteSelected
 			// 
-			this.deleteSelected.Location = new System.Drawing.Point(793, 364);
+			this.deleteSelected.Location = new System.Drawing.Point(120, 364);
 			this.deleteSelected.Name = "deleteSelected";
 			this.deleteSelected.Size = new System.Drawing.Size(107, 23);
 			this.deleteSelected.TabIndex = 35;
@@ -365,21 +420,21 @@
 			this.deleteSelected.UseVisualStyleBackColor = true;
 			this.deleteSelected.Click += new System.EventHandler(this.deleteSelected_Click);
 			// 
-			// print
+			// createDocumant
 			// 
-			this.print.Location = new System.Drawing.Point(906, 365);
-			this.print.Name = "print";
-			this.print.Size = new System.Drawing.Size(106, 23);
-			this.print.TabIndex = 34;
-			this.print.Text = "Print";
-			this.print.UseVisualStyleBackColor = true;
-			this.print.Click += new System.EventHandler(this.print_Click);
+			this.createDocumant.Location = new System.Drawing.Point(906, 363);
+			this.createDocumant.Name = "createDocumant";
+			this.createDocumant.Size = new System.Drawing.Size(106, 23);
+			this.createDocumant.TabIndex = 34;
+			this.createDocumant.Text = "Create Documant";
+			this.createDocumant.UseVisualStyleBackColor = true;
+			this.createDocumant.Click += new System.EventHandler(this.print_Click);
 			// 
 			// groupBox3
 			// 
 			this.groupBox3.Controls.Add(this.singlechkbox);
 			this.groupBox3.Controls.Add(this.quartedchkbox);
-			this.groupBox3.Location = new System.Drawing.Point(717, 74);
+			this.groupBox3.Location = new System.Drawing.Point(706, 33);
 			this.groupBox3.Name = "groupBox3";
 			this.groupBox3.Size = new System.Drawing.Size(102, 68);
 			this.groupBox3.TabIndex = 33;
@@ -411,9 +466,9 @@
 			// 
 			// addbelowbtn
 			// 
-			this.addbelowbtn.Location = new System.Drawing.Point(633, 148);
+			this.addbelowbtn.Location = new System.Drawing.Point(637, 143);
 			this.addbelowbtn.Name = "addbelowbtn";
-			this.addbelowbtn.Size = new System.Drawing.Size(154, 44);
+			this.addbelowbtn.Size = new System.Drawing.Size(115, 48);
 			this.addbelowbtn.TabIndex = 30;
 			this.addbelowbtn.Text = "Add Below";
 			this.addbelowbtn.UseVisualStyleBackColor = true;
@@ -432,49 +487,14 @@
 			this.dataGridView2.Size = new System.Drawing.Size(1005, 151);
 			this.dataGridView2.TabIndex = 8;
 			// 
-			// kartoncombobox
-			// 
-			this.kartoncombobox.FormattingEnabled = true;
-			this.kartoncombobox.Items.AddRange(new object[] {
-            "Yes",
-            "No"});
-			this.kartoncombobox.Location = new System.Drawing.Point(758, 34);
-			this.kartoncombobox.Name = "kartoncombobox";
-			this.kartoncombobox.Size = new System.Drawing.Size(130, 21);
-			this.kartoncombobox.TabIndex = 29;
-			// 
-			// grossweighttxtbox
-			// 
-			this.grossweighttxtbox.Location = new System.Drawing.Point(489, 181);
-			this.grossweighttxtbox.Name = "grossweighttxtbox";
-			this.grossweighttxtbox.Size = new System.Drawing.Size(103, 20);
-			this.grossweighttxtbox.TabIndex = 28;
-			// 
-			// grosLabelM
-			// 
-			this.grosLabelM.AutoSize = true;
-			this.grosLabelM.Location = new System.Drawing.Point(380, 182);
-			this.grosLabelM.Name = "grosLabelM";
-			this.grosLabelM.Size = new System.Drawing.Size(71, 13);
-			this.grosLabelM.TabIndex = 27;
-			this.grosLabelM.Text = "Gross Weight";
-			// 
-			// boxcodetxtbox
-			// 
-			this.boxcodetxtbox.Location = new System.Drawing.Point(489, 156);
-			this.boxcodetxtbox.Name = "boxcodetxtbox";
-			this.boxcodetxtbox.ReadOnly = true;
-			this.boxcodetxtbox.Size = new System.Drawing.Size(103, 20);
-			this.boxcodetxtbox.TabIndex = 26;
-			// 
 			// boxLabelM
 			// 
 			this.boxLabelM.AutoSize = true;
 			this.boxLabelM.Location = new System.Drawing.Point(380, 157);
 			this.boxLabelM.Name = "boxLabelM";
-			this.boxLabelM.Size = new System.Drawing.Size(53, 13);
+			this.boxLabelM.Size = new System.Drawing.Size(79, 13);
 			this.boxLabelM.TabIndex = 25;
-			this.boxLabelM.Text = "Box Code";
+			this.boxLabelM.Text = "Number Of Box";
 			// 
 			// revLabelM
 			// 
@@ -535,22 +555,6 @@
 			this.billNoLabelM.TabIndex = 15;
 			this.billNoLabelM.Text = "Bill No";
 			// 
-			// operatortxtbox
-			// 
-			this.operatortxtbox.Location = new System.Drawing.Point(139, 179);
-			this.operatortxtbox.Name = "operatortxtbox";
-			this.operatortxtbox.Size = new System.Drawing.Size(213, 20);
-			this.operatortxtbox.TabIndex = 14;
-			// 
-			// opLabelM
-			// 
-			this.opLabelM.AutoSize = true;
-			this.opLabelM.Location = new System.Drawing.Point(32, 180);
-			this.opLabelM.Name = "opLabelM";
-			this.opLabelM.Size = new System.Drawing.Size(65, 13);
-			this.opLabelM.TabIndex = 13;
-			this.opLabelM.Text = "Operator No";
-			// 
 			// counttxtbox
 			// 
 			this.counttxtbox.Location = new System.Drawing.Point(139, 154);
@@ -564,18 +568,9 @@
 			this.countLabelM.AutoSize = true;
 			this.countLabelM.Location = new System.Drawing.Point(32, 155);
 			this.countLabelM.Name = "countLabelM";
-			this.countLabelM.Size = new System.Drawing.Size(35, 13);
+			this.countLabelM.Size = new System.Drawing.Size(46, 13);
 			this.countLabelM.TabIndex = 11;
-			this.countLabelM.Text = "Count";
-			// 
-			// unittxtbox
-			// 
-			this.unittxtbox.Location = new System.Drawing.Point(139, 130);
-			this.unittxtbox.Name = "unittxtbox";
-			this.unittxtbox.ReadOnly = true;
-			this.unittxtbox.Size = new System.Drawing.Size(213, 20);
-			this.unittxtbox.TabIndex = 10;
-			this.unittxtbox.TextChanged += new System.EventHandler(this.unittxtbox_TextChanged);
+			this.countLabelM.Text = "Quantity";
 			// 
 			// unitLabelM
 			// 
@@ -674,6 +669,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
 			this.groupBox3.ResumeLayout(false);
 			this.groupBox3.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -698,16 +694,12 @@
 		private System.Windows.Forms.Label comLabelM;
 		private System.Windows.Forms.TextBox material2txtbox;
 		private System.Windows.Forms.Label matLabelM;
-		private System.Windows.Forms.Button print;
+		private System.Windows.Forms.Button createDocumant;
 		private System.Windows.Forms.GroupBox groupBox3;
 		private System.Windows.Forms.CheckBox singlechkbox;
 		private System.Windows.Forms.CheckBox quartedchkbox;
 		private System.Windows.Forms.Button addbelowbtn;
 		private System.Windows.Forms.DataGridView dataGridView2;
-		private System.Windows.Forms.ComboBox kartoncombobox;
-		private System.Windows.Forms.TextBox grossweighttxtbox;
-		private System.Windows.Forms.Label grosLabelM;
-		private System.Windows.Forms.TextBox boxcodetxtbox;
 		private System.Windows.Forms.Label boxLabelM;
 		private System.Windows.Forms.Label revLabelM;
 		private System.Windows.Forms.TextBox lotnotxtbox;
@@ -716,17 +708,13 @@
 		private System.Windows.Forms.Label billDateLabelM;
 		private System.Windows.Forms.TextBox billtxtbox;
 		private System.Windows.Forms.Label billNoLabelM;
-		private System.Windows.Forms.TextBox operatortxtbox;
-		private System.Windows.Forms.Label opLabelM;
 		private System.Windows.Forms.TextBox counttxtbox;
 		private System.Windows.Forms.Label countLabelM;
-		private System.Windows.Forms.TextBox unittxtbox;
 		private System.Windows.Forms.Label unitLabelM;
 		private System.Windows.Forms.Button deleteSelected;
 		private System.Windows.Forms.Button deleteAll;
 		private System.Windows.Forms.DataGridView dataGridView1;
 		private System.Windows.Forms.TextBox revisiontxtbox;
-		private System.Windows.Forms.Label cardLabelM;
 		private System.Windows.Forms.Button saveDatabase;
 		private System.Windows.Forms.Button newStock;
 		private System.Windows.Forms.DateTimePicker dateTimePicker1;
@@ -738,6 +726,12 @@
 		private System.Windows.Forms.Label descLabel;
 		private System.Windows.Forms.Label comLabel;
 		private System.Windows.Forms.DateTimePicker dateTimePicker2;
+		private System.Windows.Forms.NumericUpDown numericUpDown1;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Button print;
+		private System.Windows.Forms.ComboBox printerCombo;
+		private System.Windows.Forms.Button printersRefresh;
+		private System.Windows.Forms.ComboBox unitCombo;
 	}
 }
 

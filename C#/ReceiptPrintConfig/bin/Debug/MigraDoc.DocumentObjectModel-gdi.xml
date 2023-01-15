@@ -794,6 +794,11 @@
             Determines if the current symbol is a header or footer.
             </summary>
         </member>
+        <member name="M:MigraDoc.DocumentObjectModel.IO.DdlParser.ParseEmbeddedFiles(MigraDoc.DocumentObjectModel.EmbeddedFiles)">
+            <summary>
+            Parses the keyword «\EmbeddedFiles».
+            </summary>
+        </member>
         <member name="M:MigraDoc.DocumentObjectModel.IO.DdlParser.ParseSection(MigraDoc.DocumentObjectModel.Sections)">
             <summary>
             Parses the keyword «\section».
@@ -5068,6 +5073,39 @@
             Visits the specified document object.
             </summary>
         </member>
+        <member name="M:MigraDoc.DocumentObjectModel.Visitors.ElementsExtensions.GetElements(MigraDoc.DocumentObjectModel.DocumentObject,System.Boolean)">
+            <summary>
+            Gets the elements/sections/rows/cells of a DocumentObject.
+            </summary>
+            <param name="documentObject">The DocumentObject.</param>
+            <param name="includeHeaderFooter">Shall headers and footers also be returned. No effect for DocumentObjects that are no and contain no Sections.</param>
+        </member>
+        <member name="M:MigraDoc.DocumentObjectModel.Visitors.ElementsExtensions.GetElements``1(MigraDoc.DocumentObjectModel.DocumentObject,System.Boolean)">
+            <summary>
+            Gets the elements/sections/rows/cells of Type T of a DocumentObject.
+            </summary>
+            <param name="documentObject">The DocumentObject.</param>
+            <param name="includeHeaderFooter">Shall headers and footers also be returned. No effect for DocumentObjects that are no and contain no Sections.</param>
+        </member>
+        <member name="M:MigraDoc.DocumentObjectModel.Visitors.ElementsExtensions.GetElementsRecursively(MigraDoc.DocumentObjectModel.DocumentObject,System.Boolean)">
+            <summary>
+            Gets the elements/sections/rows/cells of a DocumentObject recursively.
+            </summary>
+            <param name="documentObject">The DocumentObject.</param>
+            <param name="includeHeaderFooter">Shall headers and footers also be returned. No effect for DocumentObjects that are no and contain no Sections.</param>
+        </member>
+        <member name="M:MigraDoc.DocumentObjectModel.Visitors.ElementsExtensions.GetElementsRecursively``1(MigraDoc.DocumentObjectModel.DocumentObject,System.Boolean)">
+            <summary>
+            Gets the elements/sections/rows/cells of Type T of a DocumentObject recursively.
+            </summary>
+            <param name="documentObject">The DocumentObject.</param>
+            <param name="includeHeaderFooter">Shall headers and footers also be returned. No effect for DocumentObjects that are no and contain no Sections.</param>
+        </member>
+        <member name="M:MigraDoc.DocumentObjectModel.Visitors.ElementsExtensions.GetFont(MigraDoc.DocumentObjectModel.DocumentObject)">
+            <summary>
+            Gets the font of a DocumentObject stored in Font or Format.Font.
+            </summary>
+        </member>
         <member name="M:MigraDoc.DocumentObjectModel.Visitors.IVisitable.AcceptVisitor(MigraDoc.DocumentObjectModel.Visitors.DocumentObjectVisitor,System.Boolean)">
             <summary>
             Allows the visitor object to visit the document object and its child objects.
@@ -6487,6 +6525,13 @@
             Adds a new style to the document styles.
             </summary>
         </member>
+        <member name="M:MigraDoc.DocumentObjectModel.Document.AddEmbeddedFile(System.String,System.String)">
+            <summary>
+            Adds an embedded file to the document.
+            </summary>
+            <param name="name">The name used to refer and to entitle the embedded file.</param>
+            <param name="path">The path of the file to embed.</param>
+        </member>
         <member name="P:MigraDoc.DocumentObjectModel.Document.LastSection">
             <summary>
             Gets the last section of the document, or null, if the document has no sections.
@@ -6550,6 +6595,11 @@
         <member name="P:MigraDoc.DocumentObjectModel.Document.Sections">
             <summary>
             Gets the sections of the document.
+            </summary>
+        </member>
+        <member name="P:MigraDoc.DocumentObjectModel.Document.EmbeddedFiles">
+            <summary>
+            Gets the embedded documents of the document.
             </summary>
         </member>
         <member name="P:MigraDoc.DocumentObjectModel.Document.DdlFile">
@@ -7205,6 +7255,26 @@
             Header or footer for the even pages of the section.
             </summary>
         </member>
+        <member name="T:MigraDoc.DocumentObjectModel.HyperlinkTargetWindow">
+            <summary>
+            Specifies the target window a Hyperlink shall open an external PDF in.
+            </summary>
+        </member>
+        <member name="F:MigraDoc.DocumentObjectModel.HyperlinkTargetWindow.UserPreference">
+            <summary>
+            The viewer application should behave in accordance with the current user preference.
+            </summary>
+        </member>
+        <member name="F:MigraDoc.DocumentObjectModel.HyperlinkTargetWindow.SameWindow">
+            <summary>
+            The destination document replaces the current document in the same window.
+            </summary>
+        </member>
+        <member name="F:MigraDoc.DocumentObjectModel.HyperlinkTargetWindow.NewWindow">
+            <summary>
+            Opens the destination document in a new window.
+            </summary>
+        </member>
         <member name="T:MigraDoc.DocumentObjectModel.HyperlinkType">
             <summary>
             Specifies the target of the hyperlink.
@@ -7218,6 +7288,18 @@
         <member name="F:MigraDoc.DocumentObjectModel.HyperlinkType.Bookmark">
             <summary>
             Targets a position in the document. Same as 'Local'.
+            </summary>
+        </member>
+        <member name="F:MigraDoc.DocumentObjectModel.HyperlinkType.ExternalBookmark">
+            <summary>
+            Targets a position in another PDF document.
+            This is only supported in PDF. In RTF the other document is opened, but the target position is not moved to.
+            </summary>
+        </member>
+        <member name="F:MigraDoc.DocumentObjectModel.HyperlinkType.EmbeddedDocument">
+            <summary>
+            Targets a position in an embedded document in this or another root PDF document.
+            This is only supported in PDF.
             </summary>
         </member>
         <member name="F:MigraDoc.DocumentObjectModel.HyperlinkType.Web">
@@ -7424,6 +7506,75 @@
         <member name="F:MigraDoc.DocumentObjectModel.UnitType.Pica">
             <summary>
             Measure is in picas. A pica represents 12 points, i.e. 6 pica are one inch.
+            </summary>
+        </member>
+        <member name="T:MigraDoc.DocumentObjectModel.EmbeddedFile">
+            <summary>
+            EmbeddedFile is used for PDF Documents that shall be embedded in another PDF Document. EmbeddedFile is only supported in PDF.
+            </summary>
+        </member>
+        <member name="M:MigraDoc.DocumentObjectModel.EmbeddedFile.#ctor">
+            <summary>
+            Initializes a new instance of the EmbeddedFile class.
+            </summary>
+        </member>
+        <member name="M:MigraDoc.DocumentObjectModel.EmbeddedFile.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the EmbeddedFile class.
+            </summary>
+            <param name="name">The name used to refer and to entitle the embedded file.</param>
+            <param name="path">The path of the file to embed.</param>
+        </member>
+        <member name="P:MigraDoc.DocumentObjectModel.EmbeddedFile.Name">
+            <summary>
+            Gets or sets the name used to refer and to entitle the embedded file.
+            </summary>
+        </member>
+        <member name="P:MigraDoc.DocumentObjectModel.EmbeddedFile.Path">
+            <summary>
+            Gets or sets the path to the file to embed.
+            </summary>
+        </member>
+        <member name="M:MigraDoc.DocumentObjectModel.EmbeddedFile.Serialize(MigraDoc.DocumentObjectModel.Serializer)">
+            <summary>
+            Converts Section into DDL.
+            </summary>
+        </member>
+        <member name="P:MigraDoc.DocumentObjectModel.EmbeddedFile.Meta">
+            <summary>
+            Returns the meta object of this instance.
+            </summary>
+        </member>
+        <member name="T:MigraDoc.DocumentObjectModel.EmbeddedFiles">
+            <summary>
+            Represents the collection of embedded files.
+            </summary>
+        </member>
+        <member name="M:MigraDoc.DocumentObjectModel.EmbeddedFiles.#ctor">
+            <summary>
+            Initializes a new instance of the EmbeddedFiles class.
+            </summary>
+        </member>
+        <member name="P:MigraDoc.DocumentObjectModel.EmbeddedFiles.Item(System.Int32)">
+            <summary>
+            Gets an embedded file by its index. First embedded file has index 0.
+            </summary>
+        </member>
+        <member name="M:MigraDoc.DocumentObjectModel.EmbeddedFiles.Add(System.String,System.String)">
+            <summary>
+            Adds a new EmbeddedFile.
+            </summary>
+            <param name="name">The name used to refer and to entitle the embedded file.</param>
+            <param name="path">The path of the file to embed.</param>
+        </member>
+        <member name="M:MigraDoc.DocumentObjectModel.EmbeddedFiles.Serialize(MigraDoc.DocumentObjectModel.Serializer)">
+            <summary>
+            Converts Sections into DDL.
+            </summary>
+        </member>
+        <member name="P:MigraDoc.DocumentObjectModel.EmbeddedFiles.Meta">
+            <summary>
+            Returns the meta object of this instance.
             </summary>
         </member>
         <member name="T:MigraDoc.DocumentObjectModel.Font">
@@ -7657,9 +7808,11 @@
             Implements the deep copy of the object.
             </summary>
         </member>
-        <member name="M:MigraDoc.DocumentObjectModel.FormattedText.AddBookmark(System.String)">
+        <member name="M:MigraDoc.DocumentObjectModel.FormattedText.AddBookmark(System.String,System.Boolean)">
             <summary>
             Adds a new Bookmark.
+            <param name="name">The name of the bookmark.</param>
+            <param name="prepend">True, if the bookmark shall be inserted at the beginning of the paragraph.</param>
             </summary>
         </member>
         <member name="M:MigraDoc.DocumentObjectModel.FormattedText.AddChar(System.Char,System.Int32)">
@@ -7766,18 +7919,51 @@
         </member>
         <member name="M:MigraDoc.DocumentObjectModel.FormattedText.AddHyperlink(System.String)">
             <summary>
-            Adds a new Hyperlink of Type "Local", 
-            i.e. the target is a Bookmark within the Document
+            Adds a new Hyperlink of Type "Local", i.e. the target is a Bookmark within the Document.
             </summary>
         </member>
         <member name="M:MigraDoc.DocumentObjectModel.FormattedText.AddHyperlink(System.String,MigraDoc.DocumentObjectModel.HyperlinkType)">
             <summary>
-            Adds a new Hyperlink
+            Adds a new Hyperlink.
             </summary>
+        </member>
+        <member name="M:MigraDoc.DocumentObjectModel.FormattedText.AddHyperlink(System.String,System.String,MigraDoc.DocumentObjectModel.HyperlinkTargetWindow)">
+            <summary>
+            Adds a new Hyperlink of Type "ExternalBookmark", i.e. the target is a Bookmark in an external PDF Document.
+            </summary>
+            <param name="filename">The path to the target document.</param>
+            <param name="bookmarkName">The Named Destination's name in the target document.</param>
+            <param name="newWindow">Defines if the document shall be opened in a new window.
+            If not set, the viewer application should behave in accordance with the current user preference.</param>
+        </member>
+        <member name="M:MigraDoc.DocumentObjectModel.FormattedText.AddHyperlinkToEmbeddedDocument(System.String,MigraDoc.DocumentObjectModel.HyperlinkTargetWindow)">
+            <summary>
+            Adds a new Hyperlink of Type "EmbeddedDocument".
+            The target is a Bookmark in an embedded Document in this Document.
+            </summary>
+            <param name="destinationPath">The path to the named destination through the embedded documents.
+            The path is separated by '\' and the last segment is the name of the named destination.
+            The other segments describe the route from the current (root or embedded) document to the embedded document holding the destination.
+            ".." references to the parent, other strings refer to a child with this name in the EmbeddedFiles name dictionary.</param>
+            <param name="newWindow">Defines if the HyperlinkType ExternalBookmark shall be opened in a new window.
+            If not set, the viewer application should behave in accordance with the current user preference.</param>
+        </member>
+        <member name="M:MigraDoc.DocumentObjectModel.FormattedText.AddHyperlinkToEmbeddedDocument(System.String,System.String,MigraDoc.DocumentObjectModel.HyperlinkTargetWindow)">
+            <summary>
+            Adds a new Hyperlink of Type "EmbeddedDocument".
+            The target is a Bookmark in an embedded Document in an external PDF Document.
+            </summary>
+            <param name="filename">The path to the target document.</param>
+            <param name="destinationPath">The path to the named destination through the embedded documents in the target document.
+            The path is separated by '\' and the last segment is the name of the named destination.
+            The other segments describe the route from the root document to the embedded document.
+            Each segment name refers to a child with this name in the EmbeddedFiles name dictionary.</param>
+            <param name="newWindow">Defines if the HyperlinkType ExternalBookmark shall be opened in a new window.
+            If not set, the viewer application should behave in accordance with the current user preference.</param>
         </member>
         <member name="M:MigraDoc.DocumentObjectModel.FormattedText.AddImage(System.String)">
             <summary>
-            Adds a new Image object
+            Adds a new Image object.
             </summary>
         </member>
         <member name="M:MigraDoc.DocumentObjectModel.FormattedText.AddCharacter(MigraDoc.DocumentObjectModel.SymbolName)">
@@ -8207,7 +8393,7 @@
             The type will be treated as Local by default.
             </summary>
         </member>
-        <member name="M:MigraDoc.DocumentObjectModel.Hyperlink.#ctor(System.String,MigraDoc.DocumentObjectModel.HyperlinkType,System.String)">
+        <member name="M:MigraDoc.DocumentObjectModel.Hyperlink.#ctor(System.String,System.String,MigraDoc.DocumentObjectModel.HyperlinkType,System.String)">
             <summary>
             Initializes a new instance of the Hyperlink class with the type and text the hyperlink shall
             represent.
@@ -8303,10 +8489,12 @@
             Adds a new FormattedText object with the given text and style.
             </summary>
         </member>
-        <member name="M:MigraDoc.DocumentObjectModel.Hyperlink.AddBookmark(System.String)">
+        <member name="M:MigraDoc.DocumentObjectModel.Hyperlink.AddBookmark(System.String,System.Boolean)">
             <summary>
             Adds a new Bookmark.
             </summary>
+            <param name="name">The name of the bookmark.</param>
+            <param name="prepend">True, if the bookmark shall be inserted at the beginning of the paragraph.</param>
         </member>
         <member name="M:MigraDoc.DocumentObjectModel.Hyperlink.AddPageField">
             <summary>
@@ -8435,7 +8623,28 @@
         </member>
         <member name="P:MigraDoc.DocumentObjectModel.Hyperlink.Name">
             <summary>
-            Gets or sets the target name of the Hyperlink, e.g. an URL or a bookmark's name.
+            For HyperlinkType Local/Bookmark: Gets or sets the target bookmark name of the Hyperlink.
+            For HyperlinkTypes File and Url/Web: Gets or sets the target filename of the Hyperlink, e.g. a path to a file or an URL.
+            For HyperlinkType ExternalBookmark: Not valid - throws Exception.
+            This property is retained due to compatibility reasons.
+            </summary>
+        </member>
+        <member name="P:MigraDoc.DocumentObjectModel.Hyperlink.Filename">
+            <summary>
+            Gets or sets the target filename of the Hyperlink, e.g. a path to a file or an URL.
+            Used for HyperlinkTypes ExternalBookmark, File and Url/Web.
+            </summary>
+        </member>
+        <member name="P:MigraDoc.DocumentObjectModel.Hyperlink.BookmarkName">
+            <summary>
+            Gets or sets the target bookmark name of the Hyperlink.
+            Used for HyperlinkTypes ExternalBookmark and Bookmark.
+            </summary>
+        </member>
+        <member name="P:MigraDoc.DocumentObjectModel.Hyperlink.NewWindow">
+            <summary>
+            Defines if the HyperlinkType ExternalBookmark shall be opened in a new window.
+            If not set, the viewer application should behave in accordance with the current user preference.
             </summary>
         </member>
         <member name="P:MigraDoc.DocumentObjectModel.Hyperlink.Type">
@@ -8819,19 +9028,54 @@
         </member>
         <member name="M:MigraDoc.DocumentObjectModel.Paragraph.AddHyperlink(System.String)">
             <summary>
-            Adds a new Hyperlink of Type "Local", 
-            i.e. the Target is a Bookmark within the Document
+            Adds a new Hyperlink of Type "Local", i.e. the target is a Bookmark within the Document.
             </summary>
         </member>
         <member name="M:MigraDoc.DocumentObjectModel.Paragraph.AddHyperlink(System.String,MigraDoc.DocumentObjectModel.HyperlinkType)">
             <summary>
-            Adds a new Hyperlink
+            Adds a new Hyperlink.
             </summary>
         </member>
-        <member name="M:MigraDoc.DocumentObjectModel.Paragraph.AddBookmark(System.String)">
+        <member name="M:MigraDoc.DocumentObjectModel.Paragraph.AddHyperlink(System.String,System.String,MigraDoc.DocumentObjectModel.HyperlinkTargetWindow)">
+            <summary>
+            Adds a new Hyperlink of Type "ExternalBookmark", i.e. the target is a Bookmark in an external PDF Document.
+            </summary>
+            <param name="filename">The path to the target document.</param>
+            <param name="bookmarkName">The Named Destination's name in the target document.</param>
+            <param name="newWindow">Defines if the HyperlinkType ExternalBookmark shall be opened in a new window.
+            If not set, the viewer application should behave in accordance with the current user preference.</param>
+        </member>
+        <member name="M:MigraDoc.DocumentObjectModel.Paragraph.AddHyperlinkToEmbeddedDocument(System.String,MigraDoc.DocumentObjectModel.HyperlinkTargetWindow)">
+            <summary>
+            Adds a new Hyperlink of Type "EmbeddedDocument".
+            The target is a Bookmark in an embedded Document in this Document.
+            </summary>
+            <param name="destinationPath">The path to the named destination through the embedded documents.
+            The path is separated by '\' and the last segment is the name of the named destination.
+            The other segments describe the route from the current (root or embedded) document to the embedded document holding the destination.
+            ".." references to the parent, other strings refer to a child with this name in the EmbeddedFiles name dictionary.</param>
+            <param name="newWindow">Defines if the HyperlinkType ExternalBookmark shall be opened in a new window.
+            If not set, the viewer application should behave in accordance with the current user preference.</param>
+        </member>
+        <member name="M:MigraDoc.DocumentObjectModel.Paragraph.AddHyperlinkToEmbeddedDocument(System.String,System.String,MigraDoc.DocumentObjectModel.HyperlinkTargetWindow)">
+            <summary>
+            Adds a new Hyperlink of Type "EmbeddedDocument".
+            The target is a Bookmark in an embedded Document in an external PDF Document.
+            </summary>
+            <param name="filename">The path to the target document.</param>
+            <param name="destinationPath">The path to the named destination through the embedded documents in the target document.
+            The path is separated by '\' and the last segment is the name of the named destination.
+            The other segments describe the route from the root document to the embedded document.
+            Each segment name refers to a child with this name in the EmbeddedFiles name dictionary.</param>
+            <param name="newWindow">Defines if the HyperlinkType ExternalBookmark shall be opened in a new window.
+            If not set, the viewer application should behave in accordance with the current user preference.</param>
+        </member>
+        <member name="M:MigraDoc.DocumentObjectModel.Paragraph.AddBookmark(System.String,System.Boolean)">
             <summary>
             Adds a new Bookmark.
             </summary>
+            <param name="name">The name of the bookmark.</param>
+            <param name="prepend">True, if the bookmark shall be inserted at the beginning of the paragraph.</param>
         </member>
         <member name="M:MigraDoc.DocumentObjectModel.Paragraph.AddPageField">
             <summary>
@@ -9125,18 +9369,54 @@
         </member>
         <member name="M:MigraDoc.DocumentObjectModel.ParagraphElements.AddHyperlink(System.String)">
             <summary>
-            Adds a new Hyperlink of Type "Local", i.e. the Target is a Bookmark within the Document
+            Adds a new Hyperlink of Type "Local", i.e. the target is a Bookmark within the Document.
             </summary>
         </member>
         <member name="M:MigraDoc.DocumentObjectModel.ParagraphElements.AddHyperlink(System.String,MigraDoc.DocumentObjectModel.HyperlinkType)">
             <summary>
-            Adds a new Hyperlink
+            Adds a new Hyperlink.
             </summary>
         </member>
-        <member name="M:MigraDoc.DocumentObjectModel.ParagraphElements.AddBookmark(System.String)">
+        <member name="M:MigraDoc.DocumentObjectModel.ParagraphElements.AddHyperlink(System.String,System.String,MigraDoc.DocumentObjectModel.HyperlinkTargetWindow)">
+            <summary>
+            Adds a new Hyperlink of Type "ExternalBookmark", i.e. the target is a Bookmark in an external PDF Document.
+            </summary>
+            <param name="filename">The path to the target document.</param>
+            <param name="bookmarkName">The Named Destination's name in the target document.</param>
+            <param name="newWindow">Defines if the HyperlinkType ExternalBookmark shall be opened in a new window.
+            If not set, the viewer application should behave in accordance with the current user preference.</param>
+        </member>
+        <member name="M:MigraDoc.DocumentObjectModel.ParagraphElements.AddHyperlinkToEmbeddedDocument(System.String,MigraDoc.DocumentObjectModel.HyperlinkTargetWindow)">
+            <summary>
+            Adds a new Hyperlink of Type "EmbeddedDocument".
+            The target is a Bookmark in an embedded Document in this Document.
+            </summary>
+            <param name="destinationPath">The path to the named destination through the embedded documents.
+            The path is separated by '\' and the last segment is the name of the named destination.
+            The other segments describe the route from the current (root or embedded) document to the embedded document holding the destination.
+            ".." references to the parent, other strings refer to a child with this name in the EmbeddedFiles name dictionary.</param>
+            <param name="newWindow">Defines if the HyperlinkType ExternalBookmark shall be opened in a new window.
+            If not set, the viewer application should behave in accordance with the current user preference.</param>
+        </member>
+        <member name="M:MigraDoc.DocumentObjectModel.ParagraphElements.AddHyperlinkToEmbeddedDocument(System.String,System.String,MigraDoc.DocumentObjectModel.HyperlinkTargetWindow)">
+            <summary>
+            Adds a new Hyperlink of Type "EmbeddedDocument".
+            The target is a Bookmark in an embedded Document in an external PDF Document.
+            </summary>
+            <param name="filename">The path to the target document.</param>
+            <param name="destinationPath">The path to the named destination through the embedded documents in the target document.
+            The path is separated by '\' and the last segment is the name of the named destination.
+            The other segments describe the route from the root document to the embedded document.
+            Each segment name refers to a child with this name in the EmbeddedFiles name dictionary.</param>
+            <param name="newWindow">Defines if the HyperlinkType ExternalBookmark shall be opened in a new window.
+            If not set, the viewer application should behave in accordance with the current user preference.</param>
+        </member>
+        <member name="M:MigraDoc.DocumentObjectModel.ParagraphElements.AddBookmark(System.String,System.Boolean)">
             <summary>
             Adds a new Bookmark.
             </summary>
+            <param name="name">The name of the bookmark.</param>
+            <param name="prepend">True, if the bookmark shall be inserted at the beginning of the paragraph.</param>
         </member>
         <member name="M:MigraDoc.DocumentObjectModel.ParagraphElements.AddPageField">
             <summary>
@@ -9639,7 +9919,7 @@
         <member name="M:MigraDoc.DocumentObjectModel.Serializer.DoWordWrap(System.String)">
             <summary>
             Returns the part of the string str that fits into the line (up to 80 chars).
-            If Wordwrap is impossible it returns the input-string str itself.
+            If wordwrap is impossible it returns the input-string str itself.
             </summary>
         </member>
         <member name="M:MigraDoc.DocumentObjectModel.Serializer.WriteLine">

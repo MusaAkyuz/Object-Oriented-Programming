@@ -90,12 +90,12 @@ namespace PCIMTK
 			QRCodeData qrCodeData = qrGenerator.CreateQrCode(qrCodeString, QRCodeGenerator.ECCLevel.Q);
 			QRCode qrCode = new QRCode(qrCodeData);
 			Bitmap qrCodeImage = qrCode.GetGraphic(20);
-			qrCodeImage.Save("qr" + boxcode + ".png", ImageFormat.Png);
+			qrCodeImage.Save("TempDocument\\qr" + boxcode + ".png", ImageFormat.Png);
 			#endregion
 
 			// Printing qr code image
 			#region PrintingQrCodeImage
-			image = section.AddImage("qr" + boxcode + ".png");
+			image = section.AddImage("TempDocument\\qr" + boxcode + ".png");
 			image.Width = new Unit(120, UnitType.Point);
 			image.Height = new Unit(120, UnitType.Point);
 			image.Left = ShapePosition.Right;
@@ -337,7 +337,7 @@ namespace PCIMTK
 
 			foreach (var file in directory.GetFiles())
 			{
-				if (file.Name == "qr*")
+				if (System.Text.RegularExpressions.Regex.IsMatch(file.Name.ToString(), "[q]"))
 				{
 					file.Delete();
 				}

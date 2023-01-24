@@ -27,3 +27,7 @@ C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PCIMTK\bin\
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PCIMTK\bin\Debug\de\PdfSharp.Charting-gdi.resources.dll
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PCIMTK\obj\Debug\PCIMTK.csproj.CopyComplete
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PCIMTK\bin\Debug\PDFtoPrinter.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PCIMTK\bin\Debug\PCIMTK.exe.manifest
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PCIMTK\bin\Debug\PCIMTK.application
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PCIMTK\obj\Debug\PCIMTK.exe.manifest
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PCIMTK\obj\Debug\PCIMTK.application

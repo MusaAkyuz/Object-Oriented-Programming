@@ -209,6 +209,7 @@ namespace PCIMTK
 			progressBar.Value = 0;
 		}
 
+		[Obsolete]
 		private void printBtn_Click(object sender, EventArgs e)
 		{
 			string filename = DocumantTransactions.RenderDocument(this);

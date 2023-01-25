@@ -31,3 +31,6 @@ C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PCIMTK\obj\
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PCIMTK\obj\Release\PCIMTK.csproj.CopyComplete
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PCIMTK\obj\Release\PCIMTK.exe
 C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PCIMTK\obj\Release\PCIMTK.pdb
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PCIMTK\bin\Release\BouncyCastle.Crypto.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PCIMTK\bin\Release\itextsharp.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\PCIMTK\bin\Release\itextsharp.xml

@@ -32,7 +32,10 @@ namespace PCIMTK
 
 			// Add a section to the document
 			Section section = document.AddSection();
-			section.PageSetup.TopMargin = "1.5cm";
+			section.PageSetup.TopMargin = "1.1cm";
+			section.PageSetup.LeftMargin = "1.2cm";
+			section.PageSetup.RightMargin = "1.2cm";
+			section.PageSetup.PageFormat = PageFormat.A6;
 
 			/*
 			 * 
@@ -42,8 +45,8 @@ namespace PCIMTK
 			// Printing Arcelik image
 			#region PrintingArcelikImage
 			var image = section.AddImage("icons\\arcelik.png");
-			image.Width = new Unit(150, UnitType.Point); ;
-			image.Height = new Unit(150, UnitType.Point);
+			image.Width = new Unit(60, UnitType.Point); ;
+			image.Height = new Unit(60, UnitType.Point);
 			image.Left = ShapePosition.Center;
 			image.Top = ShapePosition.Top;
 			image.RelativeVertical = RelativeVertical.Line;
@@ -96,8 +99,8 @@ namespace PCIMTK
 			// Printing qr code image
 			#region PrintingQrCodeImage
 			image = section.AddImage("TempDocument\\qr" + boxcode + ".png");
-			image.Width = new Unit(120, UnitType.Point);
-			image.Height = new Unit(120, UnitType.Point);
+			image.Width = new Unit(60, UnitType.Point);
+			image.Height = new Unit(60, UnitType.Point);
 			image.Left = ShapePosition.Right;
 			image.WrapFormat.Style = WrapStyle.Through;
 			#endregion
@@ -106,26 +109,30 @@ namespace PCIMTK
 			#region ArcelikImageDescription
 			Paragraph par;
 
+			int fontSize = 8;
+			int bigFontSize = 12;
+
+
 			//Arçelik A.Ş.
 			par = section.AddParagraph();
-			par.Format.SpaceBefore = "5.4cm";
+			par.Format.SpaceBefore = new Unit(65, UnitType.Point);
 			par.Format.Alignment = ParagraphAlignment.Center;
-			par.Format.Font.Size = 20;
+			par.Format.Font.Size = fontSize;
 			par.Format.Font.Bold = true;
 			par.AddText("Arçelik A.Ş.");
 
 			//PCI
 			par = section.AddParagraph();
 			par.Format.Alignment = ParagraphAlignment.Center;
-			par.Format.Font.Size = 16;
+			par.Format.Font.Size = 10;
 			par.AddText("PCI");
 
 			//Malzeme Tanıtım Kartı
 			par = section.AddParagraph();
 			par.Format.Alignment = ParagraphAlignment.Center;
-			par.Format.Font.Size = 16;
+			par.Format.Font.Size = fontSize;
 			par.AddText("Malzeme Tanitim Karti");
-			par.Format.SpaceAfter = "0.2cm";
+			par.Format.SpaceAfter = "0.1cm";
 			#endregion
 
 			// REACH /POH ROHS GKK 
@@ -134,10 +141,10 @@ namespace PCIMTK
 			//All information about receiver from Application Form
 			#region InfromationTab
 			Table table = section.AddTable();
-			table.Format.SpaceBefore = "0.3cm";
-			Column _headers = table.AddColumn("5cm");
+			table.Format.SpaceBefore = "0.15cm";
+			Column _headers = table.AddColumn("3cm");
 			Column _doublePoint = table.AddColumn("0.5cm");
-			Column _values = table.AddColumn("5cm");
+			Column _values = table.AddColumn("3cm");
 			_headers.Borders.Visible = false;
 			_doublePoint.Borders.Visible = false;
 			_values.Borders.Visible = false;
@@ -147,85 +154,85 @@ namespace PCIMTK
 
 			row = table.AddRow();
 			row.Cells[0].AddParagraph("Malzeme Kodu");
-			row.Cells[0].Format.Font.Size = 16;
+			row.Cells[0].Format.Font.Size = fontSize;
 			row.Cells[1].AddParagraph(":");
-			row.Cells[1].Format.Font.Size = 16;
+			row.Cells[1].Format.Font.Size = fontSize;
 			row.Cells[2].AddParagraph(item.MaterialCode);
 			row.Cells[2].Format.Font.Bold = true;
-			row.Cells[2].Format.Font.Size = 25;
+			row.Cells[2].Format.Font.Size = bigFontSize;
 
 			row = table.AddRow();
 			row.Cells[0].AddParagraph("Lot No");
-			row.Cells[0].Format.Font.Size = 16;
+			row.Cells[0].Format.Font.Size = fontSize;
 			row.Cells[1].AddParagraph(":");
-			row.Cells[1].Format.Font.Size = 16;
+			row.Cells[1].Format.Font.Size = fontSize;
 			row.Cells[2].AddParagraph(item.LotNo);
-			row.Cells[2].Format.Font.Size = 16;
+			row.Cells[2].Format.Font.Size = fontSize;
 
 			row = table.AddRow();
 			row.Cells[0].AddParagraph("Firma Adı");
-			row.Cells[0].Format.Font.Size = 16;
+			row.Cells[0].Format.Font.Size = fontSize;
 			row.Cells[1].AddParagraph(":");
-			row.Cells[1].Format.Font.Size = 16;
+			row.Cells[1].Format.Font.Size = fontSize;
 			row.Cells[2].AddParagraph(item.CompanyName);
-			row.Cells[2].Format.Font.Size = 16;
+			row.Cells[2].Format.Font.Size = fontSize;
 
 			row = table.AddRow();
 			row.Cells[0].AddParagraph("İrsaliye No");
-			row.Cells[0].Format.Font.Size = 16;
+			row.Cells[0].Format.Font.Size = fontSize;
 			row.Cells[1].AddParagraph(":");
-			row.Cells[1].Format.Font.Size = 16;
+			row.Cells[1].Format.Font.Size = fontSize;
 			row.Cells[2].AddParagraph(item.BillNo);
-			row.Cells[2].Format.Font.Size = 16;
+			row.Cells[2].Format.Font.Size = fontSize;
 
 			row = table.AddRow();
 			row.Cells[0].AddParagraph("İrsaliye Tarihi");
-			row.Cells[0].Format.Font.Size = 16;
+			row.Cells[0].Format.Font.Size = fontSize;
 			row.Cells[1].AddParagraph(":");
-			row.Cells[1].Format.Font.Size = 16;
+			row.Cells[1].Format.Font.Size = fontSize;
 			row.Cells[2].AddParagraph(qrCodeDateFormatBill + "");
-			row.Cells[2].Format.Font.Size = 16;
+			row.Cells[2].Format.Font.Size = fontSize;
 
 			row = table.AddRow();
 			row.Cells[0].AddParagraph("Kutu Kodu");
-			row.Cells[0].Format.Font.Size = 16;
+			row.Cells[0].Format.Font.Size = fontSize;
 			row.Cells[1].AddParagraph(":");
-			row.Cells[1].Format.Font.Size = 16;
+			row.Cells[1].Format.Font.Size = fontSize;
 			row.Cells[2].AddParagraph(boxcode);
-			row.Cells[2].Format.Font.Size = 16;
+			row.Cells[2].Format.Font.Size = fontSize;
 
 			row = table.AddRow();
 			row.Cells[0].AddParagraph("Üretim Tarihi");
-			row.Cells[0].Format.Font.Size = 16;
+			row.Cells[0].Format.Font.Size = fontSize;
 			row.Cells[1].AddParagraph(":");
-			row.Cells[1].Format.Font.Size = 16;
+			row.Cells[1].Format.Font.Size = fontSize;
 			row.Cells[2].AddParagraph(qrCodeDateFormatProduction + "");
-			row.Cells[2].Format.Font.Size = 16;
+			row.Cells[2].Format.Font.Size = fontSize;
 
 			row = table.AddRow();
 			row.Cells[0].AddParagraph("Miktar");
-			row.Cells[0].Format.Font.Size = 16;
+			row.Cells[0].Format.Font.Size = fontSize;
 			row.Cells[1].AddParagraph(":");
-			row.Cells[1].Format.Font.Size = 16;
+			row.Cells[1].Format.Font.Size = fontSize;
 			row.Cells[2].AddParagraph((count2 / numOfBox2).ToString());
 			row.Cells[2].Format.Font.Bold = true;
-			row.Cells[2].Format.Font.Size = 25;
+			row.Cells[2].Format.Font.Size = bigFontSize;
 
 			row = table.AddRow();
 			row.Cells[0].AddParagraph("Birim");
-			row.Cells[0].Format.Font.Size = 16;
+			row.Cells[0].Format.Font.Size = fontSize;
 			row.Cells[1].AddParagraph(":");
-			row.Cells[1].Format.Font.Size = 16;
+			row.Cells[1].Format.Font.Size = fontSize;
 			row.Cells[2].AddParagraph(item.Unit);
-			row.Cells[2].Format.Font.Size = 16;
+			row.Cells[2].Format.Font.Size = fontSize;
 
 			row = table.AddRow();
 			row.Cells[0].AddParagraph("Toplam Adet");
-			row.Cells[0].Format.Font.Size = 16;
+			row.Cells[0].Format.Font.Size = fontSize;
 			row.Cells[1].AddParagraph(":");
-			row.Cells[1].Format.Font.Size = 16;
+			row.Cells[1].Format.Font.Size = fontSize;
 			row.Cells[2].AddParagraph((Convert.ToDecimal(item.Quantity) / item.NumberOfBox).ToString("0."));
-			row.Cells[2].Format.Font.Size = 16;
+			row.Cells[2].Format.Font.Size = fontSize;
 			#endregion
 
 			db.UpdateBoxCode();
@@ -252,24 +259,27 @@ namespace PCIMTK
 			Column _empty2 = new Column();
 			Column gkk = new Column();
 
-			reach = table.AddColumn("4cm");
-			_empty = table.AddColumn("0.8cm");
-			rohs = table.AddColumn("4cm");
-			_empty2 = table.AddColumn("0.8cm");
-			gkk = table.AddColumn("4cm");
+			int fontSize = 8;
+			int borderWidth = 1;
+
+			reach = table.AddColumn("1.95cm");
+			_empty = table.AddColumn("0.3cm");
+			rohs = table.AddColumn("1.95cm");
+			_empty2 = table.AddColumn("0.3cm");
+			gkk = table.AddColumn("1.95cm");
 
 			Row row = new Row();
 			row = table.AddRow();
 			row.Cells[0].AddParagraph("REACH \n/ PAH");
 			row.Cells[0].Format.Alignment = ParagraphAlignment.Center;
 			row.Cells[0].Format.Font.Bold = true;
-			row.Cells[0].Format.Font.Size = 16;
+			row.Cells[0].Format.Font.Size = fontSize;
 			row.Cells[0].Borders.Visible = true;
-			row.Cells[0].Borders.Width = 1.6;
-			row.Cells[0].Format.SpaceAfter = "0.5cm";
-			row.Cells[0].Format.SpaceBefore = "0.5cm";
+			row.Cells[0].Borders.Width = borderWidth;
+			row.Cells[0].Format.SpaceAfter = "0.25cm";
+			row.Cells[0].Format.SpaceBefore = "0.25cm";
 
-			row.Cells[1].Borders.Width = 1.6;
+			row.Cells[1].Borders.Width = borderWidth;
 			row.Cells[1].Borders.Right.Visible = true;
 			row.Cells[1].Borders.Top.Visible = false;
 			row.Cells[1].Borders.Bottom.Visible = false;
@@ -278,13 +288,13 @@ namespace PCIMTK
 			row.Cells[2].AddParagraph("ROHS");
 			row.Cells[2].Format.Alignment = ParagraphAlignment.Center;
 			row.Cells[2].Format.Font.Bold = true;
-			row.Cells[2].Format.Font.Size = 16;
+			row.Cells[2].Format.Font.Size = fontSize;
 			row.Cells[2].Borders.Visible = true;
-			row.Cells[2].Borders.Width = 1.6;
-			row.Cells[2].Format.SpaceAfter = "0.8cm";
-			row.Cells[2].Format.SpaceBefore = "0.8cm";
+			row.Cells[2].Borders.Width = borderWidth;
+			row.Cells[2].Format.SpaceAfter = "0.4cm";
+			row.Cells[2].Format.SpaceBefore = "0.4cm";
 
-			row.Cells[3].Borders.Width = 1.6;
+			row.Cells[3].Borders.Width = borderWidth;
 			row.Cells[3].Borders.Right.Visible = true;
 			row.Cells[3].Borders.Top.Visible = false;
 			row.Cells[3].Borders.Bottom.Visible = false;
@@ -294,10 +304,10 @@ namespace PCIMTK
 			row.Cells[4].Format.Alignment = ParagraphAlignment.Center;
 			row.Cells[4].Format.Font.Bold = true;
 			row.Cells[4].Borders.Visible = true;
-			row.Cells[4].Borders.Width = 1.6;
-			row.Cells[4].Format.Font.Size = 16;
-			row.Cells[4].Format.SpaceAfter = "0.8cm";
-			row.Cells[4].Format.SpaceBefore = "0.8cm";
+			row.Cells[4].Borders.Width = borderWidth;
+			row.Cells[4].Format.Font.Size = fontSize;
+			row.Cells[4].Format.SpaceAfter = "0.4cm";
+			row.Cells[4].Format.SpaceBefore = "0.4cm";
 
 
 			frame.Add(table);
@@ -319,6 +329,7 @@ namespace PCIMTK
 				f.progressBar.Value = barControl;
 				var document = DocumantTransactions.CreateDocumant(item);
 				var section2 = document.Sections[0].Clone();
+				section2.PageSetup.PageFormat = PageFormat.A6;
 				splicedDocument.Add(section2);
 			}
 

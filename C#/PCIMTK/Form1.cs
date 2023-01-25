@@ -1,16 +1,25 @@
-﻿using MigraDoc.DocumentObjectModel;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using MigraDoc.DocumentObjectModel;
 using MigraDoc.Rendering;
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
+using PdfSharp.Pdf.Advanced;
+using PdfSharp.Pdf.IO;
 using PDFtoPrinter;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Runtime.Remoting.Channels;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -205,7 +214,32 @@ namespace PCIMTK
 		private void createDocumantBtn_Click(object sender, EventArgs e)
 		{
 			string filename = DocumantTransactions.RenderDocument(this);
-			Process.Start(filename);
+
+			string inPDF = filename;
+			string outPDF = "TempDocument\\Copy.pdf";
+			MessageBox.Show(filename + " " + outPDF);
+			iTextSharp.text.pdf.PdfReader pdfr = new iTextSharp.text.pdf.PdfReader(inPDF);
+
+			iTextSharp.text.Document doc = new iTextSharp.text.Document(PageSize.A4);
+			iTextSharp.text.Document.Compress = true;
+
+			iTextSharp.text.pdf.PdfWriter writer = iTextSharp.text.pdf.PdfWriter.GetInstance(doc, new FileStream(outPDF, FileMode.Create));
+			doc.Open();
+
+			PdfContentByte cb = writer.DirectContent;
+
+			PdfImportedPage page;
+
+			for (int i = 1; i < pdfr.NumberOfPages + 1; i++)
+			{
+				page = writer.GetImportedPage(pdfr, i);
+				cb.AddTemplate(page, PageSize.A4.Width / pdfr.GetPageSize(i).Width, 0, 0, PageSize.A4.Height / pdfr.GetPageSize(i).Height, 0, 0);
+				doc.NewPage();
+			}
+
+			doc.Close();
+
+			PDFtoPrinter.Process.Start(outPDF);
 			progressBar.Value = 0;
 		}
 
@@ -215,7 +249,6 @@ namespace PCIMTK
 			string filename = DocumantTransactions.RenderDocument(this);
 
 			PrintDocument pd = new PrintDocument();
-
 			var printer = new PDFtoPrinterPrinter();
 			printer.Print(new PrintingOptions(printersComboBox.SelectedItem.ToString(), filename));
 			progressBar.Value = 0;

@@ -248,9 +248,33 @@ namespace PCIMTK
 		{
 			string filename = DocumantTransactions.RenderDocument(this);
 
+			string inPDF = filename;
+			string outPDF = "TempDocument\\Copy.pdf";
+			MessageBox.Show(filename + " " + outPDF);
+			iTextSharp.text.pdf.PdfReader pdfr = new iTextSharp.text.pdf.PdfReader(inPDF);
+
+			iTextSharp.text.Document doc = new iTextSharp.text.Document(PageSize.A6);
+			iTextSharp.text.Document.Compress = true;
+
+			iTextSharp.text.pdf.PdfWriter writer = iTextSharp.text.pdf.PdfWriter.GetInstance(doc, new FileStream(outPDF, FileMode.Create));
+			doc.Open();
+
+			PdfContentByte cb = writer.DirectContent;
+
+			PdfImportedPage page;
+
+			for (int i = 1; i < pdfr.NumberOfPages + 1; i++)
+			{
+				page = writer.GetImportedPage(pdfr, i);
+				cb.AddTemplate(page, PageSize.A6.Width / pdfr.GetPageSize(i).Width, 0, 0, PageSize.A6.Height / pdfr.GetPageSize(i).Height, 0, 0);
+				doc.NewPage();
+			}
+
+			doc.Close();
+
 			PrintDocument pd = new PrintDocument();
 			var printer = new PDFtoPrinterPrinter();
-			printer.Print(new PrintingOptions(printersComboBox.SelectedItem.ToString(), filename));
+			printer.Print(new PrintingOptions(printersComboBox.SelectedItem.ToString(), outPDF));
 			progressBar.Value = 0;
 		}
 	}

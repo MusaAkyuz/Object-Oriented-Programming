@@ -434,6 +434,7 @@
             this.NumberOfBox});
 			this.documantView.Location = new System.Drawing.Point(6, 183);
 			this.documantView.Name = "documantView";
+			this.documantView.ReadOnly = true;
 			this.documantView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.documantView.Size = new System.Drawing.Size(972, 203);
 			this.documantView.TabIndex = 29;
@@ -442,66 +443,78 @@
 			// 
 			this.CompanyCode.HeaderText = "Company Code";
 			this.CompanyCode.Name = "CompanyCode";
+			this.CompanyCode.ReadOnly = true;
 			// 
 			// CompanyName
 			// 
 			this.CompanyName.HeaderText = "Company Name";
 			this.CompanyName.Name = "CompanyName";
+			this.CompanyName.ReadOnly = true;
 			// 
 			// MaterialCode
 			// 
 			this.MaterialCode.HeaderText = "Material Code";
 			this.MaterialCode.Name = "MaterialCode";
+			this.MaterialCode.ReadOnly = true;
 			// 
 			// Description
 			// 
 			this.Description.HeaderText = "Description";
 			this.Description.Name = "Description";
+			this.Description.ReadOnly = true;
 			// 
 			// Unit
 			// 
 			this.Unit.HeaderText = "Unit";
 			this.Unit.Name = "Unit";
+			this.Unit.ReadOnly = true;
 			// 
 			// Quantity
 			// 
 			this.Quantity.HeaderText = "Quantity";
 			this.Quantity.Name = "Quantity";
+			this.Quantity.ReadOnly = true;
 			// 
 			// BillNo
 			// 
 			this.BillNo.HeaderText = "Bill No";
 			this.BillNo.Name = "BillNo";
+			this.BillNo.ReadOnly = true;
 			this.BillNo.Visible = false;
 			// 
 			// BillDate
 			// 
 			this.BillDate.HeaderText = "Bill Date";
 			this.BillDate.Name = "BillDate";
+			this.BillDate.ReadOnly = true;
 			this.BillDate.Visible = false;
 			// 
 			// ProductionDate
 			// 
 			this.ProductionDate.HeaderText = "Production Date";
 			this.ProductionDate.Name = "ProductionDate";
+			this.ProductionDate.ReadOnly = true;
 			this.ProductionDate.Visible = false;
 			// 
 			// LotNo
 			// 
 			this.LotNo.HeaderText = "Lot No";
 			this.LotNo.Name = "LotNo";
+			this.LotNo.ReadOnly = true;
 			this.LotNo.Visible = false;
 			// 
 			// Revision
 			// 
 			this.Revision.HeaderText = "Revision";
 			this.Revision.Name = "Revision";
+			this.Revision.ReadOnly = true;
 			this.Revision.Visible = false;
 			// 
 			// NumberOfBox
 			// 
 			this.NumberOfBox.HeaderText = "NumberOfBox";
 			this.NumberOfBox.Name = "NumberOfBox";
+			this.NumberOfBox.ReadOnly = true;
 			this.NumberOfBox.Visible = false;
 			// 
 			// productionDatePicker

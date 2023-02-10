@@ -35,6 +35,8 @@
 			this.filterTxtBox = new System.Windows.Forms.TextBox();
 			this.stockView = new System.Windows.Forms.DataGridView();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.externalTxtBox = new System.Windows.Forms.TextBox();
+			this.externalCheck = new System.Windows.Forms.CheckBox();
 			this.quantityReq = new System.Windows.Forms.Label();
 			this.unitReq = new System.Windows.Forms.Label();
 			this.descriptionReq = new System.Windows.Forms.Label();
@@ -92,6 +94,7 @@
 			this.quantityLbl = new System.Windows.Forms.Label();
 			this.companyNameLbl = new System.Windows.Forms.Label();
 			this.mtrlCodeLbl = new System.Windows.Forms.Label();
+			this.externalReq = new System.Windows.Forms.Label();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.stockView)).BeginInit();
 			this.groupBox2.SuspendLayout();
@@ -156,6 +159,9 @@
 			// 
 			// groupBox2
 			// 
+			this.groupBox2.Controls.Add(this.externalReq);
+			this.groupBox2.Controls.Add(this.externalTxtBox);
+			this.groupBox2.Controls.Add(this.externalCheck);
 			this.groupBox2.Controls.Add(this.quantityReq);
 			this.groupBox2.Controls.Add(this.unitReq);
 			this.groupBox2.Controls.Add(this.descriptionReq);
@@ -207,6 +213,25 @@
 			this.groupBox2.TabIndex = 1;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Label Info";
+			// 
+			// externalTxtBox
+			// 
+			this.externalTxtBox.Location = new System.Drawing.Point(677, 58);
+			this.externalTxtBox.Name = "externalTxtBox";
+			this.externalTxtBox.Size = new System.Drawing.Size(133, 20);
+			this.externalTxtBox.TabIndex = 53;
+			this.externalTxtBox.TextChanged += new System.EventHandler(this.externalTxtBox_TextChanged);
+			// 
+			// externalCheck
+			// 
+			this.externalCheck.AutoSize = true;
+			this.externalCheck.Location = new System.Drawing.Point(677, 38);
+			this.externalCheck.Name = "externalCheck";
+			this.externalCheck.Size = new System.Drawing.Size(158, 17);
+			this.externalCheck.TabIndex = 52;
+			this.externalCheck.Text = "External Quantity Document";
+			this.externalCheck.UseVisualStyleBackColor = true;
+			this.externalCheck.CheckedChanged += new System.EventHandler(this.externalCheck_CheckedChanged);
 			// 
 			// quantityReq
 			// 
@@ -725,6 +750,17 @@
 			this.mtrlCodeLbl.TabIndex = 0;
 			this.mtrlCodeLbl.Text = "Material Code";
 			// 
+			// externalReq
+			// 
+			this.externalReq.AutoSize = true;
+			this.externalReq.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.externalReq.ForeColor = System.Drawing.Color.Red;
+			this.externalReq.Location = new System.Drawing.Point(810, 60);
+			this.externalReq.Name = "externalReq";
+			this.externalReq.Size = new System.Drawing.Size(21, 20);
+			this.externalReq.TabIndex = 54;
+			this.externalReq.Text = "**";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -814,6 +850,9 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn LotNo;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Revision;
 		private System.Windows.Forms.DataGridViewTextBoxColumn NumberOfBox;
+		public System.Windows.Forms.TextBox externalTxtBox;
+		public System.Windows.Forms.CheckBox externalCheck;
+		public System.Windows.Forms.Label externalReq;
 	}
 }
 

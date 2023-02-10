@@ -208,6 +208,22 @@ namespace PCIMTK
 											  numberOfBoxNumber.Value / numberOfBoxNumber.Value);
 					}
 
+					if (externalCheck.Checked)
+					{
+						documantView.Rows.Add(companyCodeTxtBox.Text,
+											  companyNameTxtBox.Text,
+											  mtrlCodeTxtBox.Text,
+											  descriptionTxtBox.Text,
+											  unitComboBox.Text,
+											  externalTxtBox.Text,
+											  billNoTxtBox.Text,
+											  billDatePicker.Text,
+											  productionDatePicker.Text,
+											  lotNoTxtBox.Text,
+											  revisionTxtBox.Text,
+											  externalTxtBox.Text);
+					}
+
 					UserModeDefaults.SelectionMode(this);
 					UserModeDefaults.RequirementControlSelectionMode(this);
 				}
@@ -330,9 +346,31 @@ namespace PCIMTK
             if (this.mode == "Selection") UserModeDefaults.RequirementControlSelectionMode(this);
             else UserModeDefaults.RequirementControlAddingMode(this);
         }
-        #endregion
 
-        private void newBtn_Click(object sender, EventArgs e)
+		private void externalCheck_CheckedChanged(object sender, EventArgs e)
+		{
+			if (externalCheck.Checked)
+			{
+				externalTxtBox.Enabled = true;
+			}
+			else
+			{
+				externalTxtBox.Enabled = false;
+				externalTxtBox.Text = null;
+			}
+
+			if (this.mode == "Selection") UserModeDefaults.RequirementControlSelectionMode(this);
+			else UserModeDefaults.RequirementControlAddingMode(this);
+		}
+
+		private void externalTxtBox_TextChanged(object sender, EventArgs e)
+		{
+			if (this.mode == "Selection") UserModeDefaults.RequirementControlSelectionMode(this);
+			else UserModeDefaults.RequirementControlAddingMode(this);
+		}
+		#endregion
+
+		private void newBtn_Click(object sender, EventArgs e)
 		{
 			UserModeDefaults.AddingMode(this);
 			UserModeDefaults.RequirementControlAddingMode(this);

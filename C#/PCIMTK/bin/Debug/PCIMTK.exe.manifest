@@ -138,14 +138,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PCIMTK.exe" size="59352">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PCIMTK.exe" size="60888">
       <assemblyIdentity name="PCIMTK" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>2nZIGqvZoqVzKQIEswl1OStjsfQ4mSR8E1PyXDK17rE=</dsig:DigestValue>
+        <dsig:DigestValue>sIlSzG9VfEZqG9OG94dwoaIH45vPyEFkxYAZo4dHrAw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -245,7 +245,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>0pVWy4yoUX/V70gYYzN1ekVYEeiynBhAjG6Jrq2FwsE=</dsig:DigestValue>
+      <dsig:DigestValue>cpey5FWZ0a+Sk33uMz4PrULdhlUviYS8FQsyWfu4KVY=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

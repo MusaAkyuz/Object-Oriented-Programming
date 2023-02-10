@@ -34,6 +34,7 @@ namespace PCIMTK
 			f.progressBar.Enabled =				true;
 			f.createDocumantBtn.Enabled =		true;
 			f.refreshPrinterBtn.Enabled =		true;
+			f.externalCheck.Enabled =			true;
 
 			f.mtrlCodeTxtBox.Enabled =			false;
 			f.companyNameTxtBox.Enabled =		false;
@@ -42,6 +43,7 @@ namespace PCIMTK
 			f.unitComboBox.Enabled =			false;
 			f.backBtn.Enabled =					false;
 			f.saveBtn.Enabled =					false;
+			f.externalTxtBox.Enabled =			false;
 
 			// Initializing Text and Values
 			f.filterTxtBox.Text = null;
@@ -57,6 +59,8 @@ namespace PCIMTK
 			f.lotNoTxtBox.Text = null;
 			f.revisionTxtBox.Text = null;
 			f.numberOfBoxNumber.Value = 0;
+			f.externalCheck.Checked = false;
+			f.externalTxtBox.Text = null;
 
 			f.mtrlCodeReq.Visible = false;
 			f.companyNameReq.Visible = false;
@@ -67,6 +71,7 @@ namespace PCIMTK
 			f.productionDateReq.Visible = false;
 			f.lotNoReq.Visible = false;
 			f.numberOfBoxReq.Visible = false;
+			f.externalReq.Visible = false;
 		}
 
 		public static void AddingMode(Form1 f)
@@ -101,6 +106,8 @@ namespace PCIMTK
 			f.progressBar.Enabled =				false;
 			f.createDocumantBtn.Enabled =		false;
 			f.refreshPrinterBtn.Enabled =		false;
+			f.externalCheck.Enabled =			false;
+			f.externalTxtBox.Enabled =			false;
 
 			// Changing mode Text and Values
 			f.filterTxtBox.Text = null;
@@ -116,6 +123,8 @@ namespace PCIMTK
 			f.lotNoTxtBox.Text = null;
 			f.revisionTxtBox.Text = null;
 			f.numberOfBoxNumber.Value = 0;
+			f.externalCheck.Checked = false;
+			f.externalTxtBox.Text = null;
 
 			f.mtrlCodeReq.Visible = false;
 			f.companyNameReq.Visible = false;
@@ -126,11 +135,12 @@ namespace PCIMTK
 			f.productionDateReq.Visible = false;
 			f.lotNoReq.Visible = false;
 			f.numberOfBoxReq.Visible = false;
+			f.externalReq.Visible = false;
 		}
 
 		public static bool RequirementControlSelectionMode(Form1 f)
 		{
-			bool mtrl, comName, comCode, desc, unit, quan, prod, lot, number;
+			bool mtrl, comName, comCode, desc, unit, quan, prod, lot, number, external;
 
 			if (String.IsNullOrEmpty(f.mtrlCodeTxtBox.Text) || !(f.mtrlCodeTxtBox.Text.Length == 9 || f.mtrlCodeTxtBox.Text.Length == 10))		
 																	{ f.mtrlCodeReq.Visible = true; mtrl = false; }
@@ -161,7 +171,15 @@ namespace PCIMTK
 			if (f.numberOfBoxNumber.Value <= 0)						{ f.numberOfBoxReq.Visible = true; number = false; }
 			else													{ f.numberOfBoxReq.Visible = false; number = true; }
 
-			return mtrl && comCode && comName && desc && unit && quan && prod && lot && number;
+			if (f.externalCheck.Checked) 
+			{
+				if (String.IsNullOrEmpty(f.externalTxtBox.Text) || System.Text.RegularExpressions.Regex.IsMatch(f.externalTxtBox.Text, "[^0-9]"))
+																	{ f.externalReq.Visible = true; external = false; }
+				else												{ f.externalReq.Visible = false; external = true; }
+			}
+			else													{ f.externalReq.Visible = false; external = true; }
+
+			return mtrl && comCode && comName && desc && unit && quan && prod && lot && number && external;
 		}
 
 		public static bool RequirementControlAddingMode(Form1 f)

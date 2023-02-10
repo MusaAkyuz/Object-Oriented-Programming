@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCIMTK", "PCIMTK.csproj", "{7B96E2EC-26A0-4DAD-AF54-233027AB339E}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PCIMTKSetup", "..\PCIMTKSetup\PCIMTKSetup.vdproj", "{0B1FA735-1F16-478E-8F84-B23B44E3C242}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +20,9 @@ Global
 		{7B96E2EC-26A0-4DAD-AF54-233027AB339E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7B96E2EC-26A0-4DAD-AF54-233027AB339E}.Test|Any CPU.ActiveCfg = Test|Any CPU
 		{7B96E2EC-26A0-4DAD-AF54-233027AB339E}.Test|Any CPU.Build.0 = Test|Any CPU
+		{0B1FA735-1F16-478E-8F84-B23B44E3C242}.Debug|Any CPU.ActiveCfg = Debug
+		{0B1FA735-1F16-478E-8F84-B23B44E3C242}.Release|Any CPU.ActiveCfg = Release
+		{0B1FA735-1F16-478E-8F84-B23B44E3C242}.Test|Any CPU.ActiveCfg = Debug
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

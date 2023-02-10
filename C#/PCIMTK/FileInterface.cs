@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,6 @@ namespace PCIMTK
 {
 	public class FileInterface
 	{
-		[Obsolete]
-		private static string logtxt = System.Configuration.ConfigurationManager.AppSettings["LogFilePath"].ToString();
-
 		public string CompanyCode { get; set; }
 		public string CompanyName { get; set; }
 		public string MaterialCode { get; set; }
@@ -55,6 +53,7 @@ namespace PCIMTK
 			}
 			catch
 			{
+				string logtxt = ConfigurationSettings.AppSettings["LogFilePath"].ToString();
 				System.Windows.MessageBox.Show("Error while background process\nPlease contact with provider!", "Error", MessageBoxButton.OK);
 
 				// Logging Error 012

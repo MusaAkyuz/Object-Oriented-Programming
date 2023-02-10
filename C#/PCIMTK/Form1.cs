@@ -32,7 +32,7 @@ namespace PCIMTK
 	{
 		public string mode;
 		[Obsolete]
-		private string logtxt = System.Configuration.ConfigurationManager.AppSettings["LogFilePath"].ToString();
+		private string logtxt = ConfigurationSettings.AppSettings["LogFilePath"].ToString();
 
 		[Obsolete]
 		public Form1()

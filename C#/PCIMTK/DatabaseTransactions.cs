@@ -20,8 +20,6 @@ namespace PCIMTK
 		private readonly string providerName = "TestDatabase";
 		[Obsolete]
 		private List<string> configSettings = new List<string>(ConfigurationSettings.AppSettings["CompanyCode"].Split(new char[] { ';' }));
-		[Obsolete]
-		private static string logtxt = System.Configuration.ConfigurationManager.AppSettings["LogFilePath"].ToString();
 
 		[Obsolete]
 		public static string GetConnectionStrings(string providerName)
@@ -44,6 +42,7 @@ namespace PCIMTK
 			}
 			catch
 			{
+				string logtxt = ConfigurationSettings.AppSettings["LogFilePath"].ToString();
 				System.Windows.MessageBox.Show("Error while connection with database\nPlease contact with your provider!", "Error", MessageBoxButton.OK);
 
 				// Logging Error 014
@@ -112,6 +111,7 @@ namespace PCIMTK
 				}
 				catch 
 				{
+					string logtxt = ConfigurationSettings.AppSettings["LogFilePath"].ToString();
 					System.Windows.MessageBox.Show("Error while reading data from database\nPlease contact with your provider!", "Error", MessageBoxButton.OK);
 
 					// Logging Error 015
@@ -169,6 +169,7 @@ namespace PCIMTK
 					}
 					catch (System.FormatException)
 					{
+						string logtxt = ConfigurationSettings.AppSettings["LogFilePath"].ToString();
 						System.Windows.MessageBox.Show("Error while Insertion date format to database\nPlease contact with your provider!", "Error", MessageBoxButton.OK);
 
 						// Logging Error 016
@@ -190,6 +191,7 @@ namespace PCIMTK
 					}
 					catch
 					{
+						string logtxt = ConfigurationSettings.AppSettings["LogFilePath"].ToString();
 						System.Windows.MessageBox.Show("Error while Insertion data to database\nPlease contact with your provider!", "Error", MessageBoxButton.OK);
 
 						// Logging Error 017
@@ -232,7 +234,7 @@ namespace PCIMTK
 				try
 				{
 					string boxCode = "0";
-					string query2 = "SELECT TOP 1 * FROM Box ORDER BY Id DESC";
+					string query2 = "SELECT LastBoxCode FROM Box WHERE CompanyCode LIKE '" + configSettings[0].ToString() + "'";
 					OleDbDataReader dataReader;
 					OleDbCommand cmd = new OleDbCommand(query2, cnn);
 
@@ -243,13 +245,18 @@ namespace PCIMTK
 					{
 						while (dataReader.Read())
 						{
-							boxCode = dataReader["BoxCode"].ToString();
+							boxCode = dataReader["LastBoxCode"].ToString();
 						}
 						return boxCode;
+					}
+					else
+					{
+						return null;
 					}
 				}
 				catch
 				{
+					string logtxt = ConfigurationSettings.AppSettings["LogFilePath"].ToString();
 					System.Windows.MessageBox.Show("Error while reading box code number from database\nPlease contact with your provider!", "Error", MessageBoxButton.OK);
 
 					// Logging Error 018
@@ -279,78 +286,16 @@ namespace PCIMTK
 		}
 
 		[Obsolete]
-		public string GetBoxCodeId()
+		public void UpdateBoxCode(int boxCode)
 		{
 			using (OleDbConnection cnn = new OleDbConnection(GetConnectionStrings(providerName)))
 			{
 				try
 				{
-					string boxCode = "0";
-					string query2 = "SELECT TOP 1 * FROM Box ORDER BY Id DESC";
-					OleDbDataReader dataReader;
-					OleDbCommand cmd = new OleDbCommand(query2, cnn);
-
-					cnn.Open();
-
-					dataReader = cmd.ExecuteReader();
-					if (dataReader.HasRows)
-					{
-						while (dataReader.Read())
-						{
-							boxCode = dataReader["Id"].ToString();
-						}
-						return boxCode;
-					}
-				}
-				catch
-				{
-					System.Windows.MessageBox.Show("Error while reading box code number from database\nPlease contact with your provider!", "Error", MessageBoxButton.OK);
-
-					// Logging Error 019
-					#region Logging
-					if (!File.Exists(logtxt))
-					{
-						File.Create(logtxt);
-						TextWriter tw = new StreamWriter(logtxt);
-						tw.WriteLine(DateTime.Now.ToString() + " : ERROR019-GetBoxCodeId");
-						tw.Close();
-					}
-					else if (File.Exists(logtxt))
-					{
-						TextWriter tw = new StreamWriter(logtxt, true);
-						tw.WriteLine(DateTime.Now.ToString() + " : ERROR019-GetBoxCodeId");
-						tw.Close();
-					}
-					#endregion
-				}
-				finally
-				{
-					cnn.Close();
-				}
-
-				return null;
-			}
-		}
-
-		[Obsolete]
-		public void UpdateBoxCode()
-		{
-			using (OleDbConnection cnn = new OleDbConnection(GetConnectionStrings(providerName)))
-			{
-				try
-				{
-					string query = "INSERT INTO Box (BoxCode, CreateDateTime) VALUES (@code, @date)";
-
-					const int codeLength = 20;
-					var companyCode = configSettings[0].ToString();
-					var yearLast2Char = DateTime.Now.ToString("yy");
-					var lastBoxCode = (Convert.ToUInt32(GetBoxCodeId()) + 1).ToString();
-					var digit = codeLength - companyCode.Length - yearLast2Char.Length - lastBoxCode.Length;
-					var zeros = new string('0', digit);
+					string query = "UPDATE Box SET LastBoxCode = @code WHERE CompanyCode LIKE '" + configSettings[0].ToString() + "'";
 
 					List<OleDbParameter> parameter = new List<OleDbParameter>();
-					parameter.Add(new OleDbParameter("@code", companyCode + yearLast2Char + zeros + (lastBoxCode)));
-					parameter.Add(new OleDbParameter("@date", DateTime.Now.ToString("dd-MM-yyyy h:mm:ss tt")));
+					parameter.Add(new OleDbParameter("@code", boxCode.ToString()));
 
 					cnn.Open();
 					OleDbCommand cmd = new OleDbCommand(query, cnn);
@@ -362,6 +307,7 @@ namespace PCIMTK
 				}
 				catch
 				{
+					string logtxt = ConfigurationSettings.AppSettings["LogFilePath"].ToString();
 					System.Windows.MessageBox.Show("Error while inserting box code to database\nPlease contact with your provider!", "Error", MessageBoxButton.OK);
 
 					// Logging Error 020
@@ -388,5 +334,54 @@ namespace PCIMTK
 			}
 		}
 
+		[Obsolete]
+		public void AddNewCompanyBoxCode(int boxCode)
+		{
+			using (OleDbConnection cnn = new OleDbConnection(GetConnectionStrings(providerName)))
+			{
+				try
+				{
+					string query = "INSERT INTO Box (CompanyCode, LastBoxCode) VALUES (@code, @lastBoxCode)";
+
+					List<OleDbParameter> parameter = new List<OleDbParameter>();
+					parameter.Add(new OleDbParameter("@code", configSettings[0].ToString()));
+					parameter.Add(new OleDbParameter("@lastBoxCode", boxCode.ToString()));
+
+					cnn.Open();
+					OleDbCommand cmd = new OleDbCommand(query, cnn);
+					foreach (var par in parameter)
+					{
+						cmd.Parameters.Add(par.ParameterName, par.Value);
+					}
+					cmd.ExecuteNonQuery();
+				}
+				catch
+				{
+					string logtxt = ConfigurationSettings.AppSettings["LogFilePath"].ToString();
+					System.Windows.MessageBox.Show("Error while inserting box code to database\nPlease contact with your provider!", "Error", MessageBoxButton.OK);
+
+					// Logging Error 021
+					#region Logging
+					if (!File.Exists(logtxt))
+					{
+						File.Create(logtxt);
+						TextWriter tw = new StreamWriter(logtxt);
+						tw.WriteLine(DateTime.Now.ToString() + " : ERROR021-AddNewCompanyBoxCode");
+						tw.Close();
+					}
+					else if (File.Exists(logtxt))
+					{
+						TextWriter tw = new StreamWriter(logtxt, true);
+						tw.WriteLine(DateTime.Now.ToString() + " : ERROR021-AddNewCompanyBoxCode");
+						tw.Close();
+					}
+					#endregion
+				}
+				finally
+				{
+					cnn.Close();
+				}
+			}
+		}
 	}
 }

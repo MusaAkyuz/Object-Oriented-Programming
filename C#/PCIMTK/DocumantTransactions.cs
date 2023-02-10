@@ -18,24 +18,38 @@ using System.IO;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows;
+using System.Configuration;
 
 namespace PCIMTK
 {
 	internal class DocumantTransactions
 	{
 		[Obsolete]
-		private static string logtxt = System.Configuration.ConfigurationManager.AppSettings["LogFilePath"].ToString();
-
-		[Obsolete]
 		public static Document CreateDocumant(FileInterface item)
 		{
 			try
 			{
+				List<string> configSettings = new List<string>(ConfigurationSettings.AppSettings["CompanyCode"].Split(new char[] { ';' }));
+
 				DatabaseTransactions db = new DatabaseTransactions();
+				string boxcode = db.GetBoxCode();
+				if (String.IsNullOrEmpty(boxcode))
+				{
+					db.AddNewCompanyBoxCode(1);
+					boxcode = "1";
+				}
+				const int codeLength = 20;
+				var companyCode = configSettings[0].ToString();
+				var yearLast2Char = DateTime.Now.ToString("yy");
+				var lastBoxCode = db.GetBoxCode();
+				var digit = codeLength - companyCode.Length - yearLast2Char.Length - lastBoxCode.Length;
+				var zeros = new string('0', digit);
+
+				var newBoxCode = companyCode + yearLast2Char + zeros + boxcode;
+
 				// Create a new MigraDoc document
 				Document document = new Document();
-				string boxcode = db.GetBoxCode();
-
+				
 				// Add a section to the document
 				Section section = document.AddSection();
 				section.PageSetup.TopMargin = "1.1cm";
@@ -89,7 +103,7 @@ namespace PCIMTK
 									  item.CompanyCode + ">" +
 									  item.BillNo + ">" +
 									  qrCodeDateFormatBill + ">" +
-									  boxcode + ">" +
+									  newBoxCode + ">" +
 									  qrCodeDateFormatProduction + ">" +
 									  (count2 / numOfBox2).ToString() + ">" +
 									  item.Unit + ">" +
@@ -99,12 +113,12 @@ namespace PCIMTK
 				QRCodeData qrCodeData = qrGenerator.CreateQrCode(qrCodeString, QRCodeGenerator.ECCLevel.Q);
 				QRCode qrCode = new QRCode(qrCodeData);
 				Bitmap qrCodeImage = qrCode.GetGraphic(20);
-				qrCodeImage.Save("TempDocument\\qr" + boxcode + ".png", ImageFormat.Png);
+				qrCodeImage.Save("TempDocument\\qr" + newBoxCode + ".png", ImageFormat.Png);
 				#endregion
 
 				// Printing qr code image
 				#region PrintingQrCodeImage
-				image = section.AddImage("TempDocument\\qr" + boxcode + ".png");
+				image = section.AddImage("TempDocument\\qr" + newBoxCode + ".png");
 				image.Width = new Unit(60, UnitType.Point);
 				image.Height = new Unit(60, UnitType.Point);
 				image.Left = ShapePosition.Right;
@@ -204,7 +218,7 @@ namespace PCIMTK
 				row.Cells[0].Format.Font.Size = fontSize;
 				row.Cells[1].AddParagraph(":");
 				row.Cells[1].Format.Font.Size = fontSize;
-				row.Cells[2].AddParagraph(boxcode);
+				row.Cells[2].AddParagraph(newBoxCode);
 				row.Cells[2].Format.Font.Size = fontSize;
 
 				row = table.AddRow();
@@ -241,12 +255,13 @@ namespace PCIMTK
 				row.Cells[2].Format.Font.Size = fontSize;
 				#endregion
 
-				db.UpdateBoxCode();
+				db.UpdateBoxCode(Convert.ToInt32(boxcode) + 1);
 
 				return document;
 			}
 			catch
 			{
+				string logtxt = ConfigurationSettings.AppSettings["LogFilePath"].ToString();
 				System.Windows.MessageBox.Show("Error while creating document!", "Error", MessageBoxButton.OK);
 
 				// Logging Error 013
@@ -346,6 +361,7 @@ namespace PCIMTK
 			}
 			catch
 			{
+				string logtxt = ConfigurationSettings.AppSettings["LogFilePath"].ToString();
 				System.Windows.MessageBox.Show("Error while creating document!", "Error", MessageBoxButton.OK);
 
 				// Logging Error 014
@@ -414,6 +430,7 @@ namespace PCIMTK
 			}
 			catch
 			{
+				string logtxt = ConfigurationSettings.AppSettings["LogFilePath"].ToString();
 				System.Windows.MessageBox.Show("Error while rendering document!", "Error", MessageBoxButton.OK);
 
 				// Logging Error 015

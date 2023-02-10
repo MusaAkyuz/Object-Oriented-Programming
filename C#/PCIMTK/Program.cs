@@ -12,11 +12,15 @@ namespace PCIMTK
 		/// The main entry point for the application.
 		/// </summary>
 		[STAThread]
+		[Obsolete]
 		static void Main()
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new Form1());
+
+			DatabaseTransactions db = new DatabaseTransactions();
+			db.GetBoxCode();
 		}
 	}
 }

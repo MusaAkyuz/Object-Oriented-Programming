@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace PCIMTK
 	{
 		public List<string> Printers = new List<string>();
 		[Obsolete]
-		private string logtxt = System.Configuration.ConfigurationManager.AppSettings["LogFilePath"].ToString();
+		private string logtxt = ConfigurationSettings.AppSettings["LogFilePath"].ToString();
 
 		[Obsolete]
 		public void ShowAvailablePrinters(Form1 f)

@@ -1,0 +1,36 @@
+C:\Users\muss\source\repos\ModernDesign\ModernDesign\bin\Debug\net6.0-windows\ModernDesign.exe
+C:\Users\muss\source\repos\ModernDesign\ModernDesign\bin\Debug\net6.0-windows\ModernDesign.deps.json
+C:\Users\muss\source\repos\ModernDesign\ModernDesign\bin\Debug\net6.0-windows\ModernDesign.runtimeconfig.json
+C:\Users\muss\source\repos\ModernDesign\ModernDesign\bin\Debug\net6.0-windows\ModernDesign.dll
+C:\Users\muss\source\repos\ModernDesign\ModernDesign\bin\Debug\net6.0-windows\ModernDesign.pdb
+C:\Users\muss\source\repos\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\ModernDesign.csproj.AssemblyReference.cache
+C:\Users\muss\source\repos\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\ModernDesign.Form1.resources
+C:\Users\muss\source\repos\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\ModernDesign.Properties.Resources.resources
+C:\Users\muss\source\repos\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\ModernDesign.csproj.GenerateResource.cache
+C:\Users\muss\source\repos\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\ModernDesign.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\muss\source\repos\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\ModernDesign.AssemblyInfoInputs.cache
+C:\Users\muss\source\repos\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\ModernDesign.AssemblyInfo.cs
+C:\Users\muss\source\repos\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\ModernDesign.csproj.CoreCompileInputs.cache
+C:\Users\muss\source\repos\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\ModernDesign.dll
+C:\Users\muss\source\repos\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\refint\ModernDesign.dll
+C:\Users\muss\source\repos\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\ModernDesign.pdb
+C:\Users\muss\source\repos\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\ModernDesign.genruntimeconfig.cache
+C:\Users\muss\source\repos\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\ref\ModernDesign.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ModernDesign\ModernDesign\bin\Debug\net6.0-windows\ModernDesign.exe
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ModernDesign\ModernDesign\bin\Debug\net6.0-windows\ModernDesign.deps.json
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ModernDesign\ModernDesign\bin\Debug\net6.0-windows\ModernDesign.runtimeconfig.json
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ModernDesign\ModernDesign\bin\Debug\net6.0-windows\ModernDesign.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ModernDesign\ModernDesign\bin\Debug\net6.0-windows\ModernDesign.pdb
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\ModernDesign.csproj.AssemblyReference.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\ModernDesign.Form1.resources
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\ModernDesign.Properties.Resources.resources
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\ModernDesign.csproj.GenerateResource.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\ModernDesign.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\ModernDesign.AssemblyInfoInputs.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\ModernDesign.AssemblyInfo.cs
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\ModernDesign.csproj.CoreCompileInputs.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\ModernDesign.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\refint\ModernDesign.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\ModernDesign.pdb
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\ModernDesign.genruntimeconfig.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ModernDesign\ModernDesign\obj\Debug\net6.0-windows\ref\ModernDesign.dll

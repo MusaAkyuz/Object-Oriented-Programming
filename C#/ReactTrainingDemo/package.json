@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "file-loader": "^6.2.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.0.1"
+  }
+}

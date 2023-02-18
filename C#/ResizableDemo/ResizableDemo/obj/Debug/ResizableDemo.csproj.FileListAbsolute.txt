@@ -1,0 +1,11 @@
+C:\Users\muss\source\repos\ResizableDemo\ResizableDemo\bin\Debug\ResizableDemo.exe.config
+C:\Users\muss\source\repos\ResizableDemo\ResizableDemo\bin\Debug\ResizableDemo.exe
+C:\Users\muss\source\repos\ResizableDemo\ResizableDemo\bin\Debug\ResizableDemo.pdb
+C:\Users\muss\source\repos\ResizableDemo\ResizableDemo\obj\Debug\ResizableDemo.csproj.AssemblyReference.cache
+C:\Users\muss\source\repos\ResizableDemo\ResizableDemo\obj\Debug\ResizableDemo.csproj.SuggestedBindingRedirects.cache
+C:\Users\muss\source\repos\ResizableDemo\ResizableDemo\obj\Debug\ResizableDemo.Form1.resources
+C:\Users\muss\source\repos\ResizableDemo\ResizableDemo\obj\Debug\ResizableDemo.Properties.Resources.resources
+C:\Users\muss\source\repos\ResizableDemo\ResizableDemo\obj\Debug\ResizableDemo.csproj.GenerateResource.cache
+C:\Users\muss\source\repos\ResizableDemo\ResizableDemo\obj\Debug\ResizableDemo.csproj.CoreCompileInputs.cache
+C:\Users\muss\source\repos\ResizableDemo\ResizableDemo\obj\Debug\ResizableDemo.exe
+C:\Users\muss\source\repos\ResizableDemo\ResizableDemo\obj\Debug\ResizableDemo.pdb

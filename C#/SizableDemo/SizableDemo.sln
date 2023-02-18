@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SizableDemo", "SizableDemo\SizableDemo.csproj", "{8A423E3A-DEBA-4D31-B333-FFDF9A1340D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A423E3A-DEBA-4D31-B333-FFDF9A1340D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A423E3A-DEBA-4D31-B333-FFDF9A1340D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A423E3A-DEBA-4D31-B333-FFDF9A1340D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A423E3A-DEBA-4D31-B333-FFDF9A1340D3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E6B0D2FF-4247-4EF3-AEC4-ED58C2B5A175}
+	EndGlobalSection
+EndGlobal

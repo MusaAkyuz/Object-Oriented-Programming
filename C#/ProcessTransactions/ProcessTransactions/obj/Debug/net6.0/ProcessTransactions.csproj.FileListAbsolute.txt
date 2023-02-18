@@ -1,0 +1,15 @@
+C:\Users\muss\source\repos\ProcessTransactions\ProcessTransactions\bin\Debug\net6.0\ProcessTransactions.exe
+C:\Users\muss\source\repos\ProcessTransactions\ProcessTransactions\bin\Debug\net6.0\ProcessTransactions.deps.json
+C:\Users\muss\source\repos\ProcessTransactions\ProcessTransactions\bin\Debug\net6.0\ProcessTransactions.runtimeconfig.json
+C:\Users\muss\source\repos\ProcessTransactions\ProcessTransactions\bin\Debug\net6.0\ProcessTransactions.dll
+C:\Users\muss\source\repos\ProcessTransactions\ProcessTransactions\bin\Debug\net6.0\ProcessTransactions.pdb
+C:\Users\muss\source\repos\ProcessTransactions\ProcessTransactions\obj\Debug\net6.0\ProcessTransactions.csproj.AssemblyReference.cache
+C:\Users\muss\source\repos\ProcessTransactions\ProcessTransactions\obj\Debug\net6.0\ProcessTransactions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\muss\source\repos\ProcessTransactions\ProcessTransactions\obj\Debug\net6.0\ProcessTransactions.AssemblyInfoInputs.cache
+C:\Users\muss\source\repos\ProcessTransactions\ProcessTransactions\obj\Debug\net6.0\ProcessTransactions.AssemblyInfo.cs
+C:\Users\muss\source\repos\ProcessTransactions\ProcessTransactions\obj\Debug\net6.0\ProcessTransactions.csproj.CoreCompileInputs.cache
+C:\Users\muss\source\repos\ProcessTransactions\ProcessTransactions\obj\Debug\net6.0\ProcessTransactions.dll
+C:\Users\muss\source\repos\ProcessTransactions\ProcessTransactions\obj\Debug\net6.0\refint\ProcessTransactions.dll
+C:\Users\muss\source\repos\ProcessTransactions\ProcessTransactions\obj\Debug\net6.0\ProcessTransactions.pdb
+C:\Users\muss\source\repos\ProcessTransactions\ProcessTransactions\obj\Debug\net6.0\ProcessTransactions.genruntimeconfig.cache
+C:\Users\muss\source\repos\ProcessTransactions\ProcessTransactions\obj\Debug\net6.0\ref\ProcessTransactions.dll

@@ -1,0 +1,80 @@
+﻿@model Root
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <div>
+        <a class="button-27" href="@Url.Action("Deneme","Home",new{ num = 1})">
+            Category Name 1
+        </a>
+        <div>
+            @foreach(var data in @Model.Categories)
+            {
+                <p>
+                    @data.CName
+                </p>
+            }
+        </div>
+
+
+
+
+
+
+
+
+
+        @*<table style="width:100%">
+            <tr>
+                <td style="width:25%">
+                    <p>
+                        Category1
+                    </p>
+                </td>
+                <td style="width:75%">
+                    <button type="button" class="button-27">
+                        Process1dgsgeage
+                    </button>
+                    <button type="button" class="button-27">
+                        Process2sfa
+                    </button>
+                    <button type="button" class="button-27">
+                        Process3sfagasagsagsagsag
+                    </button>
+                    <button type="button" class="button-27">
+                        Process4sfa
+                    </button>
+                    <button type="button" class="button-27">
+                        Process5safsafasfsaf
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:25%">
+                    <p>
+                        Category2
+                    </p>
+                </td>
+                <td style="width:75%">
+                    <button type="button" class="button-27">
+                        Process1
+                    </button>
+                    <button type="button" class="button-27">
+                        Process2
+                    </button>
+                    <button type="button" class="button-27">
+                        Process3
+                    </button>
+                    <button type="button" class="button-27">
+                        Process4
+                    </button>
+                    <button type="button" class="button-27">
+                        Process5
+                    </button>
+                </td>
+            </tr>
+        </table>*@
+    </div>
+</div>

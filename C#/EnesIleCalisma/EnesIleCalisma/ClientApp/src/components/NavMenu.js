@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Collapse, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
-import { Link } from 'react-router-dom';
-import { TwitterPicker } from 'react-color';
+import { Collapse, Navbar, NavbarToggler } from 'reactstrap';
 import './NavMenu.css';
 
 export class NavMenu extends Component {
@@ -14,7 +12,7 @@ export class NavMenu extends Component {
       this.handleClick = this.handleClick.bind(this);
       this.state = {
           collapsed: true,
-          random: "white",
+          random: "white"
       };
   }
 
@@ -24,27 +22,25 @@ export class NavMenu extends Component {
     };
 
     toggleNavbar () {
-    this.setState({
-        collapsed: !this.state.collapsed,
-    });
+        this.setState({
+            collapsed: !this.state.collapsed,
+        });
     }
 
   render() {
     return (
       <header>
-        <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3 bg-white" container light>
-          <NavbarBrand tag={Link} to="/">Stori</NavbarBrand>
+        <Navbar className="navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3" container light>
+                <p>
+                    Stori
+                </p>
           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-          <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
+          <Collapse isOpen={!this.state.collapsed} navbar>
                     <ul className="navbar-nav flex-grow">
-                        <button className="buttonBorderless" onClick={this.handleClick} style={this.state.random ? { backgroundColor: this.state.random } : null }>
-                        </button>
-              <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/">Counter</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/">Fetch data</NavLink>
-              </NavItem>
+                                <p className="" onClick={this.handleClick} style={this.state.random ? { color: this.state.random } : null}>
+                                    Text-Color
+                                </p>
+                            
             </ul>
           </Collapse>
         </Navbar>

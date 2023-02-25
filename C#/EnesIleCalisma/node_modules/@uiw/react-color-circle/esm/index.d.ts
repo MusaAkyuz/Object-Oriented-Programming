@@ -1,0 +1,9 @@
+import React from 'react';
+import { HsvaColor, ColorResult } from '@uiw/color-convert';
+import { SwatchProps } from '@uiw/react-color-swatch';
+export interface CircleProps extends Omit<SwatchProps, 'color' | 'onChange'> {
+    color?: string | HsvaColor;
+    onChange?: (color: ColorResult) => void;
+}
+declare const Circle: React.ForwardRefExoticComponent<CircleProps & React.RefAttributes<HTMLDivElement>>;
+export default Circle;

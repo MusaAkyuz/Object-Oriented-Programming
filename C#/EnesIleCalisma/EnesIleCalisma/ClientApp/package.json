@@ -17,6 +17,7 @@
     "react-widgets": "^5.8.4",
     "reactstrap": "^9.1.1",
     "rimraf": "^3.0.2",
+    "tailwind": "^4.0.0",
     "web-vitals": "^2.1.4",
     "workbox-background-sync": "^6.5.3",
     "workbox-broadcast-update": "^6.5.3",
@@ -30,6 +31,13 @@
     "workbox-routing": "^6.5.3",
     "workbox-strategies": "^6.5.3",
     "workbox-streams": "^6.5.3"
+  },
+  "scripts": {
+    "start": "npm run tailwindcss && react-scripts start",
+    "build": "npm run tailwindcss && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "tailwindcss": "postcss src/tailwind.css -o src/app_tailwind.css"
   },
   "devDependencies": {
     "ajv": "^8.11.0",

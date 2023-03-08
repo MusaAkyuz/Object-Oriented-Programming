@@ -1,0 +1,48 @@
+﻿.card {
+    position: relative;
+    margin: 10px;
+    display: inline-block;
+    width: 15vw;
+    height: 22vw;
+    background: rgb(40,40,55);
+    background: linear-gradient(344deg, rgba(40,40,55,1) 0%, rgba(16,16,18,1) 50%);
+    box-shadow: 4px 6px 14px #00000036;
+    border-radius: 5px;
+    color: #F9F9F9;
+    transition: all .3s;  
+}
+
+img {
+    display: flex flow-root;
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card:hover {
+    transform: scale(1.08);
+}
+
+.bg-black {
+    background-color: black;
+    height: 100%;
+    width: 100%;
+}
+
+.stori-font {
+    font-size: 350%;
+    font-family: 'Shantell Sans', cursive;
+}
+
+.text-font {
+    font-family: 'Genos', cursive;
+    font-size: 125%;
+    font-style: italic;
+}
+
+.contentCenter {
+    text-align: center;
+    justify-content: center;
+    display: inline-block;
+}

@@ -1,73 +1,46 @@
-import React, { Component } from 'react';
-import { Navbar} from 'reactstrap';
-import './NavMenu.css';
+﻿import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import React, { useState } from "react";
+import './Home.css';
 
-export class NavMenu extends Component {
-    static displayName = NavMenu.name;
+export function NavMenu({handleTextColor}) {
+    const [textColor, setTextColor] = useState("white");
 
-  constructor (props) {
-    super(props);
-
-      this.handleClick = this.handleClick.bind(this);
-      this.backgroundClick = this.backgroundClick.bind(this);
-
-    this.state = {
-        textColor: "white",
-        backgroundColor: "black",
-        white: "white"
-    };
-  }
-
-    handleClick = () => {
+    const handleClick = () => {
         const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-        this.setState({ textColor: "#" + randomColor })
+        setTextColor("#" + randomColor)
+        handleTextColor("#" + randomColor)
     };
 
-    backgroundClick = () => {
-        const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-        this.setState({ backgroundColor: "#" + randomColor })
-    }
-
-  render() {
     return (
-      <header>
-            <Navbar className="ng-white border-bottom box-shadow mb-3 bg-black"
-                    container
-                    dark>
+        <Navbar className="bg-black pb-5">
+            <div className="container">
+                <Nav>
+                    <div className="pl-2 pr-2">
+                        <h2 className="stori-font" style={textColor != "" ? { color: textColor } : white}>Stori</h2>
+                    </div>
+                </Nav>
 
-                <div className="stori-font w-1/6">
-                    <h2>
-                        Stori
-                    </h2>
-                </div>
-
-                <div className="w-1/6"
-                    style={this.state.white ? { color: this.state.white } : white}>
-                    <h7>Text Color </h7>
-                    <button type="button"
-                        class="btn"
-                        onClick={this.handleClick}
-                        style={this.state.textColor ? {
-                            backgroundColor: this.state.textColor,
-                            color: this.state.textColor,
-                            border: 0
-                        } : null}>A</button>
-                </div>
-
-                <div className="w-1/6"
-                    style={this.state.white ? { color: this.state.white } : white}>
-                    <h7>Background color </h7>
-                    <button type="button"
-                        class="btn"
-                        onClick={this.backgroundClick}
-                        style={this.state.backgroundColor ? {
-                            backgroundColor: this.state.backgroundColor,
-                            color: this.state.backgroundColor,
-                            border: 0
-                        } : null}>A</button>
-                </div>
+                <Nav className="text-font">
+                    <form className="mx-2 form-inline" style={textColor != "" ? { color: textColor } : white}>
+                        <label className="px-2">Text color</label>
+                        <button type="button"
+                            className="btn"
+                            onClick={handleClick}
+                            style={textColor ? {
+                                backgroundColor: textColor,
+                                color: 'transparent',
+                                border: '0.5px solid  gray'
+                            } : white}>A
+                        </button>
+                    </form>
+                </Nav>
+            </div>
         </Navbar>
-      </header>
     );
-  }
 }
+
+
+
+
+

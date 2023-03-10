@@ -4,6 +4,8 @@
     {
         public string? Title { get; set; }
 
-        public string? ChapterFolder { get; set; }
+        public string? ChapterNo { get; set; }
+
+        public string? ChapterText { get; set; }
     }
 }

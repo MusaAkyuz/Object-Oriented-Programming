@@ -112,7 +112,7 @@ export function Home() {
                     {
                         books.map((book, index) => {
                             return (
-                                <div className="card overflow-hidden justify-center" key={index} onClick={() => goChapter(book.bookName)}>
+                                <div className="card overflow-hidden justify-center" key={index} onClick={() => goChapter(book.bookName)} style={textColor != null ? { color: textColor } : "white"}>
                                     <img src={`Books/${book.bookName}/cover.jpg`} alt={book.bookName} />
                                 </div>
                             );

@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "GMplOcjsiwiXRJYLIn6RZaydqVb0y+vUPPSzuJB5hd8XQHD8pJLdECRZAhz41ZQw8gKcNllQZ5gGsQ//kURk7Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\muss\\Desktop\\Qr-Vs-DataMatrix-Comparison\\Qr-Vs-DataMatrix-Comparison\\Qr-Vs-DataMatrix-Comparison.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\muss\\.nuget\\packages\\freespire.barcode\\6.6.0\\freespire.barcode.6.6.0.nupkg.sha512",
+    "C:\\Users\\muss\\.nuget\\packages\\freespire.pdf\\8.6.0\\freespire.pdf.8.6.0.nupkg.sha512",
+    "C:\\Users\\muss\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\muss\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
+    "C:\\Users\\muss\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\muss\\.nuget\\packages\\system.text.encoding.codepages\\6.0.0\\system.text.encoding.codepages.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

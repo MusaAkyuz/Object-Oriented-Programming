@@ -2,7 +2,7 @@
 const initialState = {
     textSettings: {
         textColor: 'white',
-        speed: 50
+        speed: '10'
     }
 }
 
@@ -10,7 +10,7 @@ export default function NavbarMenuReducer(state = initialState, action) {
     switch (action.type) {
         case 'navbarmenu/textSettingsChange': {
             //console.log("girdi")
-            //console.log(action.payload)
+            console.log(action.payload)
             return {
                 ...state,
                 textSettings: {

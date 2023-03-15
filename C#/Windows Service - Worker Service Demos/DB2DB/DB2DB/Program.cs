@@ -1,10 +1,22 @@
 using DB2DB;
+using Microsoft.Extensions.Logging.Configuration;
+using Microsoft.Extensions.Logging.EventLog;
 
-IHost host = Host.CreateDefaultBuilder(args)
-    .ConfigureServices(services =>
-    {
-        services.AddHostedService<Worker>();
-    })
-    .Build();
+HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);
+builder.Services.AddWindowsService(options =>
+{
+    options.ServiceName = ".DatabaseBackUp";
+});
 
-await host.RunAsync();
+LoggerProviderOptions.RegisterProviderOptions<
+    EventLogSettings, EventLogLoggerProvider>(builder.Services);
+
+builder.Services.AddSingleton<BackUpDatabase>();
+builder.Services.AddHostedService<Worker>();
+
+// See: https://github.com/dotnet/runtime/issues/47303
+builder.Logging.AddConfiguration(
+    builder.Configuration.GetSection("Logging"));
+
+IHost host = builder.Build();
+host.Run();

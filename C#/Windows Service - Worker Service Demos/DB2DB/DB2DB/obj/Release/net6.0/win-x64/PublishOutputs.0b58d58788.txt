@@ -1,0 +1,5 @@
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\Windows Service - Worker Service Demos\DB2DB\DB2DB\bin\Release\net6.0\win-x64\publish\appsettings.Development.json
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\Windows Service - Worker Service Demos\DB2DB\DB2DB\bin\Release\net6.0\win-x64\publish\appsettings.json
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\Windows Service - Worker Service Demos\DB2DB\DB2DB\bin\Release\net6.0\win-x64\publish\DB2DB.pdb
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\Windows Service - Worker Service Demos\DB2DB\DB2DB\bin\Release\net6.0\win-x64\publish\sni.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\Windows Service - Worker Service Demos\DB2DB\DB2DB\bin\Release\net6.0\win-x64\publish\DB2DB.exe

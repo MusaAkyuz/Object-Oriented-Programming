@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DibGrBnPNR0RG/Sch9c5ne34frwAWWyyB7p9yynToraVk0rWVHYQHGoDItbu0amoPqgAj8jDvmq++hTQuTjHQw==",
+  "dgSpecHash": "vv83OrHShbIQkzkGwKy6VIhFYbucoXNJj//NCNDREs/94/1E8jxGrDebennq3fhMoCLNBgRRhbCbAdbRRgUCbg==",
   "success": true,
   "projectFilePath": "C:\\Users\\muss\\Desktop\\My GitHub Repos\\Object-Oriented-Programming\\C#\\Windows Service - Worker Service Demos\\DB2DB\\DB2DB\\DB2DB.csproj",
   "expectedPackageFiles": [
@@ -44,7 +44,10 @@
     "C:\\Users\\muss\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\muss\\.nuget\\packages\\system.serviceprocess.servicecontroller\\7.0.0\\system.serviceprocess.servicecontroller.7.0.0.nupkg.sha512",
     "C:\\Users\\muss\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
-    "C:\\Users\\muss\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512"
+    "C:\\Users\\muss\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512",
+    "C:\\Users\\muss\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\6.0.13\\microsoft.aspnetcore.app.runtime.win-x64.6.0.13.nupkg.sha512",
+    "C:\\Users\\muss\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\6.0.13\\microsoft.windowsdesktop.app.runtime.win-x64.6.0.13.nupkg.sha512",
+    "C:\\Users\\muss\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\6.0.13\\microsoft.netcore.app.runtime.win-x64.6.0.13.nupkg.sha512"
   ],
   "logs": []
 }

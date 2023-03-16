@@ -1,10 +1,14 @@
 ﻿import { useSelector, useDispatch } from 'react-redux'
 import React, { useState, useEffect } from "react";
 import axios from "axios"
+import './BookPage.css'
 
 const BookPage = () => {
 
     useEffect(() => { getBooks() }, [])
+
+    const store = useSelector(state => state.books)
+
     const dispatch = useDispatch()
 
     const getBooks = () => {
@@ -13,9 +17,14 @@ const BookPage = () => {
     }
 
     return (
-        <>
-            <p>Denem</p>
-        </>
+        <div className="contentCenter">
+            {/*<div class="book" key={index}>*/}
+            {/*    <p>{book.bookName}</p>*/}
+            {/*    <div class="cover">*/}
+            {/*        <p>{book.id}</p>*/}
+            {/*    </div>*/}
+            {/*</div>    */}
+        </div>
     );
 }
 

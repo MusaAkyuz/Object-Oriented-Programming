@@ -3,5 +3,9 @@
 }
 */
 .rootFullHeight {
-    height: 100vh;
+    height: 100%;
+}
+
+.rootBackColor{
+    background-color: black;
 }

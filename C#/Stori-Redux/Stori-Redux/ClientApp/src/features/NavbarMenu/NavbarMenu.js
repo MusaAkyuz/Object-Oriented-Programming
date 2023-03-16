@@ -26,7 +26,7 @@ const NavbarMenu = () => {
     }
 
     return (
-        <div className="navmenu">
+        <div className="navmenu w-">
             <div className="logotextdiv">
                 <p className="storifont" style={{ color: store.textSettings.textColor }}>
                     Stori

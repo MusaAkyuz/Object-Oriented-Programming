@@ -1,41 +1,40 @@
 ﻿.navmenu {
-    width: 100%;
-    height: 10%;
+    width: 100vw;
+    height: 8vh;
     background-color: black;
     display: flex;
-    color: wheat;
-    min-height: 40px;
+    color: white;
+    margin-bottom: 2.5%;
 }
 
 .logotextdiv {
     width: 20%;
     height: 100%;
+    margin: auto;
     display: flex;
 }
 
 .storifont {
-    margin: auto;
     text-align: center;
-    font-size: 6vh;
+    font-size: 5vh;
+    margin: auto;
     font-family: 'Shantell Sans', cursive;
 }
 
 .settingsdiv{
     width: 80%;
     height: 100%;
+    margin: auto;
     display: flex;
 }
 
 .settingsfont {
     margin: auto;
     text-align: center;
-    font-size: 2.5vh;
+    font-size: 2.3vh;
     font-family: 'Shantell Sans', cursive;
 }
 
-.sliderwidth{
-    width: 3vw;
-}
 
 .btn {
     border-radius: 12px;

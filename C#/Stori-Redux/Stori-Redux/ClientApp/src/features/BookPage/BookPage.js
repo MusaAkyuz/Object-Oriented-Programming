@@ -7,7 +7,8 @@ const BookPage = () => {
 
     useEffect(() => { getBooks() }, [])
 
-    const store = useSelector(state => state.books)
+    const store = useSelector(state => state.AllBooks)
+
 
     const dispatch = useDispatch()
 
@@ -18,6 +19,7 @@ const BookPage = () => {
 
     return (
         <div className="contentCenter">
+
             {/*<div class="book" key={index}>*/}
             {/*    <p>{book.bookName}</p>*/}
             {/*    <div class="cover">*/}

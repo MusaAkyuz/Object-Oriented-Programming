@@ -1,0 +1,120 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "WirelessProjectorDemo/1.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.14",
+          "WindowsContracts.Net.Foundation.UniversalApiContract": "5.19041.10"
+        },
+        "runtime": {
+          "WirelessProjectorDemo.dll": {}
+        }
+      },
+      "Microsoft.NETCore.UniversalWindowsPlatform/6.2.14": {},
+      "Microsoft.Windows.CsWinRT/1.2.5": {
+        "runtime": {
+          "lib/net5.0/WinRT.Host.Shim.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          },
+          "lib/net5.0/WinRT.Runtime.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.5.35112"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win-x64/native/WinRT.Host.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/WinRT.Host.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "WindowsContracts.Net.Foundation.FoundationContract/5.19041.4.1": {
+        "dependencies": {
+          "Microsoft.Windows.CsWinRT": "1.2.5"
+        },
+        "runtime": {
+          "lib/net5.0/Windows.Foundation.FoundationContract.dll": {
+            "assemblyVersion": "5.19041.4.1",
+            "fileVersion": "5.19041.4.1"
+          }
+        }
+      },
+      "WindowsContracts.Net.Foundation.UniversalApiContract/5.19041.10": {
+        "dependencies": {
+          "WindowsContracts.Net.Networking.Connectivity.WwanContract": "5.19041.2.1"
+        },
+        "runtime": {
+          "lib/net5.0/Windows.Foundation.UniversalApiContract.dll": {
+            "assemblyVersion": "5.19041.10.0",
+            "fileVersion": "5.19041.10.0"
+          }
+        }
+      },
+      "WindowsContracts.Net.Networking.Connectivity.WwanContract/5.19041.2.1": {
+        "dependencies": {
+          "WindowsContracts.Net.Foundation.FoundationContract": "5.19041.4.1"
+        },
+        "runtime": {
+          "lib/net5.0/Windows.Networking.Connectivity.WwanContract.dll": {
+            "assemblyVersion": "5.19041.2.1",
+            "fileVersion": "5.19041.2.1"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "WirelessProjectorDemo/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.NETCore.UniversalWindowsPlatform/6.2.14": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7Mi4cS8JQ7gqm+W+SRCq13c2Rr0yZTuczC9EbV6gRigE2ZhQalnLHyat0ZshT5HDMSkFDxTyjwZymUgFuv3+eg==",
+      "path": "microsoft.netcore.universalwindowsplatform/6.2.14",
+      "hashPath": "microsoft.netcore.universalwindowsplatform.6.2.14.nupkg.sha512"
+    },
+    "Microsoft.Windows.CsWinRT/1.2.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QdAMoqlnqHBsLL/p9L4uuu9EbjVTvwGXDLNZ9HUaOynEvsQomPgnz36za9rsyVvmZZAzoXtjDC6bUl2uCzo0nw==",
+      "path": "microsoft.windows.cswinrt/1.2.5",
+      "hashPath": "microsoft.windows.cswinrt.1.2.5.nupkg.sha512"
+    },
+    "WindowsContracts.Net.Foundation.FoundationContract/5.19041.4.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Z3jJQXy9Qt3Bh3xcomS2TKSIgHOrV6lLTMj0AAew/X9/iwGoc4wHH7gFsAWtGc5TTzVfiG1JVOIaFD4yqPFhsQ==",
+      "path": "windowscontracts.net.foundation.foundationcontract/5.19041.4.1",
+      "hashPath": "windowscontracts.net.foundation.foundationcontract.5.19041.4.1.nupkg.sha512"
+    },
+    "WindowsContracts.Net.Foundation.UniversalApiContract/5.19041.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mfl2YNPuE1vTrShan7RkayqkD4I3VF0LD37Rhuv2OeI8B2sxpzAcLlsjxvGZ1SlEMiWt52bAuMu1HwZfCi4VJg==",
+      "path": "windowscontracts.net.foundation.universalapicontract/5.19041.10",
+      "hashPath": "windowscontracts.net.foundation.universalapicontract.5.19041.10.nupkg.sha512"
+    },
+    "WindowsContracts.Net.Networking.Connectivity.WwanContract/5.19041.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qFTT8Gf3GhDyFa/791h/g+TrK3hSvXK5/dIY/ud3WYWAvG3NVoXtE7FRWauwz7P4c3Qy5Drclldb5Lt1TlYX0Q==",
+      "path": "windowscontracts.net.networking.connectivity.wwancontract/5.19041.2.1",
+      "hashPath": "windowscontracts.net.networking.connectivity.wwancontract.5.19041.2.1.nupkg.sha512"
+    }
+  }
+}

@@ -1,9 +1,7 @@
 ﻿
 const initialState = {
-    textSettings: {
-        textColor: 'white',
-        speed: '10'
-    }
+    textColor: 'white',
+    speed: '10'
 }
 
 export default function NavbarMenuReducer(state = initialState, action) {
@@ -13,10 +11,8 @@ export default function NavbarMenuReducer(state = initialState, action) {
             console.log(action.payload)
             return {
                 ...state,
-                textSettings: {
-                    textColor: action.payload[0],
-                    speed: action.payload[1]
-                }
+                textColor: action.payload[0],
+                speed: action.payload[1]
             }
         }
         default:

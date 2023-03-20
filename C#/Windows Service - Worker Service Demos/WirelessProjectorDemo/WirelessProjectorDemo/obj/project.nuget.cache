@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "aFvLQK4uhKc80Hr5NTbqjg1erii6I4RVSivznLAwwDXnE9y60Jfnoc5wVT4oUmY4AtAK91uNNwXHqZrwE8clmw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\muss\\Desktop\\My GitHub Repos\\Object-Oriented-Programming\\C#\\Windows Service - Worker Service Demos\\WirelessProjectorDemo\\WirelessProjectorDemo\\WirelessProjectorDemo.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\muss\\.nuget\\packages\\microsoft.netcore.universalwindowsplatform\\6.2.14\\microsoft.netcore.universalwindowsplatform.6.2.14.nupkg.sha512",
+    "C:\\Users\\muss\\.nuget\\packages\\microsoft.windows.cswinrt\\1.2.5\\microsoft.windows.cswinrt.1.2.5.nupkg.sha512",
+    "C:\\Users\\muss\\.nuget\\packages\\windowscontracts.net.foundation.foundationcontract\\5.19041.4.1\\windowscontracts.net.foundation.foundationcontract.5.19041.4.1.nupkg.sha512",
+    "C:\\Users\\muss\\.nuget\\packages\\windowscontracts.net.foundation.universalapicontract\\5.19041.10\\windowscontracts.net.foundation.universalapicontract.5.19041.10.nupkg.sha512",
+    "C:\\Users\\muss\\.nuget\\packages\\windowscontracts.net.networking.connectivity.wwancontract\\5.19041.2.1\\windowscontracts.net.networking.connectivity.wwancontract.5.19041.2.1.nupkg.sha512"
+  ],
+  "logs": []
+}

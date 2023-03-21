@@ -6,10 +6,7 @@ import './BookPage.css'
 const BookPage = () => {
 
     useEffect(() => { getBooks() }, [])
-
     const store = useSelector(state => state.AllBooks)
-
-
     const dispatch = useDispatch()
 
     const getBooks = () => {
@@ -19,13 +16,18 @@ const BookPage = () => {
 
     return (
         <div className="contentCenter">
-
-            {/*<div class="book" key={index}>*/}
-            {/*    <p>{book.bookName}</p>*/}
-            {/*    <div class="cover">*/}
-            {/*        <p>{book.id}</p>*/}
-            {/*    </div>*/}
-            {/*</div>    */}
+            {   store.books ?
+                store.books.map((book, index) => {
+                    return (
+                        <div className="book" key={index}>
+                            <p>{book.id}</p>
+                            <div className="cover">
+                                <img src={`Books/${book.bookName}/cover.jpg`} alt={book.bookName} />
+                            </div>
+                        </div>   
+                    )
+                })
+            : null}
         </div>
     );
 }

@@ -1,5 +1,8 @@
 ﻿import './NavbarMenuStyle.css'
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 //import React, { useState } from "react";
+import Slider from '@mui/material/Slider';
+import Box from '@mui/material/Box';
 import { useSelector, useDispatch } from 'react-redux'
 
 const NavbarMenu = () => {
@@ -25,6 +28,15 @@ const NavbarMenu = () => {
         dispatch({ type: 'navbarmenu/textSettingsChange', payload: [store.textColor, event.target.value] })
     }
 
+    const theme = createTheme({
+        palette: {
+            slider: {
+                main: store.textColor,
+                contrastText: '#fff',
+            },
+        },
+    });
+
     return (
         <div className="navmenu w-">
             <div className="logotextdiv">
@@ -33,19 +45,24 @@ const NavbarMenu = () => {
                 </p>
             </div>
             <div className="settingsdiv">
-                <form className="form-inline settingsfont">
+                <div className="boxClass">
                     <label className="px-3" style={{ color: store.textColor }}>Speed</label>
-                    <input onChange={changeSliderValue}
-                        type="range" min={1} max={100} value={store.speed} step={1} />
-                </form>
-                <form className="form-inline settingsfont">
+                    <ThemeProvider theme={theme}>
+                        <Slider
+                            aria-label="Small steps"
+                            defaultValue={30}
+                            color="slider"
+                        />
+                    </ThemeProvider>
+                </div>
+                <div className="boxClass displayStyle">
                     <label className="px-3" style={{ color: store.textColor }}>Text Color</label>
                     <button type="button"
                         className="btn"
                         onClick={changeTextColor}
                         style={{ color: store.textColor, backgroundColor: store.textColor }}
                     >A</button>
-                </form>
+                </div>
             </div>
         </div>
     );

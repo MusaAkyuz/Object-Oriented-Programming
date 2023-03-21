@@ -21,6 +21,17 @@
     font-family: 'Shantell Sans', cursive;
 }
 
+.boxClass {
+    display: flex;
+    width: 25%;
+    margin: auto;
+    text-align: center;  
+}
+
+.displayStyle {
+    display: flex, inline;
+}
+
 .settingsdiv{
     width: 80%;
     height: 100%;

@@ -1,6 +1,6 @@
 ﻿
 const initialState = {
-    textColor: 'white',
+    textColor: '#fff',
     speed: '10'
 }
 

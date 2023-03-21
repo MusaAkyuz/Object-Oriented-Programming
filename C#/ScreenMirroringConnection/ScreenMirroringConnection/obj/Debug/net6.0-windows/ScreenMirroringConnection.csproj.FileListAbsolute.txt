@@ -1,0 +1,17 @@
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ScreenMirroringConnection\ScreenMirroringConnection\bin\Debug\net6.0-windows\ScreenMirroringConnection.exe
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ScreenMirroringConnection\ScreenMirroringConnection\bin\Debug\net6.0-windows\ScreenMirroringConnection.deps.json
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ScreenMirroringConnection\ScreenMirroringConnection\bin\Debug\net6.0-windows\ScreenMirroringConnection.runtimeconfig.json
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ScreenMirroringConnection\ScreenMirroringConnection\bin\Debug\net6.0-windows\ScreenMirroringConnection.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ScreenMirroringConnection\ScreenMirroringConnection\bin\Debug\net6.0-windows\ScreenMirroringConnection.pdb
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ScreenMirroringConnection\ScreenMirroringConnection\obj\Debug\net6.0-windows\ScreenMirroringConnection.csproj.AssemblyReference.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ScreenMirroringConnection\ScreenMirroringConnection\obj\Debug\net6.0-windows\ScreenMirroringConnection.Form1.resources
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ScreenMirroringConnection\ScreenMirroringConnection\obj\Debug\net6.0-windows\ScreenMirroringConnection.csproj.GenerateResource.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ScreenMirroringConnection\ScreenMirroringConnection\obj\Debug\net6.0-windows\ScreenMirroringConnection.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ScreenMirroringConnection\ScreenMirroringConnection\obj\Debug\net6.0-windows\ScreenMirroringConnection.AssemblyInfoInputs.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ScreenMirroringConnection\ScreenMirroringConnection\obj\Debug\net6.0-windows\ScreenMirroringConnection.AssemblyInfo.cs
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ScreenMirroringConnection\ScreenMirroringConnection\obj\Debug\net6.0-windows\ScreenMirroringConnection.csproj.CoreCompileInputs.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ScreenMirroringConnection\ScreenMirroringConnection\obj\Debug\net6.0-windows\ScreenMirroringConnection.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ScreenMirroringConnection\ScreenMirroringConnection\obj\Debug\net6.0-windows\refint\ScreenMirroringConnection.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ScreenMirroringConnection\ScreenMirroringConnection\obj\Debug\net6.0-windows\ScreenMirroringConnection.pdb
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ScreenMirroringConnection\ScreenMirroringConnection\obj\Debug\net6.0-windows\ScreenMirroringConnection.genruntimeconfig.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ScreenMirroringConnection\ScreenMirroringConnection\obj\Debug\net6.0-windows\ref\ScreenMirroringConnection.dll

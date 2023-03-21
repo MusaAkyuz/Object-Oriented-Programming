@@ -1,0 +1,17 @@
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\EkranaBaglan\EkranaBaglan\bin\Debug\net6.0-windows\EkranaBaglan.exe
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\EkranaBaglan\EkranaBaglan\bin\Debug\net6.0-windows\EkranaBaglan.deps.json
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\EkranaBaglan\EkranaBaglan\bin\Debug\net6.0-windows\EkranaBaglan.runtimeconfig.json
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\EkranaBaglan\EkranaBaglan\bin\Debug\net6.0-windows\EkranaBaglan.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\EkranaBaglan\EkranaBaglan\bin\Debug\net6.0-windows\EkranaBaglan.pdb
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\EkranaBaglan\EkranaBaglan\obj\Debug\net6.0-windows\EkranaBaglan.csproj.AssemblyReference.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\EkranaBaglan\EkranaBaglan\obj\Debug\net6.0-windows\EkranaBaglan.Form1.resources
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\EkranaBaglan\EkranaBaglan\obj\Debug\net6.0-windows\EkranaBaglan.csproj.GenerateResource.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\EkranaBaglan\EkranaBaglan\obj\Debug\net6.0-windows\EkranaBaglan.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\EkranaBaglan\EkranaBaglan\obj\Debug\net6.0-windows\EkranaBaglan.AssemblyInfoInputs.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\EkranaBaglan\EkranaBaglan\obj\Debug\net6.0-windows\EkranaBaglan.AssemblyInfo.cs
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\EkranaBaglan\EkranaBaglan\obj\Debug\net6.0-windows\EkranaBaglan.csproj.CoreCompileInputs.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\EkranaBaglan\EkranaBaglan\obj\Debug\net6.0-windows\EkranaBaglan.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\EkranaBaglan\EkranaBaglan\obj\Debug\net6.0-windows\refint\EkranaBaglan.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\EkranaBaglan\EkranaBaglan\obj\Debug\net6.0-windows\EkranaBaglan.pdb
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\EkranaBaglan\EkranaBaglan\obj\Debug\net6.0-windows\EkranaBaglan.genruntimeconfig.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\EkranaBaglan\EkranaBaglan\obj\Debug\net6.0-windows\ref\EkranaBaglan.dll

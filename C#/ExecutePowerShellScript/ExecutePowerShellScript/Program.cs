@@ -13,7 +13,7 @@ namespace ExecutePowerShellScript
         public static void InstallViaPowerShell()
         {
 
-            var ps1File = @"./display.ps1";
+            var ps1File = @"C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ScreenMirroringConnection\ScreenMirroringConnection\bin\Debug\net6.0-windows\final.ps1";
 
             var startInfo = new ProcessStartInfo()
             {

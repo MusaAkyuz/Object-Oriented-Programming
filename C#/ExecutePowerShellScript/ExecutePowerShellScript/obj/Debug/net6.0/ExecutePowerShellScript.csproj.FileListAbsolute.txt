@@ -1,0 +1,15 @@
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ExecutePowerShellScript\ExecutePowerShellScript\bin\Debug\net6.0\ExecutePowerShellScript.exe
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ExecutePowerShellScript\ExecutePowerShellScript\bin\Debug\net6.0\ExecutePowerShellScript.deps.json
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ExecutePowerShellScript\ExecutePowerShellScript\bin\Debug\net6.0\ExecutePowerShellScript.runtimeconfig.json
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ExecutePowerShellScript\ExecutePowerShellScript\bin\Debug\net6.0\ExecutePowerShellScript.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ExecutePowerShellScript\ExecutePowerShellScript\bin\Debug\net6.0\ExecutePowerShellScript.pdb
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ExecutePowerShellScript\ExecutePowerShellScript\obj\Debug\net6.0\ExecutePowerShellScript.csproj.AssemblyReference.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ExecutePowerShellScript\ExecutePowerShellScript\obj\Debug\net6.0\ExecutePowerShellScript.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ExecutePowerShellScript\ExecutePowerShellScript\obj\Debug\net6.0\ExecutePowerShellScript.AssemblyInfoInputs.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ExecutePowerShellScript\ExecutePowerShellScript\obj\Debug\net6.0\ExecutePowerShellScript.AssemblyInfo.cs
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ExecutePowerShellScript\ExecutePowerShellScript\obj\Debug\net6.0\ExecutePowerShellScript.csproj.CoreCompileInputs.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ExecutePowerShellScript\ExecutePowerShellScript\obj\Debug\net6.0\ExecutePowerShellScript.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ExecutePowerShellScript\ExecutePowerShellScript\obj\Debug\net6.0\refint\ExecutePowerShellScript.dll
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ExecutePowerShellScript\ExecutePowerShellScript\obj\Debug\net6.0\ExecutePowerShellScript.pdb
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ExecutePowerShellScript\ExecutePowerShellScript\obj\Debug\net6.0\ExecutePowerShellScript.genruntimeconfig.cache
+C:\Users\muss\Desktop\My GitHub Repos\Object-Oriented-Programming\C#\ExecutePowerShellScript\ExecutePowerShellScript\obj\Debug\net6.0\ref\ExecutePowerShellScript.dll

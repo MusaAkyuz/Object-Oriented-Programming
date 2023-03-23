@@ -1,0 +1,68 @@
+﻿.book {
+    margin: 10px auto 10px auto;
+    position: relative;
+    border-radius: 10px;
+    width: 12vw;
+    height: 17vw;
+    background-color: whitesmoke;
+    display: flex flow;
+    flex-flow: wrap;
+    text-align: right;
+    align-items: center;
+    justify-content: center;
+    perspective: 2000px;
+    color: black;
+    font-family: 'Shantell Sans', cursive;
+    background-color: #D5B59C;
+}
+
+.cover {
+    position: absolute;
+    background-color: #D5B59C;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transition: all 0.5s;
+    transform-origin: 0;
+    box-shadow: 1px 1px 12px #000;
+    top: 0;
+    color: black;
+    font-family: 'Shantell Sans', cursive;
+}
+
+.book:hover .cover {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform: rotatey(-80deg);
+  -ms-transform: rotatey(-80deg);
+  transform: rotatey(-80deg);
+}
+
+p {
+    font-size: 1.3vh;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-family: 'Shantell Sans', cursive;
+}
+
+.newline {
+    display: flex;
+}
+
+.contentCenter {
+    margin: auto;
+    width: 70%;
+    display: flex;
+    flex-flow: wrap;
+}
+
+img {
+    display: flex flow-root;
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+

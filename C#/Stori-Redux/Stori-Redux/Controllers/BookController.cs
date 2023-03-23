@@ -22,7 +22,9 @@ namespace Stori_Redux.Controllers
                 if (path != null)
                 {
                     fileName = Path.GetFileName(path).ToString();
-                    bookNames.Add(new Book { Id = id, BookName = fileName });
+                    string[] info = fileName.Split('_');
+
+                    bookNames.Add(new Book { Id = id, BookName = info[0], Author = info[1], ChapterNumber = Convert.ToInt32(info[2]) });
                     id += 1;
                 }
             }

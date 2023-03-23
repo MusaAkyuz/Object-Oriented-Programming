@@ -14,15 +14,27 @@ const BookPage = () => {
             .then(response => dispatch({ type: 'bookpage/axiosget', payload: response.data }));
     }
 
+    const selectBook = (bookName, author, chapterNumber) => {
+        dispatch({ type: 'bookpage/selectbook', payload: [bookName, author, chapterNumber] })
+    }
+
+    if (store.selectedBookName && store.selectedBookAuthor && store.selectedBookChapter) {
+        return (
+            <p>Deneme</p>
+        );
+    }
+
     return (
         <div className="contentCenter">
             {   store.books ?
                 store.books.map((book, index) => {
                     return (
                         <div className="book" key={index}>
-                            <p>{book.id}</p>
-                            <div className="cover">
-                                <img src={`Books/${book.bookName}/cover.jpg`} alt={book.bookName} />
+                            <span><p>{book.bookName}</p></span>
+                            <span><p>{book.author}</p></span>
+                            <span><p>Chapter Number : {book.chapterNumber}</p></span>
+                            <div className="cover" onClick={() => selectBook(book.bookName, book.author, book.chapterNumber)}>
+                                <img src={`Books/${book.bookName}_${book.author}_${book.chapterNumber}/cover.jpg`} alt={book.bookName} />
                             </div>
                         </div>   
                     )

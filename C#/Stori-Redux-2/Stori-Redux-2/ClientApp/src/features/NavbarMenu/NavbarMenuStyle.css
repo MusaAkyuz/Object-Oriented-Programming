@@ -1,0 +1,59 @@
+﻿.navmenu {
+    width: 100vw;
+    height: 8vh;
+    background-color: black;
+    display: flex;
+    color: white;
+    margin-bottom: 2.5%;
+    font-family: 'Shantell Sans', cursive;
+}
+
+.font {
+    font-family: 'Shantell Sans', cursive;
+}
+
+.logotextdiv {
+    width: 20%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+}
+
+.storifont {
+    text-align: center;
+    font-size: 5vh;
+    margin: auto;
+    font-family: 'Shantell Sans', cursive;
+}
+
+.boxClass {
+    display: flex;
+    width: 25%;
+    margin: auto;
+    text-align: center;  
+}
+
+.displayStyle {
+    display: flex, inline;
+}
+
+.settingsdiv{
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+}
+
+.settingsfont {
+    margin: auto;
+    text-align: center;
+    font-size: 2.3vh;
+    font-family: 'Shantell Sans', cursive;
+}
+
+
+.btn {
+    border-radius: 12px;
+    border-width: 1px;
+    border-style:solid;
+}

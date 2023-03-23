@@ -1,12 +1,19 @@
 import React from 'react';
+import AppRoutes from './AppRoutes';
+import { Route, Routes } from 'react-router-dom';
 import NavbarMenu from './features/NavbarMenu/NavbarMenu'
-import BookPage from './features/BookPage/BookPage'
 
 function App() {
     return (
         <>
             <NavbarMenu />
-            <BookPage />
+            <Routes>
+                {AppRoutes.map((route, index) => {
+                    const { element, ...rest } = route;
+                    return <Route key={index} {...rest} element={element} />;
+                })}
+            </Routes>
+            
         </>     
     );
 }

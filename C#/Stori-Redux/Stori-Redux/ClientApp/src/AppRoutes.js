@@ -1,19 +1,14 @@
-import { Counter } from "./components/Counter";
-import { FetchData } from "./components/FetchData";
-import { Home } from "./components/Home";
+import BookPage from './features/BookPage/BookPage'
+
 
 const AppRoutes = [
   {
     index: true,
-    element: <Home />
+    element: <BookPage />
   },
   {
-    path: '/counter',
-    element: <Counter />
-  },
-  {
-    path: '/fetch-data',
-    element: <FetchData />
+    path: '/books',
+    element: <BookPage />
   }
 ];
 

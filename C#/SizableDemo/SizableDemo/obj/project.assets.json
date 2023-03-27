@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\muss\\source\\repos\\SizableDemo\\SizableDemo\\SizableDemo.csproj",
+      "projectUniqueName": "C:\\Users\\muss\\Desktop\\My GitHub Repos\\Object-Oriented-Programming\\C#\\SizableDemo\\SizableDemo\\SizableDemo.csproj",
       "projectName": "SizableDemo",
-      "projectPath": "C:\\Users\\muss\\source\\repos\\SizableDemo\\SizableDemo\\SizableDemo.csproj",
+      "projectPath": "C:\\Users\\muss\\Desktop\\My GitHub Repos\\Object-Oriented-Programming\\C#\\SizableDemo\\SizableDemo\\SizableDemo.csproj",
       "packagesPath": "C:\\Users\\muss\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\muss\\source\\repos\\SizableDemo\\SizableDemo\\obj\\",
+      "outputPath": "C:\\Users\\muss\\Desktop\\My GitHub Repos\\Object-Oriented-Programming\\C#\\SizableDemo\\SizableDemo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

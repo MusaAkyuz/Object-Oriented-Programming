@@ -1,9 +1,9 @@
-import 'bootstrap/dist/css/bootstrap.css';
-import React from 'react';
-import { createRoot } from 'react-dom/client';
 import App from './App';
+import React from 'react';
 import store from './store'
 import { Provider } from 'react-redux'
+import 'bootstrap/dist/css/bootstrap.css';
+import { createRoot } from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';

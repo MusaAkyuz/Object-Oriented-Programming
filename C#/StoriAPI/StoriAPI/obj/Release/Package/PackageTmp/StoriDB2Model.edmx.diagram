@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d007340151384d3b826dd0e128e72133" Name="Diagram1">
+        <EntityTypeShape EntityType="StoriDB2Model.Book" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StoriDB2Model.Chapter" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StoriDB2Model.Comment" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StoriDB2Model.User" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="StoriDB2Model.FK__Book__Author__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="StoriDB2Model.FK__Chapter__Related__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="StoriDB2Model.FK__Comments__Relate__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="StoriDB2Model.FK__Comments__Commen__4222D4EF" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

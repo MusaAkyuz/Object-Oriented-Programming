@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StoriDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="BookId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Bookname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Author" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Book__Author__3B75D760" FromRole="Book" ToRole="Users" />
+    <NavigationProperty Name="Chapters" Relationship="Self.FK__Chapter__Related__3E52440B" FromRole="Book" ToRole="Chapter" />
+    <NavigationProperty Name="Comments" Relationship="Self.FK__Comments__Relate__4222D4EF" FromRole="Book" ToRole="Comments" />
+  </EntityType>
+  <EntityType Name="Chapter">
+    <Key>
+      <PropertyRef Name="ChapterId" />
+    </Key>
+    <Property Name="ChapterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChapterName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ChapterText" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="ChapterNo" Type="Int32" Nullable="false" />
+    <Property Name="RelatedBook" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Book" Relationship="Self.FK__Chapter__Related__3E52440B" FromRole="Chapter" ToRole="Book" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentId" />
+    </Key>
+    <Property Name="CommentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CommentOwner" Type="Int32" Nullable="false" />
+    <Property Name="CommentText" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="BookPoint" Type="Int32" Nullable="false" />
+    <Property Name="RelatedBook" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Book" Relationship="Self.FK__Comments__Relate__4222D4EF" FromRole="Comments" ToRole="Book" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Comments__Commen__412EB0B6" FromRole="Comments" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PasswordHash" Type="Binary" MaxLength="32" FixedLength="true" Nullable="false" />
+    <Property Name="Authority" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Books" Relationship="Self.FK__Book__Author__3B75D760" FromRole="Users" ToRole="Book" />
+    <NavigationProperty Name="Comments" Relationship="Self.FK__Comments__Commen__412EB0B6" FromRole="Users" ToRole="Comments" />
+  </EntityType>
+  <Association Name="FK__Book__Author__3B75D760">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Book" Type="Self.Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="Author" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Chapter__Related__3E52440B">
+    <End Role="Book" Type="Self.Book" Multiplicity="1" />
+    <End Role="Chapter" Type="Self.Chapter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="BookId" />
+      </Principal>
+      <Dependent Role="Chapter">
+        <PropertyRef Name="RelatedBook" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Comments__Relate__4222D4EF">
+    <End Role="Book" Type="Self.Book" Multiplicity="1" />
+    <End Role="Comments" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="BookId" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="RelatedBook" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Comments__Commen__412EB0B6">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Comments" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="CommentOwner" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="StoriDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Books" EntityType="Self.Book" />
+    <EntitySet Name="Chapters" EntityType="Self.Chapter" />
+    <EntitySet Name="Comments" EntityType="Self.Comment" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK__Book__Author__3B75D760" Association="Self.FK__Book__Author__3B75D760">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Book" EntitySet="Books" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Chapter__Related__3E52440B" Association="Self.FK__Chapter__Related__3E52440B">
+      <End Role="Book" EntitySet="Books" />
+      <End Role="Chapter" EntitySet="Chapters" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Comments__Relate__4222D4EF" Association="Self.FK__Comments__Relate__4222D4EF">
+      <End Role="Book" EntitySet="Books" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Comments__Commen__412EB0B6" Association="Self.FK__Comments__Commen__412EB0B6">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

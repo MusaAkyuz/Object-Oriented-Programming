@@ -2,58 +2,85 @@
     width: 100vw;
     height: 8vh;
     background-color: black;
-    display: flex;
     color: white;
     margin-bottom: 2.5%;
-    font-family: 'Shantell Sans', cursive;
+    
 }
 
-.font {
-    font-family: 'Shantell Sans', cursive;
+.navmenu p, button{
+    font-family: 'Righteous', cursive;
 }
 
-.logotextdiv {
-    width: 20%;
-    height: 100%;
-    margin: auto;
-    display: flex;
-}
-
-.storifont {
-    text-align: center;
+.font-5vh {
     font-size: 5vh;
-    margin: auto;
-    font-family: 'Shantell Sans', cursive;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
-.boxClass {
-    display: flex;
-    width: 25%;
-    margin: auto;
-    text-align: center;  
+.font-23vh {
+    font-size: 2vh;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
-.displayStyle {
-    display: flex, inline;
+.margin-left {
+    margin-left: auto;
 }
 
-.settingsdiv{
-    width: 80%;
-    height: 100%;
-    margin: auto;
-    display: flex;
+.align-right {
+    margin-left: 10%;
 }
-
-.settingsfont {
-    margin: auto;
-    text-align: center;
-    font-size: 2.3vh;
-    font-family: 'Shantell Sans', cursive;
-}
-
 
 .btn {
+    width: 3.4vh;
+    height: 3.4vh;
+    max-height: 3.4vh;
+    max-width: 3.4vh;
     border-radius: 12px;
     border-width: 1px;
-    border-style:solid;
+    border-style: solid;
+    font-size: 2.3vh;
+}
+
+.btnMenu {
+    height: 100%;
+    font-size: 2.3vh;
+    font-family: 'Righteous', cursive;
+}
+
+.buttonn {
+    font-size: 18px;
+    font-family: 'Righteous', cursive;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background: none;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color;
+}
+
+.buttonn:focus,
+.buttonn:hover {
+    color: #fff;
+}
+
+:focus:after,
+.buttonn:hover:after {
+    width: 100%;
+    left: 0%;
+}
+
+.buttonn:after {
+    content: "";
+    pointer-events: none;
+    bottom: -2px;
+    left: 50%;
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #fff;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: width, left;
 }

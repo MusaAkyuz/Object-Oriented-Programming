@@ -1,4 +1,4 @@
-﻿import './BookPage.css'
+﻿import './BookPageStyle.css'
 import axios from "axios"
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -13,13 +13,13 @@ const BookPage = () => {
     const store = useSelector(state => state.AllBooks)
 
     const getBooks = () => {
-        axios.get("/api/books")
+        axios.get("/StoriAPI/api/books")
             .then(response => dispatch({ type: 'bookpage/axiosget', payload: response.data }));
     }
 
     const selectBook = (bookName, author, chapterNumber) => {
         console.log(bookName, author, chapterNumber)
-        axios.post("/api/chapter", {
+        axios.post("/StoriAPI/api/chapter", {
             filePath: `${bookName}_${author}`
         }).then((response) =>
             dispatch({

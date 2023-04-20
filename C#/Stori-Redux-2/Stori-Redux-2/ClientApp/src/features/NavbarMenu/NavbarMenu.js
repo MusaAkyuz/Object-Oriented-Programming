@@ -1,8 +1,7 @@
 ﻿import './NavbarMenuStyle.css'
-import Slider from '@mui/material/Slider';
+import { Flex } from '@adobe/react-spectrum'
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const NavbarMenu = () => {
 
@@ -15,51 +14,53 @@ const NavbarMenu = () => {
         dispatch({ type: 'navbarmenu/textSettingsChange', payload: ['#' + randomColor, store.speed] })
     };
 
-    const changeSliderValue = (event) => {
-        dispatch({ type: 'navbarmenu/textSettingsChange', payload: [store.textColor, event.target.value] })
-    }
-
-    const theme = createTheme({
-        palette: {
-            slider: {
-                main: store.textColor,
-                contrastText: '#fff',
-            },
-        },
-    });
-
-    const turnBooksPage = () => {
+    const bookPageNavigate = () => {
         navigate("/books")
+    }
+    const homePageNavigate = () => {
+        navigate("/")
+    }
+    const loginNavigate = () => {
+        navigate("/login")
     }
 
     return (
-        <div className="navmenu font">
-            <div className="logotextdiv" onClick={() => turnBooksPage()}>
-                <p className="storifont" style={{ color: store.textColor }}>
-                    Stori
-                </p>
-            </div>
-            <div className="settingsdiv">
-                <div className="boxClass">
-                    <label className="px-3" style={{ color: store.textColor }}>Speed</label>
-                    <ThemeProvider theme={theme}>
-                        <Slider
-                            aria-label="Small steps"
-                            value={store.speed}
-                            onChange={changeSliderValue}
-                            color="slider"
-                        />
-                    </ThemeProvider>
+        <div className="navmenu">
+            <Flex direction="row" justifyContent="center" alignItems="center" height="100%">
+                <div style={{ alignSelf: 'center', padding: '10% 10%' }}>
+                    <Flex direction="row" justifyContent="center" alignItems="center" height="100%">
+                        <p
+                            style={{ color: store.textColor }}
+                            onClick={homePageNavigate}
+                            className="font-5vh">Stori</p>
+                        <button
+                            className="buttonn"
+                            onClick={bookPageNavigate}
+                            style={{ color: store.textColor }}
+                        >Kitap</button>
+                        <button
+                            className="buttonn"
+                            style={{ color: store.textColor }}
+                        >Görsel</button>
+                        <button type="button"
+                            className="buttonn"
+                            style={{ color: store.textColor }}
+                        >Haberler</button>
+                    </Flex>
                 </div>
-                <div className="boxClass displayStyle">
-                    <label className="px-3" style={{ color: store.textColor }}>Text Color</label>
+                <div style={{ marginLeft: '5%', alignSelf: 'center', padding: '0 10%' }}>
                     <button type="button"
-                        className="btn"
+                        className="buttonn"
                         onClick={changeTextColor}
-                        style={{ color: store.textColor, backgroundColor: store.textColor }}
-                    >A</button>
+                        style={{ color: store.textColor }}
+                    >Renk</button>
+                    <button type="button"
+                        className="buttonn"
+                        onClick={loginNavigate }
+                        style={{ color: store.textColor }}
+                    >Giriş</button>
                 </div>
-            </div>
+            </Flex>
         </div>
     );
 }

@@ -1,4 +1,9 @@
 ﻿.container {
-    width: 85%;
-    font-family: 'Shantell Sans', cursive;
+    width: 30%;
+    font-family: 'Alice', serif;
+}
+
+p {
+    font-family: 'Alice', serif;
+    font-size: 16px;
 }

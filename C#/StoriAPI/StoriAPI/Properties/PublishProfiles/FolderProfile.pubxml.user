@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\muss\Desktop\StoriAPIPublish</_PublishTargetUrl>
+    <History>True|2023-04-13T12:53:38.5833088Z;True|2023-04-13T15:50:52.4920973+03:00;True|2023-04-13T15:46:07.1283818+03:00;True|2023-04-13T15:41:15.6811018+03:00;True|2023-04-13T00:58:21.6730803+03:00;True|2023-04-13T00:29:27.0976150+03:00;True|2023-04-12T17:27:59.9334718+03:00;True|2023-04-12T17:26:17.4597771+03:00;True|2023-04-12T16:54:13.8781897+03:00;True|2023-04-12T16:49:07.8612435+03:00;True|2023-04-12T16:46:51.2541249+03:00;True|2023-04-12T16:43:03.6751902+03:00;True|2023-04-12T16:36:14.7479598+03:00;True|2023-04-12T16:26:43.1139934+03:00;True|2023-04-12T16:23:50.9881456+03:00;False|2023-04-12T16:22:01.6742356+03:00;False|2023-04-12T16:21:06.4688955+03:00;True|2023-04-12T10:55:48.1981542+03:00;True|2023-04-12T10:47:55.5703391+03:00;True|2023-04-12T10:29:19.9141329+03:00;True|2023-04-12T10:25:20.8492444+03:00;True|2023-04-12T10:04:02.5680062+03:00;False|2023-04-12T10:02:53.8631394+03:00;False|2023-04-12T10:00:43.1671827+03:00;False|2023-04-12T10:00:28.6116567+03:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>10/23/2017 13:15:18</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>10/23/2017 13:15:20</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>09/05/2018 16:10:50</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>04/22/2019 01:06:16</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>08/08/2018 12:18:12</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>08/08/2018 12:09:42</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe.config">
+      <publishTime>08/08/2018 12:18:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>08/08/2018 12:09:56</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>08/08/2018 12:09:42</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>12/05/2017 09:36:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>12/05/2017 09:36:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Managed.Core.targets">
+      <publishTime>08/08/2018 12:09:42</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>08/08/2018 12:09:42</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Win32.Primitives.dll">
+      <publishTime>11/05/2016 18:55:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>11/05/2016 18:55:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>05/16/2018 03:29:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Console.dll">
+      <publishTime>11/05/2016 18:55:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.DiagnosticSource.dll">
+      <publishTime>11/05/2016 18:55:52</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.FileVersionInfo.dll">
+      <publishTime>11/05/2016 18:55:56</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>11/05/2016 18:55:52</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Globalization.Calendars.dll">
+      <publishTime>11/05/2016 18:56:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Compression.dll">
+      <publishTime>11/05/2016 18:56:08</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Compression.ZipFile.dll">
+      <publishTime>11/05/2016 18:56:04</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>11/05/2016 18:56:08</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>11/05/2016 18:56:08</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Net.Http.dll">
+      <publishTime>11/05/2016 18:56:30</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Net.Sockets.dll">
+      <publishTime>11/05/2016 18:56:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>05/16/2018 03:29:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Runtime.InteropServices.RuntimeInformation.dll">
+      <publishTime>11/05/2016 18:57:00</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Algorithms.dll">
+      <publishTime>11/05/2016 18:57:14</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Encoding.dll">
+      <publishTime>11/05/2016 18:57:08</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Primitives.dll">
+      <publishTime>11/05/2016 18:57:18</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.X509Certificates.dll">
+      <publishTime>11/05/2016 18:57:18</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Text.Encoding.CodePages.dll">
+      <publishTime>11/05/2016 18:57:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Threading.Tasks.Extensions.dll">
+      <publishTime>11/05/2016 18:57:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.ValueTuple.dll">
+      <publishTime>11/05/2016 18:57:30</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.ReaderWriter.dll">
+      <publishTime>11/05/2016 18:57:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XmlDocument.dll">
+      <publishTime>11/05/2016 18:57:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.dll">
+      <publishTime>11/05/2016 18:57:40</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.XDocument.dll">
+      <publishTime>11/05/2016 18:57:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>08/08/2018 12:18:18</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>08/08/2018 12:09:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>08/08/2018 12:18:16</publishTime>
+    </File>
+    <File Include="bin/StoriAPI.dll">
+      <publishTime>04/13/2023 15:53:38</publishTime>
+    </File>
+    <File Include="bin/StoriAPI.pdb">
+      <publishTime>04/13/2023 15:53:38</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>05/27/2022 23:41:34</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>05/27/2022 23:41:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>05/27/2022 23:41:54</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>04/12/2023 08:53:45</publishTime>
+    </File>
+    <File Include="RawData/Art/00001-Rumi-Yine Kaybolmuşum.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Art/00002-Rumi-Ağaçlar.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Art/00003-Rumi-Kırık Kalpler.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Art/00004-Rumi-Kar Yağışı.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Art/00005-Muss-Hırsız Uzaylılar.jpeg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Art/00006-Rumi-Geceleri Yanlız Değilsin.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Art/00007-Rumi-Sev Eğlen Sınırları Aş.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Artemis_Andy Weir/1/Chapter1.txt">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Artemis_Andy Weir/1/chapterCover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Artemis_Andy Weir/2/Chapter2.txt">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Artemis_Andy Weir/2/chapterCover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Artemis_Andy Weir/3/Chapter3.txt">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Artemis_Andy Weir/3/chapterCover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Artemis_Andy Weir/cover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Beyaz Diş_Jack London/1/Chapter1.txt">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Beyaz Diş_Jack London/1/chapterCover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Beyaz Diş_Jack London/2/Chapter2.txt">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Beyaz Diş_Jack London/2/chapterCover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Beyaz Diş_Jack London/3/Chapter3.txt">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Beyaz Diş_Jack London/3/chapterCover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Beyaz Diş_Jack London/cover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Kurtuluş Projesi_Andy Weir/1/Chapter1.txt">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Kurtuluş Projesi_Andy Weir/1/chapterCover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Kurtuluş Projesi_Andy Weir/2/Chapter2.txt">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Kurtuluş Projesi_Andy Weir/2/chapterCover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Kurtuluş Projesi_Andy Weir/3/Chapter3.txt">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Kurtuluş Projesi_Andy Weir/3/chapterCover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Kurtuluş Projesi_Andy Weir/4/Chapter1.txt">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Kurtuluş Projesi_Andy Weir/4/chapterCover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Kurtuluş Projesi_Andy Weir/5/Chapter2.txt">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Kurtuluş Projesi_Andy Weir/5/chapterCover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Kurtuluş Projesi_Andy Weir/6/Chapter3.txt">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Kurtuluş Projesi_Andy Weir/6/chapterCover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Kurtuluş Projesi_Andy Weir/7/Chapter1.txt">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Kurtuluş Projesi_Andy Weir/7/chapterCover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Kurtuluş Projesi_Andy Weir/8/Chapter2.txt">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Kurtuluş Projesi_Andy Weir/8/chapterCover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Kurtuluş Projesi_Andy Weir/9/Chapter3.txt">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Kurtuluş Projesi_Andy Weir/9/chapterCover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Kurtuluş Projesi_Andy Weir/cover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Marslı_Andy Weir/1/Chapter1.txt">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Marslı_Andy Weir/1/chapterCover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Marslı_Andy Weir/2/Chapter2.txt">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Marslı_Andy Weir/2/chapterCover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Marslı_Andy Weir/3/Chapter3.txt">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Marslı_Andy Weir/3/chapterCover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Marslı_Andy Weir/cover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Otomatik Portakal_Anthony Burgess/1/Chapter1.txt">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Otomatik Portakal_Anthony Burgess/1/chapterCover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Otomatik Portakal_Anthony Burgess/2/Chapter2.txt">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Otomatik Portakal_Anthony Burgess/2/chapterCover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Otomatik Portakal_Anthony Burgess/3/Chapter3.txt">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Otomatik Portakal_Anthony Burgess/3/chapterCover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="RawData/Books/Otomatik Portakal_Anthony Burgess/cover.jpg">
+      <publishTime>04/12/2023 15:54:54</publishTime>
+    </File>
+    <File Include="StoriDB2Model.edmx.diagram">
+      <publishTime>04/13/2023 10:32:58</publishTime>
+    </File>
+    <File Include="StoriDBModel.edmx.diagram">
+      <publishTime>04/12/2023 08:54:40</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>04/13/2023 15:53:38</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

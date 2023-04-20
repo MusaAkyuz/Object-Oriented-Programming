@@ -10,8 +10,17 @@ html {
     display: flex;
     width: 100%;
     min-height: 100%;
+    zoom: 100%;
+    transform: scale(1);
+    transform-origin: 0 0;
 }
 
 ::-webkit-scrollbar {
     display: none;
+}
+
+body {
+    zoom: 100%;
+    transform: scale(1);
+    transform-origin: 0 0;
 }
